@@ -9,8 +9,7 @@ const userpass = 'user_access';
 
 // in the future use github environments to set username and password for default users
 // database will hopefully be fine
-mongoose
-  .connect(`mongodb+srv://${username}:${userpass}@${database}.jtey1.mongodb.net/${collection}?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://${username}:${userpass}@${database}.jtey1.mongodb.net/${collection}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).catch((error) => console.log(error));
@@ -22,10 +21,10 @@ async function getAdviceCount() {
   return result;
 }
 
-
 var rand = (adviceCount) => {return Math.floor( Math.random() * adviceCount)};
 
 async function findRandomAdvice() {
+  // want to be able to store advice count in global var
   let adviceCount = await getAdviceCount();
   return await adviceModel.find().limit(1).skip(rand(adviceCount));
 }
