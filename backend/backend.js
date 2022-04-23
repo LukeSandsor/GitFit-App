@@ -1,19 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+
 const adviceServices = require('./models/health_advice/advice-services');
 
 const app = express();
-const port = 5000;
+const port = 2414;
 
 app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    res.send('Gitfit App Backend!');
 });
 
 app.get('/advice', async (req, res) => {
@@ -24,4 +21,11 @@ app.get('/advice', async (req, res) => {
         console.log(error);
         res.status(500).send('An error ocurred in the server.');
     }
+});
+
+var server = app.listen(port, function () {
+    let servhost = server.address().address
+    let servport = server.address().port
+
+    console.log("gitfit app listening at http://%s:%s", servhost, servport)
 });

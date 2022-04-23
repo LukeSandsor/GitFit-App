@@ -1,0 +1,30 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: SSH into LUNA
+      uses: appleboy/ssh-action@master
+      with:
+        host: 45.77.6.116 
+        username: root
+        key: ${{ secrets.PRIV_KEY }}
+        port: 19122
+        script: |
+          cd Gitfit
+          git pull origin master
+          git status
+          cd backend
+          docker-compose up -d --build

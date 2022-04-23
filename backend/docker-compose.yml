@@ -1,0 +1,10 @@
+version: '2.4'
+services:
+  gitfit-app:
+    build: .
+    ports:
+      - 3032:2414
+    restart: unless-stopped
+    container_name: gitfit-app
+    volumes:
+      - ~/Gitfit:/gitfit/data
