@@ -1,4 +1,4 @@
-name: Deployment
+name: Full Stack Deployment
 
 on:
   push:
@@ -41,13 +41,15 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install Packages
+        node-version: ${{ matrix.node-version }}      
+    - name: Install Packages # remember the frontend directory context
+      working-directory: ./frontend
       run: npm install
     - name: Build page
-      run: CI=false npm run build
+      working-directory: ./frontend
+      run: npm run build
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./build
+        deploy_key: ${{ secrets.REACT_DEPLOY_KEY }}
+        publish_dir: ./frontend/build
