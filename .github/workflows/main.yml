@@ -1,4 +1,4 @@
-name: Deployment
+name: Full Stack Deployment
 
 on:
   push:
@@ -7,19 +7,13 @@ on:
     branches: [ main ]
 
 jobs:
-
-  build:
-
-    strategy:
-        matrix:
-          # Use the LTS Release of Node. (https://nodejs.org/en/)
-          node-version: [16.x] 
-
+  deploy_backend:
     runs-on: ubuntu-latest
 
     steps:
-    
     # Backend Workflow
+    # connects to server via ssh
+    # sets up docker container running 'node backend.js'
     - uses: actions/checkout@v2
     - name: SSH into LUNA
       uses: appleboy/ssh-action@master
@@ -34,3 +28,28 @@ jobs:
           git status
           cd backend
           docker-compose up -d --build
+
+  # deploy front end by using gh-pages branch
+  deploy_frontend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Use the LTS Release of Node. (https://nodejs.org/en/)
+        node-version: [16.x] 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}      
+    - name: Install Packages # remember the frontend directory context
+      working-directory: ./frontend
+      run: npm install
+    - name: Build page
+      working-directory: ./frontend
+      run: npm run build
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.REACT_DEPLOY_KEY }}
+        publish_dir: ./frontend/build
