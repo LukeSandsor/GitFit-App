@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "LukeSandsor.github.io/GitFit-App/precache-manifest.47e3d3ac5539350a0e96b96ef617b64d.js"
+  "/GitFit-App/precache-manifest.fd0cc79ae3b261806f0a54c8433f25d0.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("LukeSandsor.github.io/GitFit-App/index.html", {
+workbox.routing.registerNavigationRoute("/GitFit-App/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
