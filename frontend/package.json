@@ -41,8 +41,8 @@
   "devDependencies": {
     "gh-pages": "^3.2.3"
   },
-  "homepage": "https://gitfit.me/",
-  "otherhomepage": "https:LukeSandsor.github.io/GitFit-App",
+  "homepage": "https://LukeSandsor.github.io/GitFit-App",
+  "otherhomepage": "https://gitfit.me/",
   "description": "Lorem Ipsum",
   "main": "index.js",
   "author": "",
