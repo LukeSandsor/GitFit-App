@@ -2,19 +2,39 @@ name: Deployment
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
 
   build:
 
+    strategy:
+        matrix:
+          # Use the LTS Release of Node. (https://nodejs.org/en/)
+          node-version: [16.x] 
+
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    # Frontend Workflow
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      run: npm install
+    - name: Build page
+      run: npm run build
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.REACT_DEPLOY_KEY }}
+        publish_dir: ./build
     
+    # Backend Workflow
+    - uses: actions/checkout@v2
     - name: SSH into LUNA
       uses: appleboy/ssh-action@master
       with:
