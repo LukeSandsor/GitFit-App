@@ -21,6 +21,7 @@ async function getAdviceCount() {
   return result;
 }
 
+// calculates a random index based on the size of the collection
 var rand = (adviceCount) => {return Math.floor( Math.random() * adviceCount)};
 
 async function findRandomAdvice() {

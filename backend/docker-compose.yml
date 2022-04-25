@@ -7,4 +7,4 @@ services:
     restart: unless-stopped
     container_name: gitfit-app
     volumes:
-      - ~/Gitfit:/gitfit/data
+      - ~/Gitfit/data:/gitfit/data
