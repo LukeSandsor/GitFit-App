@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "bab8e4865e0ef7b202a3",
-    "url": "/GitFit-App/static/css/main.e798c8c2.chunk.css"
+    "revision": "64df92373b0954aafbb4",
+    "url": "/GitFit-App/static/css/main.f899be86.chunk.css"
   },
   {
-    "revision": "bab8e4865e0ef7b202a3",
-    "url": "/GitFit-App/static/js/main.bab8e486.chunk.js"
+    "revision": "64df92373b0954aafbb4",
+    "url": "/GitFit-App/static/js/main.64df9237.chunk.js"
   },
   {
     "revision": "a322975c65224bc82c97",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/GitFit-App/static/media/dumbell.2e6e928c.svg"
   },
   {
-    "revision": "b535b347aa421c950b118a69e4198652",
+    "revision": "eb3d01f27343eaa213b5543acb4c4969",
     "url": "/GitFit-App/index.html"
   }
 ];

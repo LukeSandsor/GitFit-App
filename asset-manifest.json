@@ -1,7 +1,7 @@
 {
-  "main.css": "/GitFit-App/static/css/main.e798c8c2.chunk.css",
-  "main.js": "/GitFit-App/static/js/main.bab8e486.chunk.js",
-  "main.js.map": "/GitFit-App/static/js/main.bab8e486.chunk.js.map",
+  "main.css": "/GitFit-App/static/css/main.f899be86.chunk.css",
+  "main.js": "/GitFit-App/static/js/main.64df9237.chunk.js",
+  "main.js.map": "/GitFit-App/static/js/main.64df9237.chunk.js.map",
   "static/js/1.a322975c.chunk.js": "/GitFit-App/static/js/1.a322975c.chunk.js",
   "static/js/1.a322975c.chunk.js.map": "/GitFit-App/static/js/1.a322975c.chunk.js.map",
   "static/js/2.d8f46372.chunk.js": "/GitFit-App/static/js/2.d8f46372.chunk.js",
@@ -9,8 +9,8 @@
   "runtime~main.js": "/GitFit-App/static/js/runtime~main.55415783.js",
   "runtime~main.js.map": "/GitFit-App/static/js/runtime~main.55415783.js.map",
   "static/media/dumbell.svg": "/GitFit-App/static/media/dumbell.2e6e928c.svg",
-  "static/css/main.e798c8c2.chunk.css.map": "/GitFit-App/static/css/main.e798c8c2.chunk.css.map",
+  "static/css/main.f899be86.chunk.css.map": "/GitFit-App/static/css/main.f899be86.chunk.css.map",
   "index.html": "/GitFit-App/index.html",
-  "precache-manifest.fd0cc79ae3b261806f0a54c8433f25d0.js": "/GitFit-App/precache-manifest.fd0cc79ae3b261806f0a54c8433f25d0.js",
+  "precache-manifest.798931958840b6ea14e024799969c2be.js": "/GitFit-App/precache-manifest.798931958840b6ea14e024799969c2be.js",
   "service-worker.js": "/GitFit-App/service-worker.js"
 }
