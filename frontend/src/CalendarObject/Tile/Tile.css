@@ -1,0 +1,23 @@
+/* generic calendar tile */
+.tile {
+   height: 25px;
+   width: 25px;
+   outline: 1px solid black;
+   display: inline-block;
+   background-color: lavender;
+   transition: 0.1s;
+}
+
+.tile:hover {
+   /* Margin needs to be (pre-tile_hover_width - hover_tile_width) / 2 */
+   height: 35px;
+   width: 35px;
+   z-index: 100;
+   position: relative;
+   margin: -5px;
+}
+
+/* selected tile will have a different color */
+.selected-tile {
+   background-color: lightgreen;
+}

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import logo from './dumbell.svg';
 import axios from 'axios';
 import './App.css';
+import CalendarPage from './CalendarPage';
+import {Route, Routes, Link} from 'react-router-dom';
 
 function App() {
   const [adviceObject, setAdvice] = useState({});
@@ -26,13 +28,22 @@ function App() {
    }
   }
 
+  // note that the Route changes what's being rendered, it doesn't actually load a new page
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Changing some stuff on the frontend -- Lucas
-        </p>
+        <div id="this is the link list div, this will be turned into the nav bar later">
+          <ul>
+            <li><Link to="/calendar">Calendar</Link></li>
+          </ul>
+        </div>
+        <div id="This is the routes set up div">
+          Pseudo Side Bar Look at HTML for example
+          <Routes>
+            <Route path="/calendar" element={<CalendarPage />} />
+          </Routes>
+        </div>
         <div id="adviceDisplay" style={{"backgroundColor": "darkgray", "borderRadius": 15}}>
           <p>"{adviceObject.advice}" -</p>
           <a href={adviceObject.source}>{adviceObject.source}</a>
