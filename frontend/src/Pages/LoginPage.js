@@ -1,5 +1,4 @@
 import React from 'react';
-import SummaryPage from './SummaryPage';
 import {Link} from 'react-router-dom';
 
 function LoginPage()

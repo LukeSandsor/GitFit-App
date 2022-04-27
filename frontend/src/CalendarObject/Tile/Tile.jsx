@@ -14,9 +14,9 @@ export default class Tile extends Component {
          col,
          isSelected,
          num,
-         onMouseDown,
+         /*onMouseDown,
          onMouseUp,
-         onMouseEnter,
+         onMouseEnter,*/
       } = this.props;
       const extraClassName = isSelected
          ? 'selected-tile'
