@@ -43,8 +43,8 @@
     "gh-pages": "^3.2.3"
   },
   "homepage": "https://www.gitfit.me/",
-  "otherhomepage": "https://www.LukeSandsor.github.io/GitFit-App",
-  "description": "Lorem Ipsum",
+  "otherhomepage": "https://LukeSandsor.github.io/GitFit-App",
+  "description": "URLs from namecheap for gitfit",
   "main": "index.js",
   "author": "",
   "license": "ISC"
