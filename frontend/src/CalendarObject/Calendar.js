@@ -1,4 +1,5 @@
 import React from 'react'
+import './Calendar.css'
 import Tile from './Tile/Tile';
 
 const numCols = 7; // seven days in a week
@@ -39,7 +40,7 @@ function CalendarBody(props) {
 
 function Calendar(props) {
     return (
-      <div>
+      <div className='calendar'>
         <h4>{props.dateData.month} {props.dateData.year}</h4>
         <table>
             <CalendarHeader />

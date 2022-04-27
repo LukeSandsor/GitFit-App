@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css';
-import Calendar from './CalendarObject/Calendar';
+import Calendar from '../CalendarObject/Calendar';
+import NavBar from '../NavBar';
 
 const exampleDateData = {
   "dayOfWeek": "Thursday",
@@ -13,6 +13,7 @@ function CalendarPage()
 {
   return (
     <div>
+      <NavBar />
       <h3>GitFit: Calendar</h3>
       <Calendar dateData={exampleDateData}/>
     </div>
