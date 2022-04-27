@@ -80,7 +80,11 @@ function CalendarBody(props) {
 function Calendar(props) {
     return (
       <div className='calendar'>
-        <h4>{props.dateData.month} {props.dateData.year}</h4>
+        <div>
+          <button class="arrow-button">&#8678;</button>
+          <span id="month-year-text">{props.dateData.month} {props.dateData.year}</span>
+          <button class="arrow-button">&#8680;</button>
+        </div>
         <table>
             <CalendarHeader />
             <CalendarBody /> 

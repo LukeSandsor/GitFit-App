@@ -16,8 +16,15 @@
   scrollbar-width: none;  /* Firefox */
 }
 
+/* For the arrow buttons on Calendar */
+.arrow-button {
+  font-size: larger;
+  font-weight: bold;
+  background-color: white;
+}
+
 /* For Month and Year Appearance */
-.calendar > h4 {
+#month-year-text {
   font-family: cursive;
   font-size: 36pt;
   margin: 3%;
