@@ -1,41 +1,27 @@
-import React, {useState, useEffect} from 'react';
-import logo from './dumbell.svg';
-import axios from 'axios';
+import React from 'react';
 import './App.css';
+import HomePage from './Pages/HomePage';
+import LoginPage from './Pages/LoginPage';
+import RegisterPage from './Pages/LoginPage';
+import SummaryPage from './Pages/SummaryPage';
+import CalendarPage from './Pages/CalendarPage';
+import {Route, Routes} from 'react-router-dom';
 
 function App() {
-  const [adviceObject, setAdvice] = useState({});
 
-  useEffect(() => {
-    getAdvice().then( result => {
-        if (result)
-          setAdvice(result);
-        });
-}, [] ); // only load on render
-
-  async function getAdvice() {
-    try {
-      // returns an array of size 1 with advice object
-      const response = await axios.get('https://gitfit.lucasreyna.me/advice');
-      return response.data[0];     
-   }
-   catch (error){
-      // possible do something with no advice
-      console.log(error);
-      return false;
-   }
-  }
-
+  // note that the Route changes what's being rendered, it doesn't actually load a new page
+  // we might want to have a folder with all of the pages inside
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Changing some stuff on the frontend -- Lucas
-        </p>
-        <div id="adviceDisplay" style={{"backgroundColor": "darkgray", "borderRadius": 15}}>
-          <p>"{adviceObject.advice}" -</p>
-          <a href={adviceObject.source}>{adviceObject.source}</a>
+        <div id="This is the routes set up div">
+          <Routes>
+            <Route path="/" exact element={<HomePage />}/>
+            <Route path="/login" exact element={<LoginPage />}/>
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/summary" element={<SummaryPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+          </Routes>
         </div>
         <a
           className="App-link"
