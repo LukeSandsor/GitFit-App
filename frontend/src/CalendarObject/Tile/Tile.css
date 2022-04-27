@@ -6,13 +6,14 @@
    display: inline-block;
    background-color: lavender;
    transition: 0.1s;
+   text-align: center;
+   margin: 5px;
 }
 
 .tile:hover {
    /* Margin needs to be (pre-tile_hover_width - hover_tile_width) / 2 */
    height: 35px;
    width: 35px;
-   z-index: 100;
    position: relative;
    margin: -5px;
 }
