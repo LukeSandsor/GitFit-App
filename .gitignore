@@ -26,3 +26,4 @@ yarn-error.log*
 #**/public/**
 frontend/build
 .editorconfig
+.env

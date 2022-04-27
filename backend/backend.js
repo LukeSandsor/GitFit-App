@@ -4,7 +4,7 @@ const cors = require('cors');
 const adviceServices = require('./models/health_advice/advice-services');
 
 const app = express();
-const port = 2414;
+const port = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());

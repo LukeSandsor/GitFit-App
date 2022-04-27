@@ -1,15 +1,18 @@
 const mongoose = require("mongoose");
 const adviceModel = require("./advice");
+const dotenv = require("dotenv");
+
+dotenv.config();
 mongoose.set("debug", true);
 
-const database = 'gitfit-app';
-const collection = 'gitfit-app';
-const username = 'default_user';
-const userpass = 'user_access';
+const cluster = process.env.MONGO_CLUSTER;
+const database = process.env.MONGO_DB;
+const username = process.env.MONGO_USER;
+const userpass = process.env.MONGO_PWD;
 
-// in the future use github environments to set username and password for default users
-// database will hopefully be fine
-mongoose.connect(`mongodb+srv://${username}:${userpass}@${database}.jtey1.mongodb.net/${collection}?retryWrites=true&w=majority`, {
+// use github environments to set username and password for default users
+// database will hopefully be fine"mongodb+srv://" +
+mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).catch((error) => console.log(error));
