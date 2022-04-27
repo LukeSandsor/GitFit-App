@@ -48,7 +48,7 @@ jobs:
       run: npm install
     - name: Build page
       working-directory: ./frontend
-      run: npm run build
+      run: npm run build && cp ./CNAME ./build/CNAME
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
