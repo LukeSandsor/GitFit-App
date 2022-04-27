@@ -12,6 +12,7 @@ export default class Tile extends Component {
       const {
          row, 
          col,
+         mood,
          isSelected,
          num,
          /*onMouseDown,
@@ -28,7 +29,9 @@ export default class Tile extends Component {
           className={`tile ${extraClassName}`}
           /*onMouseDown={() => onMouseDown(row, col)}
           onMouseUp={() => onMouseUp()}
-          onMouseEnter={() => onMouseEnter(row, col)}*/>{num}
+          onMouseEnter={() => onMouseEnter(row, col)}*/>
+            <span className='tile-num'>{num}</span>
+            <span className='tile-mood'>{mood}</span>
         </div>
       );
    }

@@ -1,15 +1,12 @@
 /* generic calendar tile */
 .tile {
-  height: 50px;
-  width: 50px;
+  height: 75px;
+  width: 75px;
   outline: 1px solid black;
   display: table-cell;
   background-color: lavender;
   border-radius: 3px;
 
-  text-align: center;
-  font-size: larger;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   vertical-align: middle;
   
   transition: 0.1s;
@@ -18,6 +15,19 @@
 /* Makes an outline appear when hovering over a tile */
 .tile:hover {
   outline: 5px solid rgb(70, 70, 70);
+}
+
+.tile-num {
+  text-align: center;
+  font-size: 36px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tile-mood {
+  position: relative;
+  display: unset;
+  top: 20px;
+  left: 5px;
 }
 
 /* selected tile will have a different color */

@@ -30,7 +30,8 @@ const initializeGrid = () => {
         const currentTile = {
           row, // row value, set later
           col, // col value, set later
-          num: 2, // num value of tile, set later
+          mood: "😐", // mood value, set later
+          num: 20, // num value of tile, set later
           isSelected: false, // set all tiles to default
         };
         currentRow.push(currentTile);
@@ -48,7 +49,7 @@ function CalendarBody(props) {
     return (
       <tr key={rowIndex}>
         {row.map((tile, tileIndex) => {
-            const {isSelected, num} = tile; // is from the currentTile Object
+            const {isSelected, mood, num} = tile; // is from the currentTile Object
             // return from the row map, single Tile
             return (
               <td>
@@ -59,6 +60,7 @@ function CalendarBody(props) {
                   onMouseEnter={(row, col) => handleMouseEnter(row, col)}*/
                   row={rowIndex}
                   col={tileIndex}
+                  mood={mood}
                   num={num}
                   isSelected={isSelected}
                   ></Tile>
