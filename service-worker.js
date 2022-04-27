@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/GitFit-App/precache-manifest.798931958840b6ea14e024799969c2be.js"
+  "/GitFit-App/precache-manifest.7878d807002e8aa6a2be473f581af3fa.js"
 );
 
 workbox.clientsClaim();
