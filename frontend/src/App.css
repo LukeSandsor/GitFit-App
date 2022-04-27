@@ -13,6 +13,11 @@
   }
 }
 
+/* makes link have a static style */
+a {
+  color: #61dafb;
+  text-decoration: none;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

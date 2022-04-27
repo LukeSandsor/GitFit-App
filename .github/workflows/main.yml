@@ -24,7 +24,7 @@ jobs:
         port: 19122
         script: |
           cd Gitfit
-          git pull origin master
+          git pull origin main
           git status
           cd backend
           docker-compose up -d --build

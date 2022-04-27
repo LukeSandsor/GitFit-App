@@ -1,6 +1,7 @@
- specify the node base image with your desired version node:<version>
+# specify the node base image with your desired version node:<version>
 FROM node:16
 
+# port number to be used in the container
 EXPOSE 2414
 
 COPY . /gitfit/backend
