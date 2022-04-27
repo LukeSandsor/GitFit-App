@@ -9,7 +9,7 @@ const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 // sets up the days of the week in table format
 function CalendarHeader()  {
   const dayRow = daysOfWeek.map((value) => {
-    return (<th>{value}</th>);
+    return (<th class="day-week-text">{value}</th>);
     }
   );
     return (
