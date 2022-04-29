@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './NavBar.css';
 import homeIcon from './images/home_icon.svg';
 import calendarIcon from './images/calendar_icon.svg';
+import weightIcon from './dumbell.svg';
 
 // Vertical NavBar, create CSS for it
 // This will be an object that provides links to all of the other user pages
@@ -19,6 +20,11 @@ function NavBar()
         <li>
           <Link to="/calendar">
             <img src={calendarIcon} className="navbar-icon" alt="Calendar" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/weights">
+            <img src={weightIcon} className="navbar-icon" alt="Weight" />
           </Link>
         </li>
       </ul>

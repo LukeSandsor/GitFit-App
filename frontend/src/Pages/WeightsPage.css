@@ -1,0 +1,8 @@
+.block--styling{
+    background-color: lightblue;
+    display: inline-block;
+    margin: 25px;
+    height: 500px;
+    width: 300px;
+    border-radius: 10px;
+}
