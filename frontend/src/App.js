@@ -5,6 +5,7 @@ import LoginPage from './Pages/LoginPage';
 import RegisterPage from './Pages/LoginPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
+import WeightsPage from './Pages/WeightsPage';
 import {Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/summary" element={<SummaryPage />} />
             <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/weights" element={<WeightsPage />} />
           </Routes>
         </div>
         <a
