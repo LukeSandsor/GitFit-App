@@ -14,10 +14,8 @@ function CalendarPage()
   return (
     <div>
       <NavBar />
-      <div class="user-page">
-        <h3>GitFit: Calendar</h3>
-        <Calendar dateData={exampleDateData}/>
-      </div>
+      <h3>GitFit: Calendar</h3>
+      <Calendar dateData={exampleDateData}/>
     </div>
   );
 }
