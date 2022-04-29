@@ -13,8 +13,7 @@ function App() {
   // we might want to have a folder with all of the pages inside
   return (
     <div className="App">
-      <header className="App-header">
-        <div id="This is the routes set up div">
+        <div>
           <Routes>
             <Route path="/" exact element={<HomePage />}/>
             <Route path="/login" exact element={<LoginPage />}/>
@@ -31,7 +30,6 @@ function App() {
         >
           Link to GitHub Repo
         </a>
-      </header>
     </div>
   );
 }

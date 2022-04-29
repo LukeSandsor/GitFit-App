@@ -27,10 +27,9 @@ function SummaryPage()
   }
 
   return (
-    <div>
-      <NavBar/> 
+    <div class="user-page">
+      <NavBar/>
       <h3>GitFit: Summary</h3>
-      
       <div id="adviceDisplay" style={{"backgroundColor": "darkgray", "borderRadius": 15}}>
         <a href={adviceObject.source}>{adviceObject.source}</a>
         <p>"{adviceObject.advice}" -</p>
