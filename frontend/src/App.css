@@ -1,5 +1,8 @@
-.App {
+#root {
   background-color: #282c34;
+}
+
+.App {
   text-align: center;
   height: 100%;
   min-height: 100vh;
@@ -7,6 +10,9 @@
   flex-direction: column;
   align-items: center;
   color: white;
+  width: calc(100% - 2*80px); /* consider the navbar size */
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .App-logo {
@@ -37,8 +43,4 @@ a {
   to {
     transform: rotate(360deg);
   }
-}
-
-.user-page {
-  right: 0;
 }

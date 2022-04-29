@@ -6,8 +6,8 @@
   border-radius: 0 5px 5px 0;
   background-color: white;
   list-style-type: none;
-  width: max-content;
-  padding: 0 10px 0 10px;
+  width: 60px;
+  padding: 0 10px 0 10px; /* Total Width is 80px*/
 
   /* this makes it so you can't highlight this object */
   -webkit-user-select: none; /* Webkit */
@@ -28,11 +28,13 @@
 }
 
 .navbar-icon {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  width: 60px;
 }
 
-/* make navbar bottom margin same as border */
+/* make navbar bottom padding same as border */
 .navbar-icon:hover {
   border-bottom: 5px solid black;
-  margin-bottom: 0px;
+  padding-bottom: 0;
 }
