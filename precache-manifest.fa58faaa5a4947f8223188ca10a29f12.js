@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "698c0941cc8d2a7afb8a",
-    "url": "/static/css/main.7eb7dab9.chunk.css"
+    "revision": "7e8371b888e83946ba17",
+    "url": "/static/css/main.bb3d4405.chunk.css"
   },
   {
-    "revision": "698c0941cc8d2a7afb8a",
-    "url": "/static/js/main.81bdf6cb.chunk.js"
+    "revision": "7e8371b888e83946ba17",
+    "url": "/static/js/main.218f43d4.chunk.js"
   },
   {
-    "revision": "e2f0046a3ec66dc99bbd",
-    "url": "/static/js/runtime~main.d1638b84.js"
+    "revision": "9460133ce00c803b879e",
+    "url": "/static/js/runtime~main.1284b13a.js"
   },
   {
-    "revision": "09e7b75bf36b44662c0c",
-    "url": "/static/js/2.85c52e6c.chunk.js"
+    "revision": "8e03853fd859fa7dbcd4",
+    "url": "/static/js/2.be2524f3.chunk.js"
   },
   {
-    "revision": "b390a36d279b692bc1d3",
-    "url": "/static/js/3.e61989fa.chunk.js"
+    "revision": "fb0d19a6bf83d3c405ad",
+    "url": "/static/js/3.a80ba8e7.chunk.js"
   },
   {
     "revision": "2e6e928c2ad474ac2d6f45d97f2bce90",
@@ -32,6 +32,10 @@ self.__precacheManifest = [
     "url": "/static/media/calendar_icon.bcdfe888.svg"
   },
   {
+    "revision": "87d71c09d99688650740247db2f3b32b",
+    "url": "/static/media/dumbbell.87d71c09.png"
+  },
+  {
     "revision": "dddcf89c5edb21eb4b842fd01af20045",
     "url": "/static/media/PushLogo.dddcf89c.png"
   },
@@ -44,7 +48,7 @@ self.__precacheManifest = [
     "url": "/static/media/LegsLogo.047d97b4.png"
   },
   {
-    "revision": "e2d0f36564bb827eccf6c0c8e455d94f",
+    "revision": "5b49fd28dc04dfd3fed45854f59b513a",
     "url": "/index.html"
   }
 ];
