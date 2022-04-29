@@ -4,12 +4,14 @@ import './WeightsPage.css';
 import pushLogo from "../images/PushLogo.png";
 import pullLogo from "../images/PullLogo.png";
 import legsLogo from "../images/LegsLogo.png";
+import NavBar from '../NavBar';
 
 
 function WeightsPage()
 {
     return (
         <div >
+            <NavBar/>
             <h1>Weight Training</h1>
             <div class="block--styling">
                 <h3>Push</h3>
