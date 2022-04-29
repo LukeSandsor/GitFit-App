@@ -13,7 +13,7 @@ function App() {
   // we might want to have a folder with all of the pages inside
   return (
     <div className="App">
-        <div>
+        <div style={{width: "100%"}}>
           <Routes>
             <Route path="/" exact element={<HomePage />}/>
             <Route path="/login" exact element={<LoginPage />}/>

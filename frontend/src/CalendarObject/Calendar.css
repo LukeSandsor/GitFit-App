@@ -1,7 +1,9 @@
 .calendar {
-  background-color: lightblue;
-  border-radius: 3px;
+  background-color: rgb(63, 133, 157);
+  border: 5px solid black;
+  border-radius: 30px;
   padding: 5%;
+  display: inline-block;
   width: max-content;
 
   /* this makes it so you can't highlight this object */
@@ -27,7 +29,7 @@
 
 /* For Month and Year Appearance */
 #month-year-text {
-  font-family: cursive;
+  font-family:'Times New Roman', Times, serif;
   font-size: 36pt;
   margin: 3%;
 }
