@@ -2,12 +2,30 @@ import React from 'react';
 import Calendar from '../CalendarObject/Calendar';
 import NavBar from '../NavBar';
 
+// my hope is that we don't depend on filler info
 const exampleDateData = {
-  "dayOfWeek": "Thursday",
-  "dayOfMonth": 25,
-  "month": "April",
-  "year": 2022
-}
+  "month": 4, // should correspond to April
+  "year": 2022,
+  "day": {
+    2: {
+      "mood": "😡",
+      "cal_in": 2000,
+      "cal_out": 200,
+    },
+    4: {
+      "mood": "😬",
+      "cal_in": 2000,
+      "cal_out": 200,
+    },
+    14: {
+      "mood": "😐",
+      "cal_in": 2000,
+      "cal_out": 200,
+    }
+  }
+};
+
+console.log(exampleDateData.day[2]);
 
 function CalendarPage()
 {

@@ -37,3 +37,8 @@
 .selected-tile {
   background-color: lightgreen;
 }
+
+/* selected tile will have a different color */
+.inactive-tile {
+  background-color: gray;
+}

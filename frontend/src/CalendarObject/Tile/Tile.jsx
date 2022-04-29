@@ -14,14 +14,15 @@ export default class Tile extends Component {
          col,
          mood,
          isSelected,
+         isNotActive,
          num,
          /*onMouseDown,
          onMouseUp,
          onMouseEnter,*/
       } = this.props;
-      const extraClassName = isSelected
-         ? 'selected-tile'
-         : '';
+      const extraClassName = 
+        isSelected ? 'selected-tile' :
+        isNotActive ? 'inactive-tile' : '';
 
       return (
         <div
