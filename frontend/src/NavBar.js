@@ -10,6 +10,7 @@ function NavBar()
       <ul>
         <li><Link to="/summary">Summary</Link></li>
         <li><Link to="/calendar">Calendar</Link></li>
+        <li><Link to="/weights">Weight</Link></li>
       </ul>
     </div>
   );
