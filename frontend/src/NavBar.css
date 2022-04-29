@@ -27,6 +27,12 @@
   padding: 0%;
 }
 
+.navbar-icon {
+  margin-bottom: 5px;
+}
+
+/* make navbar bottom margin same as border */
 .navbar-icon:hover {
   border-bottom: 5px solid black;
+  margin-bottom: 0px;
 }
