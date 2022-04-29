@@ -28,12 +28,13 @@
 }
 
 .navbar-icon {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
   width: 60px;
 }
 
-/* make navbar bottom margin same as border */
+/* make navbar bottom padding same as border */
 .navbar-icon:hover {
   border-bottom: 5px solid black;
-  margin-bottom: 0px;
+  padding-bottom: 0;
 }
