@@ -22,15 +22,19 @@
 
 /* For the arrow buttons on Calendar */
 .arrow-button {
-  font-size: larger;
+  font-size: 40px;
   font-weight: bold;
   background-color: white;
+  width: 75px;
+  border-radius: 5px;
 }
 
 /* For Month and Year Appearance */
 #month-year-text {
   font-family:'Times New Roman', Times, serif;
   font-size: 36pt;
+  display: inline-block;
+  width: 390px;
   margin: 3%;
 }
 

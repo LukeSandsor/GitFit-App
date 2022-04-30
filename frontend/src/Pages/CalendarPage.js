@@ -2,12 +2,6 @@ import React from 'react';
 import Calendar from '../CalendarObject/Calendar';
 import NavBar from '../NavBar';
 
-const exampleDateData = {
-  "dayOfWeek": "Thursday",
-  "dayOfMonth": 25,
-  "month": "April",
-  "year": 2022
-}
 
 function CalendarPage()
 {
@@ -15,7 +9,7 @@ function CalendarPage()
     <div>
       <NavBar />
       <h3>GitFit: Calendar</h3>
-      <Calendar dateData={exampleDateData}/>
+      <Calendar />
     </div>
   );
 }
