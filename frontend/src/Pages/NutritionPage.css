@@ -1,6 +1,24 @@
+.chart-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    /* margin-left: 200px; */
+    margin: auto;
+    width: 1040px;
+    justify-content: center;
+}
+
 .doughnut {
-    margin-top: 10px;
-    margin-left: 200px;
+    /* margin-top: 10px;
+    margin-left: 200px; */
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.bar {
+    /* margin-top: 10px;
+    margin-left: 200px; */
     height: 500px;
     width: 500px;
     border-radius: 10px;
