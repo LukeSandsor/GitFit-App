@@ -4,6 +4,7 @@ import './NavBar.css';
 import homeIcon from './images/home_icon.svg';
 import calendarIcon from './images/calendar_icon.svg';
 import weightIcon from './images/dumbbell.png';
+import nutritionIcon from './images/nutrition.png'
 
 // Vertical NavBar, create CSS for it
 // This will be an object that provides links to all of the other user pages
@@ -25,6 +26,11 @@ function NavBar()
         <li>
           <Link to="/weights">
             <img src={weightIcon} className="navbar-icon" alt="Weight" />
+          </Link>
+        </li>
+        <li>
+          <Link to='/nutrition'>
+            <img src={nutritionIcon} className="navbar-icon" alt="Nutrition"/>
           </Link>
         </li>
       </ul>

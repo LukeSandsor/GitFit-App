@@ -6,6 +6,7 @@ import RegisterPage from './Pages/LoginPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
+import NutritionPage from './Pages/NutritionPage';
 import {Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/summary" element={<SummaryPage />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/weights" element={<WeightsPage />} />
+            <Route path='/nutrition' element={<NutritionPage />} />
           </Routes>
         </div>
         <a
