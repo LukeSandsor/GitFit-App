@@ -1,0 +1,24 @@
+#page-contents {
+  vertical-align: middle;
+}
+
+#day-info-block {
+  vertical-align: inherit;
+  display: inline-block;
+  width: 500px;
+  margin-left: 50px;
+}
+
+#day-title {
+  background-color: teal;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  padding: 40px;
+  border-radius: 50px;
+}
+
+#daily-breakdown {
+  background-color: teal;
+  padding: 40px;
+  text-align: left;
+}

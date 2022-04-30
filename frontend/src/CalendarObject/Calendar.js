@@ -51,6 +51,11 @@ function Calendar() {
     else {
       setCurrentMonth(newMonthVal);
     }
+
+    // reset the currently selected tile
+    if (selectedTile)
+        selectedTile.className = 'tile ';
+    setSelectedTile(undefined);
   }
 
   function handleMouseDown(row, col)
