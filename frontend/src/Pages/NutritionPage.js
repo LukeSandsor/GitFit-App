@@ -134,6 +134,9 @@ function NutritionPage() {
                     <NutritionTable foodOptions={foodOptions} />
                 </div>
             </div>
+            <div>
+                <BarChart />
+            </div>
         </div>
     )
 }
