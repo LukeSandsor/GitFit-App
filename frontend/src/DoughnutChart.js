@@ -15,7 +15,6 @@ Chart.overrides.doughnut.plugins.tooltip.titleFont = {weight: "bold", size: 16};
 Chart.overrides.doughnut.plugins.tooltip.titleAlign = 'center';
 Chart.overrides.doughnut.plugins.tooltip.bodyFont = {weight: "bold", size: 14};
 Chart.overrides.doughnut.plugins.tooltip.bodyAlign = 'center';
-Chart.overrides.doughnut.plugins.tooltip.boxPadding = 10;
 
 function DoughnutChart() {
     const data = {
