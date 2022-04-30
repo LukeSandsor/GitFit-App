@@ -10,27 +10,20 @@ export default class Tile extends Component {
    render() {
       // Determine if properties are true, in order to add it to class name
       const {
-         row, 
-         col,
-         mood,
-         isSelected,
-         isNotActive,
-         num,
-         /*onMouseDown,
-         onMouseUp,
-         onMouseEnter,*/
+        row, 
+        col,
+        mood,
+        isNotActive,
+        num,
+        onMouseDown
       } = this.props;
-      const extraClassName = 
-        isSelected ? 'selected-tile' :
-        isNotActive ? 'inactive-tile' : '';
+      const extraClassName = isNotActive ? 'inactive-tile' : '';
 
       return (
         <div
           id={`tile-${row}-${col}`}
           className={`tile ${extraClassName}`}
-          /*onMouseDown={() => onMouseDown(row, col)}
-          onMouseUp={() => onMouseUp()}
-          onMouseEnter={() => onMouseEnter(row, col)}*/>
+          onMouseDown={() => onMouseDown(row, col)}>
             <span className='tile-num'>{num}</span>
             <span className='tile-mood'>{mood}</span>
         </div>

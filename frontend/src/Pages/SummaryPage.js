@@ -11,7 +11,7 @@ function SummaryPage()
       if (result)
         setAdvice(result);
       });
-  }, [] ); // only load on render
+  }, []); // only load on render
 
   async function getAdvice() {
     try {
