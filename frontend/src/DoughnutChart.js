@@ -4,14 +4,25 @@ import {Doughnut} from "react-chartjs-2";
 // Chart.register(ArcElement, LineController, LineElement, PointElement, LinearScale, Title, Legend);
 import Chart from 'chart.js/auto'
 
+Chart.overrides.doughnut.plugins.tooltip.callbacks.label = function (context) {
+    return context.parsed * 100 + '%'; 
+};
+Chart.overrides.doughnut.plugins.tooltip.callbacks.title = function (context) {
+    console.log(context);
+    return context[0].dataset.label + " " + context[0].label;
+};
+Chart.overrides.doughnut.plugins.tooltip.titleFont = {weight: "bold", size: 16};
+Chart.overrides.doughnut.plugins.tooltip.titleAlign = 'center';
+Chart.overrides.doughnut.plugins.tooltip.bodyFont = {weight: "bold", size: 14};
+Chart.overrides.doughnut.plugins.tooltip.bodyAlign = 'center';
+Chart.overrides.doughnut.plugins.tooltip.boxPadding = 10;
+
 function DoughnutChart() {
     const data = {
-        //labels: ['Current Protein', 'Current Carbs', 'Current Fats', 'Target Protein', 'Target Carbs', 'Target Fats'],
-        labels: ['Current Protein', 'Current Carbs', 'Current Fats'],
+        labels: ['Protein', 'Carbs', 'Fats'],
         datasets: [
             {
-                label: "Current Breakdown",
-                labels: ['Current Protein', 'Current Carbs', 'Current Fats'],
+                label: "Current",
                 data: [0.4, 0.4, 0.2],
                 backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
                 hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
@@ -19,16 +30,15 @@ function DoughnutChart() {
                 borderWidth: 2,
                 legend: {display: true}
             },         
-            // {
-            //     label: "Target Breakdown",
-            //     labels: ['Target Protein', 'Target Carbs', 'Target Fats'],
-            //     data: [0.4, 0.4, 0.2],
-            //     backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-            //     hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-            //     hoverOffset: 10,
-            //     borderWidth: 2,
-            //     legend: {display: true}
-            // }
+            {
+                label: "Target",
+                data: [0.4, 0.4, 0.2],
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                hoverOffset: 10,
+                borderWidth: 2,
+                legend: {display: true}
+            }
         ]
       };
 
@@ -48,10 +58,10 @@ function DoughnutChart() {
                     color: "white"
                 },
                 onClick: () => {} 
-            }
+            },
+            maintainAspectRatio: true,
+            responsive: true,
         },
-        maintainAspectRatio: true,
-        responsive: true,
       };
 
     return (
