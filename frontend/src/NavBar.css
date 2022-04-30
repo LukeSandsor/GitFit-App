@@ -8,6 +8,7 @@
   list-style-type: none;
   width: 60px;
   padding: 0 10px 0 10px; /* Total Width is 80px*/
+  z-index: 99; /* forces navbar to be on top */
 
   /* this makes it so you can't highlight this object */
   -webkit-user-select: none; /* Webkit */
