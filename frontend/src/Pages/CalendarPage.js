@@ -7,6 +7,7 @@ import CalendarDateInfoContext from '../context/calendar-date.context';
 function CalendarPage()
 {
   const [dailyInfo, setDailyInfo] = useState({
+    dateString: "",
     calLost: "",
     calCons: "",
     weight: "",
@@ -26,7 +27,10 @@ function CalendarPage()
           <Calendar />
         </CalendarDateInfoContext.Provider>
         <div id="day-info-block">
-          <div id="day-title">Select a date to see your fitness information</div>
+          <div id="day-title">
+            <span>Select a date to see your fitness information</span>
+            <p>{dailyInfo.dateString}</p>
+          </div>
           <h3 style={{marginBottom: "0"}}>Daily Breakdown</h3>
           <div id="daily-breakdown">
             <p>Calories Lost: {dailyInfo.calLost}</p>

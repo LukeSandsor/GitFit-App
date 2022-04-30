@@ -174,7 +174,10 @@ function Calendar() {
               if (active) {
                 currentDay.setDate(currentDay.getDate() + 1);
                 if (currentMonth === currentDay.getMonth()) {
+                  const dateText = `${monthStrs[currentMonth]} ${currentDay.getDate()}, ${currentYear}`;
                   const thisDateData = dateData[currentYear][currentMonth][currentDay.getDate()];
+                  currentInfo.dateString = dateText;
+
                   // check if this day has a mood loggged
                   if (thisDateData !== undefined) {
                     currentMood = thisDateData.mood; // may need to check if undefined
@@ -237,7 +240,7 @@ function Calendar() {
 
   return (
     <div className='calendar'>
-        <div>
+        <div className="calendar-top">
           <button className="arrow-button" onClick={() => UpdateCalendar(-1)}>&#8678;</button>
           <span id="month-year-text">{monthStrs[currentMonth]} {currentYear}</span>
           <button className="arrow-button" onClick={() => UpdateCalendar(1)}>&#8680;</button>
