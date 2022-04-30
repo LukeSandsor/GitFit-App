@@ -12,6 +12,7 @@ import WeightsPage from './Pages/WeightsPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
 import ErrorPage from './Pages/ErrorPage';
+import NutritionPage from './Pages/NutritionPage';
 
 function App() {
   // note that the Route changes what's being rendered, it doesn't actually load a new page
@@ -26,6 +27,7 @@ function App() {
           <Route path="/summary" element={<SummaryPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/weights" element={<WeightsPage />} />
+          <Route path='/nutrition' element={<NutritionPage />} />
           <Route path="/bmi" element={<BMIPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<ErrorPage />}/>
