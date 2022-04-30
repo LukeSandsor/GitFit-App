@@ -24,8 +24,12 @@ export default class Tile extends Component {
           id={`tile-${row}-${col}`}
           className={`tile ${extraClassName}`}
           onMouseDown={() => onMouseDown(row, col)}>
-            <span className='tile-num'>{num}</span>
-            <span className='tile-mood'>{mood}</span>
+            <div className='tile-num'>
+              <span>{num}</span>
+            </div>
+            <div className='tile-mood'>
+              <span >{mood}</span>
+            </div>
         </div>
       );
    }

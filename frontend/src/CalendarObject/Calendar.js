@@ -31,19 +31,24 @@ function Calendar() {
 
   useEffect(() => {
     setCalendar(loadCalendarBodyInfo(exampleDateData));
-  }, [calendarBody]); // runs on first render, and any time calendarBody is changed
+  }, [currentMonth]); // runs on first render, and any time month is changed
 
   function UpdateCalendar(incrementMonth) {
-    const numYears = Math.ceil(incrementMonth / 12);
-    setCurrentMonth(currentMonth + incrementMonth);
+    // in case value > 12
+    const numYears = Math.floor(Math.abs(incrementMonth / 12)) + 1;
+    const newMonthVal = currentMonth + incrementMonth;
 
-    if (currentMonth < 0) {
-      setCurrentMonth(currentMonth % 12);
+    if (newMonthVal < 0) {
+      // needed for positive modulo result
+      setCurrentMonth(((newMonthVal % 12) + 12) % 12);
       setCurrentYear(currentYear - numYears); 
     }
-    else if (currentMonth > 12) {
-      setCurrentMonth(currentMonth % 12);
+    else if (newMonthVal > 11) {
+      setCurrentMonth(newMonthVal % 12);
       setCurrentYear(currentYear + numYears); 
+    }
+    else {
+      setCurrentMonth(newMonthVal);
     }
   }
 
@@ -81,6 +86,7 @@ function Calendar() {
       }
       grid.push(currentRow);
     }
+
     return grid;
   }
 
