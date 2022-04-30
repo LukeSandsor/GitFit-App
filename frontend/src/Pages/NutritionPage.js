@@ -10,11 +10,13 @@ function NutritionPage() {
         <div>
             <NavBar />
             <h1>Nutrition Page</h1>
-            <div className='doughnut'>
-                <DoughnutChart />
-            </div>
-            <div>
-                <BarChart />
+            <div className='chart-container'>
+                <div className='doughnut'>
+                    <DoughnutChart />
+                </div>
+                <div className='bar'>
+                    <BarChart />
+                </div>
             </div>
         </div>
     )

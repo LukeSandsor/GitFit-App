@@ -24,7 +24,7 @@ function DoughnutChart() {
                 label: "Current",
                 data: [0.4, 0.4, 0.2],
                 backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                //hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
                 hoverOffset: 10,
                 borderWidth: 2,
                 legend: {display: true}
@@ -33,7 +33,7 @@ function DoughnutChart() {
                 label: "Target",
                 data: [0.4, 0.4, 0.2],
                 backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                //hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
                 hoverOffset: 10,
                 borderWidth: 2,
                 legend: {display: true}
@@ -58,7 +58,7 @@ function DoughnutChart() {
                 },
                 onClick: () => {} 
             },
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             responsive: true,
         },
       };
