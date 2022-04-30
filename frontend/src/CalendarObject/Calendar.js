@@ -29,9 +29,10 @@ function Calendar() {
   const [selectedTile, setSelectedTile] = useState();
   const [calendarBody, setCalendar] = useState();
 
+  // runs on first render, and any time month or selected tile is changed
   useEffect(() => {
     setCalendar(loadCalendarBodyInfo(exampleDateData));
-  }, [currentMonth]); // runs on first render, and any time month is changed
+  }, [currentMonth, selectedTile]);
 
   function UpdateCalendar(incrementMonth) {
     // in case value > 12
