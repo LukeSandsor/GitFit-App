@@ -12,7 +12,7 @@ const monthStrs = ['January', 'February', 'March', 'April', 'May', 'June', 'July
 // sets up the days of the week in table format
 function CalendarHeader() {
   const dayRow = daysOfWeek.map((value, index) => {
-    return (<th key={index} className="day-week-text">{value}</th>);
+      return (<th key={index} className="day-week-text">{value}</th>);
     }
   );
     return (
@@ -63,8 +63,7 @@ function Calendar() {
     updateDay({}); // reset Daily Breakdown info when switching
   }
 
-  function handleMouseDown(row, col)
-  {
+  function handleMouseDown(row, col) {
     let tileObject = document.getElementById(`tile-${row}-${col}`);
 
     // make sure tile is active and not already selected
