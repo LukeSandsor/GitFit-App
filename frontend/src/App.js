@@ -6,6 +6,7 @@ import RegisterPage from './Pages/LoginPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
+import ErrorPage from './Pages/ErrorPage';
 import {Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -17,11 +18,12 @@ function App() {
         <div style={{width: "100%"}}>
           <Routes>
             <Route path="/" exact element={<HomePage />}/>
-            <Route path="/login" exact element={<LoginPage />}/>
+            <Route path="/login" element={<LoginPage />}/>
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/summary" element={<SummaryPage />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/weights" element={<WeightsPage />} />
+            <Route path="*" element={<ErrorPage />}/>
           </Routes>
         </div>
         <a
