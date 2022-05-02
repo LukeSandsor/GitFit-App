@@ -12,7 +12,13 @@ function BarChart() {
                 backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
                 borderColor: 'white',
                 borderWidth: 2,
-                legend: {display: true}
+            },
+            {
+                label: "Current",
+                data: [140, 50, 20],
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                borderColor: 'white',
+                borderWidth: 2,
             }
         ]
     }
@@ -35,6 +41,22 @@ function BarChart() {
                     borderColor: 'white'
                 },
                 ticks: {
+                    color: 'white'
+                }
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Nutrition Counter',
+                color: 'white',
+                font: {size: 34}
+            },
+            legend: {
+                display: false,
+                position: 'top',
+                align: 'center',
+                labels: {
                     color: 'white'
                 }
             }

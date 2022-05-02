@@ -45,7 +45,7 @@ function DoughnutChart() {
         plugins: {
             title: {
                 display: true,
-                text: 'Daily Nutrience',
+                text: 'Nutrition Breakdown',
                 color: 'white',
                 font: {size: 34},
             },
