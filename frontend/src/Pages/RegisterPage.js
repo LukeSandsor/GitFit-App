@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoginPage()
+function RegisterPage()
 {
 
   return (
@@ -10,4 +10,4 @@ function LoginPage()
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
