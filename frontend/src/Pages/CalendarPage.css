@@ -2,6 +2,10 @@
   vertical-align: middle;
 }
 
+#page-contents > div {
+  margin-top: 50px;
+}
+
 #day-info-block {
   vertical-align: inherit;
   display: inline-block;
