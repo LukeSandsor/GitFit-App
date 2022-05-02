@@ -1,0 +1,24 @@
+#adviceDisplay
+{
+  border-radius: 50px 0 0 0;
+  position: absolute;
+  background-color: turquoise;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+}
+
+#adviceDisplay > a
+{
+  color: purple;
+  line-height: 3;
+}
+
+#advice-text-block
+{
+  border-radius: 50px 0 0 0;
+  background-color: lightblue;
+  color: black;
+  font-style: oblique;
+  padding: 15px 50px 15px 50px; /* top right bottom left */
+}

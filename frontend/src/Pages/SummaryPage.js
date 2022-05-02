@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import NavBar from '../NavBar';
+import './SummaryPage.css'
 
 function SummaryPage()
 {
@@ -30,9 +31,11 @@ function SummaryPage()
     <div class="user-page">
       <NavBar/>
       <h3>GitFit: Summary</h3>
-      <div id="adviceDisplay" style={{"backgroundColor": "darkgray", "borderRadius": 15}}>
-        <a href={adviceObject.source}>{adviceObject.source}</a>
-        <p>"{adviceObject.advice}" -</p>
+      <div id="adviceDisplay">
+            <a href={adviceObject.source}>{adviceObject.source}</a>
+            <div id="advice-text-block">
+              <span>"{adviceObject.advice}"</span>
+            </div>
       </div>
     </div>
   );
