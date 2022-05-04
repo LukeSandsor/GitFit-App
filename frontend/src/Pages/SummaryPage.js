@@ -28,10 +28,11 @@ function SummaryPage()
   }
 
   return (
-    <div class="user-page">
+    <div className="user-page">
       <NavBar/>
       <h3>GitFit: Summary</h3>
       <div id="mood-picker">
+        <p>Pick a mood that describes your day:</p>
         <ul>
           <li><span role="img" aria-label="Angry">😡</span></li>
           <li><span role="img" aria-label="Cry">😢</span></li>
