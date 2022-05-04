@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import NavBar from '../NavBar';
-import './SummaryPage.css'
+import './SummaryPage.css';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -24,7 +24,7 @@ function SummaryPage()
     }
     catch (error){
       // possible do something with no advice
-      console.log(error);
+      //console.log(error);
       return false;
     }
   }
@@ -48,7 +48,7 @@ function SummaryPage()
       <div id="adviceDisplay">
             <a href={adviceObject.source}>{adviceObject.source}</a>
             <div id="advice-text-block">
-              <span>"{adviceObject.advice}"</span>
+              <span>&#34;{adviceObject.advice}&#34;</span>
             </div>
       </div>
     </div>

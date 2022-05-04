@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useContext} from 'react'
-import './Calendar.css'
+import React, {useState, useEffect, useContext} from 'react';
+import './Calendar.css';
 import Tile from './Tile/Tile';
 import exampleDateData from './ExampleCalendarData.json'; // For testing purposes
 import CalendarDateInfoContext from '../context/calendar-date.context';
@@ -77,9 +77,9 @@ function Calendar() {
       tileObject.className += 'selected-tile';
 
       // set daily info
-      console.log(gridOfInfo);
+      //console.log(gridOfInfo);
       let getInfo = gridOfInfo[row][col];
-      console.log(getInfo);
+      //console.log(getInfo);
       updateDay(getInfo); // this will set the context for calenderPage
     }
   }
@@ -126,8 +126,8 @@ function Calendar() {
 
       // return from the column map, whole row
       return (
-        <tbody>
-          <tr key={rowIndex}>
+        <tbody key={rowIndex}>
+          <tr>
             {row.map((tile, tileIndex) => {
               let currentInfo = { // set all info for Tile
                 calLost: "N/A",
@@ -136,7 +136,7 @@ function Calendar() {
                 numWork: "N/A",
                 numStep: "N/A",
                 mood: "N/A"
-              }
+              };
 
               // return from the row map, single Tile
               const {onMouseDown, def_mood, def_num} = tile; // is from the currentTile Object
@@ -225,7 +225,7 @@ function Calendar() {
                 }
               }
               // return default to suppres warnings
-              return <Tile />;})
+              return <Tile key="invalid"/>;})
             }
           </tr>
         </tbody>
