@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
-import RegisterPage from './Pages/LoginPage';
+import RegisterPage from './Pages/RegisterPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
