@@ -1,5 +1,22 @@
-#mood-picker
+#root
 {
+  overflow-x: hidden;
+}
+
+#date-block {
+  width: fit-content;
+  float: right;
+  position: relative;
+  right: -100px;
+  display: block;
+  color: black;
+  background-color: white;
+  padding: 25px 100px 25px 25px;
+  border-radius:  15px 0 0 15px;
+  box-shadow: 0 0 25px black;
+}
+
+#mood-picker {
   background-color: salmon;
   width: 500px;
   border: 2px dotted white;
@@ -27,20 +44,17 @@
   /*************/
 }
 
-#mood-picker > p
-{
+#mood-picker > p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
 }
 
-#mood-picker > ul
-{
+#mood-picker > ul {
   padding: 0;
   margin: 0;
 }
 
-#mood-picker > ul > li
-{
+#mood-picker > ul > li {
   list-style-type: none;
   margin: 5px;
   font-size: 48px;
@@ -51,13 +65,11 @@
   transition: 0.3s;
 }
 
-#mood-picker > ul > li:hover
-{
+#mood-picker > ul > li:hover {
   font-size: 72px; /* same value as width */
 }
 
-#adviceDisplay
-{
+#adviceDisplay {
   border-radius: 50px 0 0 0;
   position: absolute;
   background-color: turquoise;
@@ -81,14 +93,12 @@
   /*************/
 }
 
-#adviceDisplay > a
-{
+#adviceDisplay > a {
   color: purple;
   line-height: 3;
 }
 
-#advice-text-block
-{
+#advice-text-block {
   border-radius: 50px 0 0 0;
   background-color: lightblue;
   color: black;

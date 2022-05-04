@@ -3,6 +3,8 @@ import axios from 'axios';
 import NavBar from '../NavBar';
 import './SummaryPage.css'
 
+const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 function SummaryPage()
 {
   const [adviceObject, setAdvice] = useState({});
@@ -28,9 +30,10 @@ function SummaryPage()
   }
 
   return (
-    <div className="user-page">
+    <div id="summary-page" className="user-page">
       <NavBar/>
       <h3>GitFit: Summary</h3>
+      <h3 id='date-block'>{`${monthStrs[(new Date()).getMonth()]} ${(new Date()).getDate()}, ${(new Date()).getFullYear()}`}</h3>
       <div id="mood-picker">
         <p>Pick a mood that describes your day:</p>
         <ul>
