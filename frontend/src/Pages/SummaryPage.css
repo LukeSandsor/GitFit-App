@@ -1,3 +1,23 @@
+#mood-picker
+{
+  background-color: salmon;
+  width: fit-content;
+  border: 2px dotted white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#mood-picker > ul
+{
+  padding: 0;
+}
+
+#mood-picker > ul > li
+{
+  list-style-type: none;
+  float: left;
+}
+
 #adviceDisplay
 {
   border-radius: 50px 0 0 0;

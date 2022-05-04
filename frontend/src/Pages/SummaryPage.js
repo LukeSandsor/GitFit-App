@@ -31,6 +31,16 @@ function SummaryPage()
     <div class="user-page">
       <NavBar/>
       <h3>GitFit: Summary</h3>
+      <div id="mood-picker">
+        <ul>
+          <li><span role="img" aria-label="Angry">😡</span></li>
+          <li><span role="img" aria-label="Cry">😢</span></li>
+          <li><span role="img" aria-label="Sick">🤒</span></li>
+          <li><span role="img" aria-label="Neutral">😐</span></li>
+          <li><span role="img" aria-label="Happy">🙂</span></li>
+          <li><span role="img" aria-label="Ecstatic">🤩</span></li>
+        </ul>
+      </div>
       <div id="adviceDisplay">
             <a href={adviceObject.source}>{adviceObject.source}</a>
             <div id="advice-text-block">
