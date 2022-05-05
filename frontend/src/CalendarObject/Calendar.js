@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useContext} from 'react'
-import './Calendar.css'
-import Tile from './Tile/Tile';
+import React, { useState, useEffect, useContext } from 'react';
+import './Calendar.css';
+import Tile from './Tile/Tile.jsx';
 import exampleDateData from './ExampleCalendarData.json'; // For testing purposes
 import CalendarDateInfoContext from '../context/calendar-date.context';
 
@@ -11,17 +11,14 @@ const monthStrs = ['January', 'February', 'March', 'April', 'May', 'June', 'July
 
 // sets up the days of the week in table format
 function CalendarHeader() {
-  const dayRow = daysOfWeek.map((value, index) => {
-      return (<th key={index} className="day-week-text">{value}</th>);
-    }
-  );
-    return (
+  const dayRow = daysOfWeek.map((value, index) => (<th key={index} className="day-week-text">{value}</th>));
+  return (
       <thead>
         <tr>
           {dayRow}
         </tr>
       </thead>
-    );
+  );
 }
 
 function Calendar() {
@@ -33,11 +30,6 @@ function Calendar() {
 
   const { updateDay } = useContext(CalendarDateInfoContext);
 
-  // runs on first render, and any time month or selected tile is changed
-  useEffect(() => {
-    setCalendar(loadCalendarBodyInfo(exampleDateData));
-  }, [currentMonth, selectedTile]);
-
   function UpdateCalendar(incrementMonth) {
     // in case value > 12
     const numYears = Math.floor(Math.abs(incrementMonth / 12)) + 1;
@@ -46,40 +38,36 @@ function Calendar() {
     if (newMonthVal < 0) {
       // needed for positive modulo result
       setCurrentMonth(((newMonthVal % 12) + 12) % 12);
-      setCurrentYear(currentYear - numYears); 
-    }
-    else if (newMonthVal > 11) {
+      setCurrentYear(currentYear - numYears);
+    } else if (newMonthVal > 11) {
       setCurrentMonth(newMonthVal % 12);
-      setCurrentYear(currentYear + numYears); 
-    }
-    else {
+      setCurrentYear(currentYear + numYears);
+    } else {
       setCurrentMonth(newMonthVal);
     }
 
     // reset the currently selected tile
-    if (selectedTile)
-        selectedTile.className = 'tile ';
+    if (selectedTile) selectedTile.className = 'tile ';
     setSelectedTile(undefined);
     updateDay({}); // reset Daily Breakdown info when switching
   }
 
   function handleMouseDown(row, col) {
-    let tileObject = document.getElementById(`tile-${row}-${col}`);
+    const tileObject = document.getElementById(`tile-${row}-${col}`);
 
     // make sure tile is active and not already selected
     // set tile Object as selected and change its class
     if (tileObject.classList.length === 1) {
       // change previous tile to a default active tile
       // make sure it's not undefined
-      if (selectedTile)
-        selectedTile.className = 'tile ';
+      if (selectedTile) selectedTile.className = 'tile ';
       setSelectedTile(tileObject);
       tileObject.className += 'selected-tile';
 
       // set daily info
-      console.log(gridOfInfo);
-      let getInfo = gridOfInfo[row][col];
-      console.log(getInfo);
+      // console.log(gridOfInfo);
+      const getInfo = gridOfInfo[row][col];
+      // console.log(getInfo);
       updateDay(getInfo); // this will set the context for calenderPage
     }
   }
@@ -87,18 +75,18 @@ function Calendar() {
   // Create a matrix of row length and col length
   function initializeGrid() {
     const grid = [];
-    for (let row = 0; row < NUM_ROWS; row++) {
+    for (let row = 0; row < NUM_ROWS; row += 1) {
       const currentRow = [];
-      for (let col = 0; col < NUM_COLS; col++) {
-          const currentTile = {
-            row, // row value, set later
-            col, // col value, set later
-            def_mood: "", // mood value
-            def_num: "", // num value of tile, set later
-            onMouseDown: (row, col) => handleMouseDown(row, col),
-            isNotActive: true, // set all tiles to default
-          };
-          currentRow.push(currentTile);
+      for (let col = 0; col < NUM_COLS; col += 1) {
+        const currentTile = {
+          row, // row value, set later
+          col, // col value, set later
+          defMood: '', // mood value
+          defNum: '', // num value of tile, set later
+          onMouseDown: (r, c) => handleMouseDown(r, c),
+          isNotActive: true, // set all tiles to default
+        };
+        currentRow.push(currentTile);
       }
       grid.push(currentRow);
     }
@@ -107,17 +95,17 @@ function Calendar() {
   }
 
   function loadCalendarBodyInfo(dateData) {
-    let currentMood = "";
-    let currentDay = new Date(currentYear, currentMonth, 1);
+    let currentMood = '';
+    const currentDay = new Date(currentYear, currentMonth, 1);
 
-    let firstDayOfWeekIndex = currentDay.getDay(); // 0 to 6, sunday is first
+    const firstDayOfWeekIndex = currentDay.getDay(); // 0 to 6, sunday is first
     let active = false;
     let finished = false;
 
     const grid = initializeGrid();
-    let newInfoGrid = [];
-    let newInfoRow = undefined;
-    const calendarBody = grid.map((row, rowIndex) => {
+    const newInfoGrid = [];
+    let newInfoRow;
+    const newCalendarBody = grid.map((row, rowIndex) => {
       // skip the first iteration, newInfoRow is undefined
       if (newInfoRow) {
         newInfoGrid.push(newInfoRow);
@@ -126,31 +114,29 @@ function Calendar() {
 
       // return from the column map, whole row
       return (
-        <tbody>
-          <tr key={rowIndex}>
+        <tbody key={rowIndex}>
+          <tr>
             {row.map((tile, tileIndex) => {
               let currentInfo = { // set all info for Tile
-                calLost: "N/A",
-                calCons: "N/A",
-                weight: "N/A",
-                numWork: "N/A",
-                numStep: "N/A",
-                mood: "N/A"
-              }
+                calLost: 'N/A',
+                calCons: 'N/A',
+                weight: 'N/A',
+                numWork: 'N/A',
+                numStep: 'N/A',
+                mood: 'N/A',
+              };
 
               // return from the row map, single Tile
-              const {onMouseDown, def_mood, def_num} = tile; // is from the currentTile Object
+              const { onMouseDown, defMood, defNum } = tile; // is from the currentTile Object
 
               // wait until proper day of the week
               if (!active) {
                 // check day of the week before index
-                if (firstDayOfWeekIndex === tileIndex && !finished)
-                {
-                  // needed to offset currentDay to 1 
+                if (firstDayOfWeekIndex === tileIndex && !finished) {
+                  // needed to offset currentDay to 1
                   currentDay.setDate(currentDay.getDate() - 1);
                   active = true;
-                }
-                else {
+                } else {
                   newInfoRow.push({}); // won't be accessed anyway
 
                   // return blank tile
@@ -161,8 +147,8 @@ function Calendar() {
                         onMouseDown={onMouseDown}
                         row={rowIndex}
                         col={tileIndex}
-                        mood={def_mood}
-                        num={def_num}
+                        mood={defMood}
+                        num={defNum}
                         isNotActive={true}
                         ></Tile>
                     </td>
@@ -180,13 +166,12 @@ function Calendar() {
                   // check if this day has a mood loggged
                   if (thisDateData !== undefined) {
                     currentMood = thisDateData.mood; // may need to check if undefined
-                    
+
                     // merge the two objects, if data exists it'll overwrite the 'N/A'
-                    currentInfo = {...currentInfo, ...thisDateData};
+                    currentInfo = { ...currentInfo, ...thisDateData };
                     newInfoRow.push(currentInfo);
-                  }
-                  else {
-                    currentMood = "";
+                  } else {
+                    currentMood = '';
                     newInfoRow.push(currentInfo); // empty info
                   }
 
@@ -204,28 +189,27 @@ function Calendar() {
                       </td>
                   );
                 }
-                else // return blank tile when loading ends
-                {
-                  newInfoRow.push({});
-                  finished = true;
-                  active = false;
-                  return (
+
+                newInfoRow.push({});
+                finished = true;
+                active = false;
+                return (
                     <td>
                       <Tile
                         key={tileIndex}
                         onMouseDown={onMouseDown}
                         row={rowIndex}
                         col={tileIndex}
-                        mood={def_mood}
-                        num={def_num}
+                        mood={defMood}
+                        num={defNum}
                         isNotActive={true}
                         ></Tile>
                     </td>
-                  );
-                }
+                );
               }
               // return default to suppres warnings
-              return <Tile />;})
+              return <Tile key="invalid"/>;
+            })
             }
           </tr>
         </tbody>
@@ -234,8 +218,13 @@ function Calendar() {
     newInfoGrid.push(newInfoRow); // must push last row
     gridOfInfo = newInfoGrid; // set component variable to newGrid
 
-    return calendarBody;
+    return newCalendarBody;
   }
+
+  // runs on first render, and any time month or selected tile is changed
+  useEffect(() => {
+    setCalendar(loadCalendarBodyInfo(exampleDateData));
+  }, [currentMonth, selectedTile]);
 
   return (
     <div className='calendar'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 import homeIcon from './images/home_icon.svg';
 import calendarIcon from './images/calendar_icon.svg';
@@ -7,12 +7,11 @@ import weightIcon from './images/dumbbell.png';
 
 /* Vertical NavBar using fixed positioning in CSS
   This will be an object that provides links to all of the other user pages
-  
+
   Navbar should be a list of nested links
   The title attribute of links shows text when you hover over it
 */
-function NavBar()
-{
+function NavBar() {
   return (
     <div className='navbar'>
       <ul>
