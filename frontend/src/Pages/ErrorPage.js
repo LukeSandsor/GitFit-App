@@ -1,10 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // this page should show up if there is something wrong with url
-function ErrorPage()
-{
-
+function ErrorPage() {
   return (
     <div>
       <h3>GitFit: ErrorPage</h3>

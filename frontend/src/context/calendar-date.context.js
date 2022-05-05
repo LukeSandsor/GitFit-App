@@ -1,8 +1,8 @@
-import {createContext} from 'react';
+import { createContext } from 'react';
 
 const CalendarDateInfoContext = createContext({
   dailyInfo: {},
-  updateDay: () => {}
+  updateDay: () => {},
 });
 
 export default CalendarDateInfoContext;

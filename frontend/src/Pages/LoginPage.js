@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function LoginPage()
-{
+function LoginPage() {
   // we probably want to redirect logged in users to summary page
   // leave summary link in for now
   return (

@@ -1,8 +1,6 @@
 import React from 'react';
 
-function RegisterPage()
-{
-
+function RegisterPage() {
   return (
     <div>
       <h3>GitFit: Register</h3>
