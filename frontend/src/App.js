@@ -16,26 +16,26 @@ function App() {
   // we might want to have a folder with all of the pages inside
   return (
     <div className="App">
-        <div style={{ width: '100%' }}>
-          <Routes>
-            <Route path="/" exact element={<HomePage />}/>
-            <Route path="/login" element={<LoginPage />}/>
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/summary" element={<SummaryPage />} />
-            <Route path="/calendar" element={<CalendarPage />} />
-            <Route path="/weights" element={<WeightsPage />} />
-            <Route path="/bmi" element={<BMIPage />} />
-            <Route path="*" element={<ErrorPage />}/>
-          </Routes>
-        </div>
-        <a
-          className="App-link"
-          href="https://github.com/LukeSandsor/GitFit-App"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Link to GitHub Repo
-        </a>
+      <div style={{ width: '100%' }}>
+        <Routes>
+          <Route path="/" exact element={<HomePage />}/>
+          <Route path="/login" element={<LoginPage />}/>
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/summary" element={<SummaryPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/weights" element={<WeightsPage />} />
+          <Route path="/bmi" element={<BMIPage />} />
+          <Route path="*" element={<ErrorPage />}/>
+        </Routes>
+      </div>
+      <a
+        className="App-link"
+        href="https://github.com/LukeSandsor/GitFit-App"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Link to GitHub Repo
+      </a>
     </div>
   );
 }
