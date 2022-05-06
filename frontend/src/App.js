@@ -8,7 +8,6 @@ import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
 import BMIPage from './Pages/BMIPage';
-import {Route, Routes} from 'react-router-dom';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
