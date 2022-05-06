@@ -1,0 +1,950 @@
+:root{
+    --table_top: 
+}
+
+.block--calcInfo{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 3px;
+    height: 150px;
+    width: 1000px;
+    border-radius: 40px;
+    position: relative;
+    top: -350px;
+    left: 0px;
+}
+
+.block--calcInfo2{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 50px;
+    height: 150px;
+    width: 800px;
+    border-radius: 40px;
+    position: relative;
+    /* top: 50px;
+    left: 150px; */
+}
+
+/* .circleWrapper{
+    position: relative;
+} */
+
+#circleWrapper{
+    width: 250px;
+    height: 250px;
+    margin: 25px;
+    position: relative;
+    float: right;
+    right: 75px;
+    z-index: 100;
+}
+
+.circle2{
+    background-color: rgb(12, 139, 146);
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    height: 250px;
+    width: 250px;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#circlePulse,
+#navi,
+#infoi{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#infoi{
+    z-index: 10;
+}
+
+#navi{
+    background-color: rgb(12, 139, 146);
+    border-radius: 50%;
+    animation-name: createCircle;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#circlePulse{
+    background-color: rgb(0, 214, 225);
+    border-radius: 50%;
+    animation-name: pulseCircle;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+.circleText2{
+        background-color: rgba(255, 0, 0, 0);
+        opacity: 0;
+        border-radius: 50%;
+        position: relative;
+        height: 250px;
+        width: 250px;
+        display: inline-block;
+        animation-name: fadeIn;
+        animation-delay: 0.5s;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+}
+
+@keyframes pulseCircle {
+    0%{
+        top: -5px;
+        left: -5px;
+        height:260px;
+        width: 260px;
+    }
+    50%{
+        top: -25px;
+        left: -25px;
+        height: 300px;
+        width: 300px;
+    }
+    100%{
+        top: -5px;
+        left: -5px;
+        height:260px;
+        width: 260px;
+    }
+}
+
+@keyframes createCircle{
+    from{
+        top: 125px;
+        left: 125px;
+        height:0px;
+        width: 0px;
+
+    }
+    to{
+        top: 0px;
+        left: 0px;
+        height: 250px;
+        width: 250px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+.calculator{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 25px;
+    height: 600px;
+    width: 400px;
+    border-radius: 40px;
+    position: relative;
+    float: right;
+}
+
+table {
+    border-spacing: 0.5rem;
+  }
+  td {
+    padding: 0.5rem;
+  }
+  
+  td:nth-child(1) { background: hsl(150, 50%, 50%); }
+  td:nth-child(2) { background: hsl(160, 60%, 50%); }
+  td:nth-child(3) { background: hsl(170, 70%, 50%); }
+  td:nth-child(4) { background: hsl(180, 80%, 50%); }
+  td:nth-child(5) { background: hsl(190, 90%, 50%); }
+  td:nth-child(6) { background: hsl(200, 99%, 50%); }
+  td::first-letter(2) { background: hsl(200, 99%, 50%); }
+  td:matches(210) {background: hsl(200, 99%, 50%);}
+
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.weights{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 3px;
+    height: 50px;
+    width: 1000px;
+    border-radius: 40px;
+    position: absolute;
+    top: 300px;
+    left: 225px;
+}
+
+.heights{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 3px;
+    height: 50px;
+    width: 500px;
+    border-radius: 40px;
+    position: absolute;
+    top: 600px;
+    left: -50px;
+    transform: rotate(-90deg);
+}
+
+.col0-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -280px;
+}
+
+.col1-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -340px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col2-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -380px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col3-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -420px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col4-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -460px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col5-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -500px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col6-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -540px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col7-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -580px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col8-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -620px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col9-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -660px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col10-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -700px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col11-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -740px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col12-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -780px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col13-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -820px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col14-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -860px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col15-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -900px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col16-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -940px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col17-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -980px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col18-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1020px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col19-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1060px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col20-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1100px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col21-row0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1140px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col0-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -280px;
+}
+
+.col1-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -340px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col2-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -380px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col3-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -420px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col4-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -460px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col5-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -500px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col6-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -540px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col7-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -580px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col8-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -620px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col9-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -660px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col10-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -700px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col11-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -740px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col12-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -780px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col13-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -820px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col14-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -860px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col15-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -900px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col16-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -940px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col17-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -980px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col18-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1020px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col19-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1060px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col20-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1100px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col21-underweight{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -1140px;
+    animation-name: shift-underweight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+.col0{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    top: -300px;
+    left: -500px;
+}
+
+.col1{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    left: -540px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.col2{
+    background-color: rgb(12, 139, 146);
+    display: inline-block;
+    margin: 2px;
+    height: 21px;
+    width: 36px;
+    border-radius: 5px;
+    position: relative;
+    left: -580px;
+    animation-name: shift;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+@keyframes shift {
+    from {}
+    to {left: -260px;}
+  }
+
+  @keyframes shift-underweight {
+    from {}
+    to {left: -260px; background-color: rgb(90, 170, 223);}
+  }
+  @keyframes shift-healthy {
+    from {}
+    to {left: -260px; background-color: rgb(37, 190, 104);}
+  }
+  @keyframes shift-overweight {
+    from {}
+    to {left: -260px; background-color: rgb(232, 237, 90);}
+  }
+  @keyframes shift-obese {
+    from {}
+    to {left: -260px; background-color: rgb(237, 173, 90);}
+  }
+  @keyframes shift-extremely-obese {
+    from {}
+    to {left: -260px; background-color: rgb(218, 107, 90);}
+  }
+
+@keyframes col1-underweight {
+    from {top: 0px; left: 0px}
+    to {top: 0px; left: 50px; background-color: blue;}
+  }
+
+  @keyframes col1-healthy {
+    from {top: 200px; left: 300px}
+    to {top: 400px; left: 200px; background-color: rgb(0, 255, 81);}
+  }
+
+  @keyframes col1-overweight {
+    from {top: 200px; left: 300px}
+    to {top: 400px; left: 200px; background-color: rgb(0, 255, 81);}
+  }
+
+  @keyframes col2 {
+    from {top: 200px; left: 300px}
+    to {top: 400px; left: 200px; background-color: blue;}
+  }
+
+  @keyframes col3 {
+    from {top: 200px; left: 300px}
+    to {top: 400px; left: 200px; background-color: blue;}
+  }

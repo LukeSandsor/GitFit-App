@@ -4,6 +4,7 @@ import './NavBar.css';
 import homeIcon from './images/home_icon.svg';
 import calendarIcon from './images/calendar_icon.svg';
 import weightIcon from './images/dumbbell.png';
+import bmiIcon from './images/BMI_icon3.png';
 
 /* Vertical NavBar using fixed positioning in CSS
   This will be an object that provides links to all of the other user pages
@@ -28,6 +29,11 @@ function NavBar() {
         <li>
           <Link to="/weights" title="Weight Training">
             <img src={weightIcon} className="navbar-icon" alt="Weight" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/bmi" title="BMI">
+            <img src={bmiIcon} className="navbar-icon" alt="BMI" />
           </Link>
         </li>
       </ul>
