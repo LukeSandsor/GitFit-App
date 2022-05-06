@@ -20,7 +20,8 @@ https://docs.google.com/document/d/1CP-tN6rDFB8FBo0jSky3IIFh5eqhp1LKlqd6ki4Q-wI/
 https://gitfit.lucasreyna.me
 https://gitfit.lucasreyna.me/advice
 
-### Results 
+### Style and Formatting
+Using eslint to enfore the AirBnB style seen in this link https://airbnb.io/javascript/react/
 
 
 ### Takeaways 
