@@ -1,0 +1,107 @@
+#root
+{
+  overflow-x: hidden;
+}
+
+#date-block {
+  width: fit-content;
+  float: right;
+  position: relative;
+  right: -100px;
+  display: block;
+  color: black;
+  background-color: white;
+  padding: 25px 100px 25px 25px;
+  border-radius:  15px 0 0 15px;
+  box-shadow: 0 0 25px black;
+}
+
+#mood-picker {
+  background-color: salmon;
+  width: 500px;
+  border: 2px dotted white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  box-shadow: 0 0 25px black;
+  border-radius: 5px;
+
+  /* this makes it so you can't highlight this object */
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10 */
+
+  /* Currently not supported in Opera but will be soon */
+  -o-user-select: none;
+  user-select: none;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /*************/
+}
+
+#mood-picker > p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+}
+
+#mood-picker > ul {
+  padding: 0;
+  margin: 0;
+}
+
+#mood-picker > ul > li {
+  list-style-type: none;
+  margin: 5px;
+  font-size: 48px;
+  width: 72px;       /* needed to freeze components in place */
+  line-height: 40px; /* needed to freeze components in place */
+  display: inline-block;
+  vertical-align: middle;
+  transition: 0.3s;
+}
+
+#mood-picker > ul > li:hover {
+  font-size: 72px; /* same value as width */
+}
+
+#adviceDisplay {
+  border-radius: 50px 0 0 0;
+  position: absolute;
+  background-color: turquoise;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  max-height: 150px;
+  box-shadow: 0 0 50px black;
+
+  /* this makes it so you can't highlight this object */
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10 */
+
+  /* Currently not supported in Opera but will be soon */
+  -o-user-select: none;
+  user-select: none;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /*************/
+}
+
+#adviceDisplay > a {
+  color: purple;
+  line-height: 3;
+}
+
+#advice-text-block {
+  border-radius: 50px 0 0 0;
+  background-color: lightblue;
+  color: black;
+  font-style: oblique;
+  padding: 15px 50px 15px 50px; /* top right bottom left */
+}

@@ -1,0 +1,25 @@
+.btn {
+/* Frame 48 */
+
+/* Auto layout */
+align-items: center;
+max-width: 300px;
+padding: 5px;
+
+/* Primary / Main */
+background: #4C4DDC;
+border-radius: 10px;
+align-self: center;
+
+
+/* Body/Large/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+align-items: center;
+
+/* Neutral/ 10 */
+color: #FFFFFF;
+}
