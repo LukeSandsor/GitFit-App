@@ -4,11 +4,10 @@
   width: 75px;
   outline: 1px solid black;
   display: table-cell;
+  position: relative;
   background-color: lavender;
   border-radius: 3px;
-
   vertical-align: middle;
-  
   transition: 0.1s;
 }
 
@@ -21,19 +20,22 @@
   text-align: center;
   font-size: 36px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  position: relative;
-  left: 10px;
   color: black;
 }
 
 .tile-mood {
-  position: relative;
-  font-size: 24px;
-  top: 20px;
-  left: 5px;
+  position: absolute;
+  font-size: 30px;
+  right: 0;
+  top: 42px;
 }
 
 /* selected tile will have a different color */
 .selected-tile {
   background-color: lightgreen;
+}
+
+/* selected tile will have a different color */
+.inactive-tile {
+  background-color: gray;
 }

@@ -3,8 +3,6 @@ name: Full Stack Deployment
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   deploy_backend:
@@ -46,6 +44,9 @@ jobs:
     - name: Install Packages # remember the frontend directory context
       working-directory: ./frontend
       run: npm install
+    - name: Set ENV
+      working-directory: ./frontend
+      run: echo "SKIP_PREFLIGHT_CHECK=true" > .env
     - name: Build page
       working-directory: ./frontend
       run: npm run build && cp ./CNAME ./build/CNAME

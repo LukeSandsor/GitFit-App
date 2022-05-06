@@ -2,8 +2,9 @@
   background-color: rgb(63, 133, 157);
   border: 5px solid black;
   border-radius: 30px;
-  padding: 50px;
+  padding: 30px 50px 50px 50px;
   display: inline-block;
+  vertical-align: inherit;
   width: max-content;
 
   /* this makes it so you can't highlight this object */
@@ -20,18 +21,33 @@
   /*************/
 }
 
+.calendar-top {
+  color: inherit;
+}
+
 /* For the arrow buttons on Calendar */
 .arrow-button {
-  font-size: larger;
+  font-size: 40px;
   font-weight: bold;
   background-color: white;
+  width: 75px;
+  border-radius: 5px;
+  vertical-align: super;
 }
 
 /* For Month and Year Appearance */
 #month-year-text {
   font-family:'Times New Roman', Times, serif;
   font-size: 36pt;
+  display: inline-block;
+  width: 390px;
   margin: 3%;
+  text-decoration: underline;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: currentcolor;
+  text-decoration-thickness: auto;
+  text-decoration-color: brown;
 }
 
 /* For Day of Week Text "Su", etc. */
