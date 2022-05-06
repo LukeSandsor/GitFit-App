@@ -1,19 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "8cab133f01d1e3fd70d6",
-    "url": "/static/css/main.8fa42f15.chunk.css"
+    "revision": "a7fd9d6481254b4761bf",
+    "url": "/static/css/main.02701ed5.chunk.css"
   },
   {
-    "revision": "8cab133f01d1e3fd70d6",
-    "url": "/static/js/main.ff1d978d.chunk.js"
+    "revision": "a7fd9d6481254b4761bf",
+    "url": "/static/js/main.519a4c72.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "a5d559ff37e84c0e78ee",
-    "url": "/static/js/2.2e2233a2.chunk.js"
+    "revision": "f5e30ffc4da5d1d1d968",
+    "url": "/static/js/2.79f63dec.chunk.js"
+  },
+  {
+    "revision": "66da254ff7d9196d8b0df06bbeb1dfeb",
+    "url": "/static/media/GitFitLogo.66da254f.svg"
   },
   {
     "revision": "2e6e928c2ad474ac2d6f45d97f2bce90",
@@ -32,6 +36,10 @@ self.__precacheManifest = [
     "url": "/static/media/dumbbell.87d71c09.png"
   },
   {
+    "revision": "895df7d0ac55e22c301aded845f2f4fa",
+    "url": "/static/media/BMI_icon3.895df7d0.png"
+  },
+  {
     "revision": "dddcf89c5edb21eb4b842fd01af20045",
     "url": "/static/media/PushLogo.dddcf89c.png"
   },
@@ -44,7 +52,7 @@ self.__precacheManifest = [
     "url": "/static/media/LegsLogo.047d97b4.png"
   },
   {
-    "revision": "67e6fc421f224c8bfb778023c6571ee2",
+    "revision": "747c0af2b3bae720d9a35af377b4a068",
     "url": "/index.html"
   }
 ];
