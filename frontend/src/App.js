@@ -1,6 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import './App.css';
+import { Link } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
@@ -9,6 +10,7 @@ import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
 import BMIPage from './Pages/BMIPage';
+import AboutPage from './Pages/AboutPage';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
@@ -25,9 +27,15 @@ function App() {
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/weights" element={<WeightsPage />} />
           <Route path="/bmi" element={<BMIPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<ErrorPage />}/>
         </Routes>
       </div>
+      <a href="/#">
+        <Link to="/about" title="Summary">
+            About GitFit
+        </Link>
+      </a>
       <a
         className="App-link"
         href="https://github.com/LukeSandsor/GitFit-App"
