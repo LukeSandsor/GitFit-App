@@ -19,7 +19,7 @@
     display: inline-block;
     margin: 50px;
     height: 150px;
-    width: 800px;
+    width: 1000px;
     border-radius: 40px;
     position: relative;
     /* top: 50px;
@@ -150,26 +150,59 @@
     float: right;
 }
 
-table {
+/* table {
     border-spacing: 0.5rem;
   }
   td {
     padding: 0.5rem;
-  }
+  } */
   
-  td:nth-child(1) { background: hsl(150, 50%, 50%); }
+  /* td:nth-child(1) { background: hsl(150, 50%, 50%); }
   td:nth-child(2) { background: hsl(160, 60%, 50%); }
   td:nth-child(3) { background: hsl(170, 70%, 50%); }
   td:nth-child(4) { background: hsl(180, 80%, 50%); }
   td:nth-child(5) { background: hsl(190, 90%, 50%); }
   td:nth-child(6) { background: hsl(200, 99%, 50%); }
   td::first-letter(2) { background: hsl(200, 99%, 50%); }
-  td:matches(210) {background: hsl(200, 99%, 50%);}
+  td:matches(210) {background: hsl(200, 99%, 50%);} */
 
-.centered{
+.centeredBMI{
     margin-left: auto;
     margin-right: auto;
+    border-collapse: separate;
+    border: solid rgb(0, 214, 225) 10px;
+    border-spacing: 0.5rem;
+    border-radius: 10px;
+    background-color: rgb(12, 139, 146);
+    position: relative;
+    left: 100px;
+    float: left;
 }
+
+.tableRowBMI{
+    background-color: rgb(146, 86, 12);
+}
+
+.tableHeaderBMI{
+    background-color: rgb(12, 139, 146);
+}
+
+.tableCellUnderweight{
+    background-color: rgb(3, 150, 218);
+}
+.tableCellHealthy{
+    background-color: rgb(24, 116, 16);
+}
+.tableCellOverweight{
+    background-color: rgb(139, 134, 0);
+}
+.tableCellObese{
+    background-color: rgb(169, 110, 1);
+}
+.tableCellExtremelyObese{
+    background-color: rgb(169, 23, 1);
+}
+
 
 
 .weights{
