@@ -2,10 +2,6 @@ import React from 'react';
 // import {Link} from 'react-router-dom';
 import './WeightsPage.css';
 import './BMIPage.css';
-// import './Calculate.js';
-// import pushLogo from "../images/PushLogo.png";
-// import pullLogo from "../images/PullLogo.png";
-// import legsLogo from "../images/LegsLogo.png";
 import NavBar from '../NavBar';
 
 function calculateBMI(height, weight, BMI, heightError, weightError){
