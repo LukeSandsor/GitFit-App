@@ -2,7 +2,7 @@
   vertical-align: middle;
 }
 
-#page-contents > div {
+#page-contents>div {
   margin-top: 50px;
 }
 
@@ -21,7 +21,7 @@
   border-radius: 50px;
 }
 
-#day-title > p {
+#day-title>p {
   height: 30px;
   margin: 15px 5px 5px 5px;
   font-size: 30px;
@@ -40,6 +40,6 @@
 }
 
 /* necessary because emojis change line height */
-#daily-breakdown > p {
+#daily-breakdown>p {
   line-height: 20px !important;
 }
