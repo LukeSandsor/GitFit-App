@@ -1,8 +1,6 @@
 import React from 'react';
 
-function LoginPage()
-{
-
+function RegisterPage() {
   return (
     <div>
       <h3>GitFit: Register</h3>
@@ -10,4 +8,4 @@ function LoginPage()
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

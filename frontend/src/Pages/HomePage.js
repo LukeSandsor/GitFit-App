@@ -1,10 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../dumbell.svg';
-import {Link} from 'react-router-dom';
 
-function HomePage()
-{
-
+function HomePage() {
   return (
     <div>
       <h3>GitFit: Home</h3>

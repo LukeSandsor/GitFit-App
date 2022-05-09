@@ -7,9 +7,12 @@ import RegisterPage from './Pages/RegisterPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
+<<<<<<< HEAD
 import NutritionPage from './Pages/NutritionPage';
 import {Route, Routes} from 'react-router-dom';
+=======
 import ErrorPage from './Pages/ErrorPage';
+>>>>>>> main
 
 function App() {
   // note that the Route changes what's being rendered, it doesn't actually load a new page
@@ -24,7 +27,11 @@ function App() {
             <Route path="/summary" element={<SummaryPage />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/weights" element={<WeightsPage />} />
+<<<<<<< HEAD
             <Route path='/nutrition' element={<NutritionPage />} />
+=======
+            <Route path="*" element={<ErrorPage />}/>
+>>>>>>> main
           </Routes>
         </div>
         <a
