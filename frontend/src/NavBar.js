@@ -6,7 +6,6 @@ import calendarIcon from './images/calendar_icon.svg';
 import weightIcon from './images/dumbbell.png';
 import nutritionIcon from './images/nutrition.png'
 import bmiIcon from './images/BMI_icon3.png';
-import nutritionIcon from './images/nutrition.png'
 
 /* Vertical NavBar using fixed positioning in CSS
   This will be an object that provides links to all of the other user pages

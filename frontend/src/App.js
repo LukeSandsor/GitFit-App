@@ -12,7 +12,6 @@ import WeightsPage from './Pages/WeightsPage';
 import NutritionPage from './Pages/NutritionPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
-import NutritionPage from './Pages/NutritionPage';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
