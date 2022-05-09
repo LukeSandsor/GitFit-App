@@ -1,15 +1,15 @@
 {
-  "main.css": "/static/css/main.4c75dcdb.chunk.css",
-  "main.js": "/static/js/main.2ef5faf5.chunk.js",
-  "main.js.map": "/static/js/main.2ef5faf5.chunk.js.map",
+  "main.css": "/static/css/main.0b181a6c.chunk.css",
+  "main.js": "/static/js/main.8f2df2f3.chunk.js",
+  "main.js.map": "/static/js/main.8f2df2f3.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
   "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/js/2.659dcd53.chunk.js": "/static/js/2.659dcd53.chunk.js",
-  "static/js/2.659dcd53.chunk.js.map": "/static/js/2.659dcd53.chunk.js.map",
+  "static/js/2.e260cc57.chunk.js": "/static/js/2.e260cc57.chunk.js",
+  "static/js/2.e260cc57.chunk.js.map": "/static/js/2.e260cc57.chunk.js.map",
   "index.html": "/index.html",
-  "precache-manifest.cbef122bc6a0c3a6ffda095f771bcb66.js": "/precache-manifest.cbef122bc6a0c3a6ffda095f771bcb66.js",
+  "precache-manifest.1de99856412f8f1756e2165390aa7f69.js": "/precache-manifest.1de99856412f8f1756e2165390aa7f69.js",
   "service-worker.js": "/service-worker.js",
-  "static/css/main.4c75dcdb.chunk.css.map": "/static/css/main.4c75dcdb.chunk.css.map",
+  "static/css/main.0b181a6c.chunk.css.map": "/static/css/main.0b181a6c.chunk.css.map",
   "static/media/BMI_icon3.png": "/static/media/BMI_icon3.895df7d0.png",
   "static/media/GitFitLogo.svg": "/static/media/GitFitLogo.66da254f.svg",
   "static/media/LegsLogo.png": "/static/media/LegsLogo.047d97b4.png",
@@ -20,5 +20,6 @@
   "static/media/dumbbell.png": "/static/media/dumbbell.87d71c09.png",
   "static/media/dumbell.svg": "/static/media/dumbell.2e6e928c.svg",
   "static/media/groupPhoto.png": "/static/media/groupPhoto.963f2fe6.png",
-  "static/media/home_icon.svg": "/static/media/home_icon.293e730f.svg"
+  "static/media/home_icon.svg": "/static/media/home_icon.293e730f.svg",
+  "static/media/nutrition.png": "/static/media/nutrition.4e795d1c.png"
 }
