@@ -4,6 +4,7 @@ import './NavBar.css';
 import homeIcon from './images/home_icon.svg';
 import calendarIcon from './images/calendar_icon.svg';
 import weightIcon from './images/dumbbell.png';
+import nutritionIcon from './images/nutrition.png'
 import bmiIcon from './images/BMI_icon3.png';
 
 /* Vertical NavBar using fixed positioning in CSS
@@ -29,6 +30,11 @@ function NavBar() {
         <li>
           <Link to="/weights" title="Weight Training">
             <img src={weightIcon} className="navbar-icon" alt="Weight" />
+          </Link>
+        </li>
+        <li>
+          <Link to='/nutrition'>
+            <img src={nutritionIcon} className="navbar-icon" alt="Nutrition"/>
           </Link>
         </li>
         <li>

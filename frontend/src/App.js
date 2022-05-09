@@ -9,6 +9,7 @@ import RegisterPage from './Pages/RegisterPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
+import NutritionPage from './Pages/NutritionPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
 import ErrorPage from './Pages/ErrorPage';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/summary" element={<SummaryPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/weights" element={<WeightsPage />} />
+          <Route path='/nutrition' element={<NutritionPage />} />
           <Route path="/bmi" element={<BMIPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<ErrorPage />}/>
