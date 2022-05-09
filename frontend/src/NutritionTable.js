@@ -1,6 +1,6 @@
 import React from 'react';
-import './Pages/NutritionPage.css'
-import TableScrollBar from 'react-table-scrollbar'
+import './Pages/NutritionPage.css';
+import TableScrollBar from 'react-table-scrollbar';
 
 function TableHeader() {
     return (
@@ -37,7 +37,7 @@ function TableBody(props) {
 
 function NutritionTable (props) {
     return (
-        <TableScrollBar rows={6}>
+        <TableScrollBar rows={6.5}>
             <table className='macro-table'>
                 <TableHeader />
                 <TableBody foodOptions={props.foodOptions} />
