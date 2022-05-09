@@ -5,7 +5,6 @@ import './WeightsPage.css';
 import pushLogo from '../images/PushLogo.png';
 import pullLogo from '../images/PullLogo.png';
 import legsLogo from '../images/LegsLogo.png';
-import gitfitlogo from '../images/GitFitLogo.svg';
 // eslint-disable-next-line import/no-named-as-default
 import NavBar from '../NavBar';
 
@@ -13,7 +12,6 @@ function WeightsPage() {
   return (
         <div >
             <NavBar/>
-            <div className='GitFit logo'><img src={gitfitlogo} alt="GitFit Logo" sytle={{ verticalAlign: 'top', width: 700, height: 250 }}></img></div>
             <h1>Weight Training</h1>
             <div className="block--styling">
                 <h3>Push</h3>

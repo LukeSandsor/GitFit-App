@@ -1,0 +1,76 @@
+/* Not a member? Create an account */
+
+.bttn {
+    align-items: center;
+    max-width: 300px;
+    padding: 5px;
+    width: 25%;
+    max-width: 700px;
+    height: 15%;
+    max-height: 200px;
+    
+    /* Primary / Main */
+    background: #1f6bb2;
+    border-radius: 10px;
+    align-self: center;
+    
+    
+    /* Body/Large/Semi Bold */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    align-items: center;
+    cursor: pointer;
+    
+    /* Neutral/ 10 */
+    color: #FFFFFF;
+}
+.bttn:hover {
+  background: #009cad;
+}
+
+.login {
+  font-family: sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 15px;
+  color: #444444;
+  font-weight: 'bold';
+  font-size: 32px; 
+}
+
+
+input[type="text"],
+input[type="password"] {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #1f6bb2;
+  border: 1px solid #1f6bb2;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+  background: #009cad;
+}
+
+.input-container {
+  gap: 8px;
+  margin: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.input-box {
+    height: 21px;
+    border-radius: 5px;
+}
