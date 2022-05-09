@@ -115,6 +115,8 @@ function NutritionPage() {
             </div>
             <div className='food-selecter-container'>
                 <div className='log-food'>
+                    <h2>Log Meals</h2>
+                    
                     <div  className='food-selecter'>
                         <FoodSelect foodOptions={foodOptions}/>
                     </div>
@@ -128,7 +130,7 @@ function NutritionPage() {
                     </form>
                     <button className='food-button' role='button'>Submit</button>
                 </div>
-                <div>
+                <div className='nutrition-table'>
                     <NutritionTable foodOptions={foodOptions} />
                 </div>
             </div>
