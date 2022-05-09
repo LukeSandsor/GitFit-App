@@ -114,8 +114,19 @@ function NutritionPage() {
                 </table>
             </div>
             <div className='food-selecter-container'>
-                <div className='food-selecter'>
-                    <FoodSelect foodOptions={foodOptions}/>
+                <div className='log-food'>
+                    <div  className='food-selecter'>
+                        <FoodSelect foodOptions={foodOptions}/>
+                    </div>
+                    
+                    <form>
+                        <input
+                            className='food-input'
+                            placeholder='Quantity in grams'
+                            type='text'
+                        />
+                    </form>
+                    <button className='food-button' role='button'>Submit</button>
                 </div>
             </div>
         </div>
