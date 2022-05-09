@@ -9,6 +9,7 @@ import RegisterPage from './Pages/RegisterPage';
 import SummaryPage from './Pages/SummaryPage';
 import CalendarPage from './Pages/CalendarPage';
 import WeightsPage from './Pages/WeightsPage';
+import NutritionPage from './Pages/NutritionPage'
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
 import ErrorPage from './Pages/ErrorPage';
