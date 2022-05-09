@@ -13,7 +13,6 @@ import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
 import NutritionPage from './Pages/NutritionPage';
 import ErrorPage from './Pages/ErrorPage';
-import NutritionPage from './Pages/NutritionPage';
 
 function App() {
   // note that the Route changes what's being rendered, it doesn't actually load a new page
