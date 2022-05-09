@@ -2,9 +2,9 @@ import React from 'react';
 import NavBar from '../NavBar';
 import DoughnutChart from '../DoughnutChart';
 import BarChart from '../BarChart';
-import './NutritionPage.css'
-import FoodSelect from '../FoodSelect.js'
-import NutritionTable from '../NutritionTable.js'
+import './NutritionPage.css';
+import FoodSelect from '../FoodSelect';
+import NutritionTable from '../NutritionTable';
 
 function NutritionPage() {
 

@@ -31,7 +31,7 @@ function SummaryPage() {
   return (
     <div id="summary-page" className="user-page">
       <NavBar/>
-      <h3>GitFit: Summary</h3>
+      <h1>Summary</h1>
       <h3 id='date-block'>{`${monthStrs[(new Date()).getMonth()]} ${(new Date()).getDate()}, ${(new Date()).getFullYear()}`}</h3>
       <div id="mood-picker">
         <p>Pick a mood that describes your day:</p>
