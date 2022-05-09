@@ -3,8 +3,8 @@ import NavBar from '../NavBar';
 import DoughnutChart from '../DoughnutChart';
 import BarChart from '../BarChart';
 import './NutritionPage.css'
-import TableScrollBar from 'react-table-scrollbar';
 import FoodSelect from '../FoodSelect.js'
+import NutritionTable from '../NutritionTable.js'
 
 function NutritionPage() {
 
@@ -127,6 +127,9 @@ function NutritionPage() {
                         />
                     </form>
                     <button className='food-button' role='button'>Submit</button>
+                </div>
+                <div>
+                    <NutritionTable foodOptions={foodOptions} />
                 </div>
             </div>
         </div>

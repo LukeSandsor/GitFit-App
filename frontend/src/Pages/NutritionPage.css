@@ -71,7 +71,6 @@
     color: #fff;
     cursor: pointer;
     display: inline-flex;
-    font-family: "JetBrains Mono",monospace;
     height: 30px;
     justify-content: center;
     line-height: 1;
@@ -91,26 +90,22 @@
     font-size: 18px;
 }
 
-.food-button:active {
-    transform: translateY(5px);
-}
-
-.button-29:focus {
+.food-button:focus {
   box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
-.button-29:hover {
+.food-button:hover {
   box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
-.button-29:active {
+.food-button:active {
   box-shadow: #3c4fe0 0 3px 7px inset;
   transform: translateY(2px);
 }
 
 table {
-    width: 1060px;
+    width: 100%;
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.852);
