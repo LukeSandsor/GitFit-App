@@ -40,7 +40,7 @@ function WeightsPage()
                 <br></br>
                 <br></br>
                 <label style={{textAlign: "center"}}>
-                            <text style={{color: 'white', fontSize: 40}}>BMI = Weight (lbs) / Height^2 (in^2) x 703</text>                  
+                            <text style={{color: 'white', fontSize: 40}}>BMI = Weight (lbs) / Height<sup>2</sup> (in<sup>2</sup>) x 703</text>                  
                 </label>
             </div>
             <div id="circleWrapper">
@@ -138,243 +138,243 @@ function WeightsPage()
                </tr>
                <tr>
                     <th>4'10"</th>
-                    <td className='tableCellHealthy'>20</td>
-                   <td className='tableCellHealthy'>22</td>
-                   <td className='tableCellHealthy'>25</td>
+                    <td className='tableCellHealthy'>19</td>
+                   <td className='tableCellHealthy'>21</td>
+                   <td className='tableCellHealthy'>23</td>
+                   <td className='tableCellOverweight'>25</td>
                    <td className='tableCellOverweight'>27</td>
                    <td className='tableCellOverweight'>29</td>
-                   <td className='tableCellOverweight'>31</td>
+                   <td className='tableCellObese'>31</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>36</td>
+                   <td className='tableCellObese'>38</td>
+                   <td className='tableCellExtremelyObese'>40</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>44</td>
+                   <td className='tableCellExtremelyObese'>46</td>
+                   <td className='tableCellExtremelyObese'>48</td>
+                   <td className='tableCellExtremelyObese'>50</td>
+                   <td className='tableCellExtremelyObese'>52</td>
+                   <td className='tableCellExtremelyObese'>54</td>
+                   <td className='tableCellExtremelyObese'>56</td>
+                   <td className='tableCellExtremelyObese'>59</td>
+                   <td className='tableCellExtremelyObese'>61</td>
+               </tr>
+               <tr>
+                    <th>4'11"</th>
+                    <td className='tableCellUnderweight'>18</td>
+                   <td className='tableCellHealthy'>20</td>
+                   <td className='tableCellHealthy'>22</td>
+                   <td className='tableCellHealthy'>24</td>
+                   <td className='tableCellOverweight'>26</td>
+                   <td className='tableCellOverweight'>28</td>
+                   <td className='tableCellObese'>30</td>
+                   <td className='tableCellObese'>32</td>
                    <td className='tableCellObese'>34</td>
                    <td className='tableCellObese'>36</td>
                    <td className='tableCellObese'>38</td>
-                   <td className='tableCellObese'>40</td>
+                   <td className='tableCellExtremelyObese'>40</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>44</td>
+                   <td className='tableCellExtremelyObese'>46</td>
+                   <td className='tableCellExtremelyObese'>48</td>
+                   <td className='tableCellExtremelyObese'>51</td>
+                   <td className='tableCellExtremelyObese'>53</td>
+                   <td className='tableCellExtremelyObese'>55</td>
+                   <td className='tableCellExtremelyObese'>57</td>
+                   <td className='tableCellExtremelyObese'>59</td>
+               </tr>
+               <tr>
+                    <th>5'0"</th>
+                    <td className='tableCellUnderweight'>18</td>
+                   <td className='tableCellHealthy'>20</td>
+                   <td className='tableCellHealthy'>21</td>
+                   <td className='tableCellHealthy'>23</td>
+                   <td className='tableCellOverweight'>25</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>29</td>
+                   <td className='tableCellObese'>31</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>35</td>
+                   <td className='tableCellObese'>37</td>
+                   <td className='tableCellObese'>39</td>
+                   <td className='tableCellExtremelyObese'>41</td>
                    <td className='tableCellExtremelyObese'>43</td>
                    <td className='tableCellExtremelyObese'>45</td>
                    <td className='tableCellExtremelyObese'>47</td>
                    <td className='tableCellExtremelyObese'>49</td>
-                   <td className='tableCellExtremelyObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
-               </tr>
-               <tr>
-                    <th>4'11"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellHealthy'>22</td>
-                   <td className='tableCellHealthy'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellOverweight'>29</td>
-                   <td className='tableCellOverweight'>31</td>
-                   <td className='tableCellObese'>34</td>
-                   <td className='tableCellObese'>36</td>
-                   <td className='tableCellObese'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellExtremelyObese'>45</td>
-                   <td className='tableCellExtremelyObese'>47</td>
-                   <td className='tableCellExtremelyObese'>49</td>
-                   <td className='tableCellExtremelyObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
-               </tr>
-               <tr>
-                    <th>5'0"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellHealthy'>22</td>
-                   <td className='tableCellHealthy'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellOverweight'>29</td>
-                   <td className='tableCellOverweight'>31</td>
-                   <td className='tableCellOverweight'>34</td>
-                   <td className='tableCellObese'>36</td>
-                   <td className='tableCellObese'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellExtremelyObese'>47</td>
-                   <td className='tableCellExtremelyObese'>49</td>
-                   <td className='tableCellExtremelyObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                   <td className='tableCellExtremelyObese'>51</td>
+                   <td className='tableCellExtremelyObese'>53</td>
+                   <td className='tableCellExtremelyObese'>55</td>
+                   <td className='tableCellExtremelyObese'>57</td>
                </tr>
                <tr>
                     <th>5'1"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellHealthy'>22</td>
-                   <td className='tableCellHealthy'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellOverweight'>29</td>
-                   <td className='tableCellOverweight'>31</td>
-                   <td className='tableCellOverweight'>34</td>
+                    <td className='tableCellUnderweight'>17</td>
+                   <td className='tableCellHealthy'>19</td>
+                   <td className='tableCellHealthy'>21</td>
+                   <td className='tableCellHealthy'>23</td>
+                   <td className='tableCellOverweight'>25</td>
+                   <td className='tableCellOverweight'>26</td>
+                   <td className='tableCellOverweight'>28</td>
+                   <td className='tableCellObese'>30</td>
+                   <td className='tableCellObese'>32</td>
+                   <td className='tableCellObese'>34</td>
                    <td className='tableCellObese'>36</td>
                    <td className='tableCellObese'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
+                   <td className='tableCellExtremelyObese'>40</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>43</td>
+                   <td className='tableCellExtremelyObese'>45</td>
                    <td className='tableCellExtremelyObese'>47</td>
                    <td className='tableCellExtremelyObese'>49</td>
-                   <td className='tableCellExtremelyObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                   <td className='tableCellExtremelyObese'>51</td>
+                   <td className='tableCellExtremelyObese'>53</td>
+                   <td className='tableCellExtremelyObese'>55</td>
                </tr>
                <tr>
                     <th>5'2"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellUnderweight'>22</td>
-                   <td className='tableCellHealthy'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellHealthy'>29</td>
-                   <td className='tableCellOverweight'>31</td>
-                   <td className='tableCellOverweight'>34</td>
-                   <td className='tableCellOverweight'>36</td>
+                    <td className='tableCellUnderweight'>16</td>
+                   <td className='tableCellUnderweight'>18</td>
+                   <td className='tableCellHealthy'>20</td>
+                   <td className='tableCellHealthy'>22</td>
+                   <td className='tableCellHealthy'>24</td>
+                   <td className='tableCellOverweight'>26</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>29</td>
+                   <td className='tableCellObese'>31</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>35</td>
+                   <td className='tableCellObese'>37</td>
                    <td className='tableCellObese'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellObese'>47</td>
+                   <td className='tableCellExtremelyObese'>40</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>44</td>
+                   <td className='tableCellExtremelyObese'>46</td>
+                   <td className='tableCellExtremelyObese'>48</td>
                    <td className='tableCellExtremelyObese'>49</td>
-                   <td className='tableCellExtremelyObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                   <td className='tableCellExtremelyObese'>51</td>
+                   <td className='tableCellExtremelyObese'>53</td>
                </tr>
                <tr>
                     <th>5'3"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellUnderweight'>22</td>
-                   <td className='tableCellHealthy'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellHealthy'>29</td>
-                   <td className='tableCellOverweight'>31</td>
-                   <td className='tableCellOverweight'>34</td>
-                   <td className='tableCellOverweight'>36</td>
-                   <td className='tableCellObese'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellObese'>47</td>
-                   <td className='tableCellObese'>49</td>
-                   <td className='tableCellExtremelyObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                    <td className='tableCellUnderweight'>16</td>
+                   <td className='tableCellUnderweight'>18</td>
+                   <td className='tableCellHealthy'>19</td>
+                   <td className='tableCellHealthy'>21</td>
+                   <td className='tableCellHealthy'>23</td>
+                   <td className='tableCellOverweight'>25</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>28</td>
+                   <td className='tableCellObese'>30</td>
+                   <td className='tableCellObese'>32</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>35</td>
+                   <td className='tableCellObese'>37</td>
+                   <td className='tableCellObese'>39</td>
+                   <td className='tableCellExtremelyObese'>41</td>
+                   <td className='tableCellExtremelyObese'>43</td>
+                   <td className='tableCellExtremelyObese'>44</td>
+                   <td className='tableCellExtremelyObese'>46</td>
+                   <td className='tableCellExtremelyObese'>48</td>
+                   <td className='tableCellExtremelyObese'>50</td>
+                   <td className='tableCellExtremelyObese'>51</td>
                </tr>
                <tr>
                     <th>5'4"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellUnderweight'>22</td>
-                   <td className='tableCellHealthy'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellHealthy'>29</td>
-                   <td className='tableCellHealthy'>31</td>
-                   <td className='tableCellOverweight'>34</td>
-                   <td className='tableCellOverweight'>36</td>
-                   <td className='tableCellOverweight'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellObese'>47</td>
-                   <td className='tableCellObese'>49</td>
-                   <td className='tableCellObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                    <td className='tableCellUnderweight'>15</td>
+                   <td className='tableCellUnderweight'>17</td>
+                   <td className='tableCellHealthy'>19</td>
+                   <td className='tableCellHealthy'>21</td>
+                   <td className='tableCellHealthy'>22</td>
+                   <td className='tableCellHealthy'>24</td>
+                   <td className='tableCellOverweight'>26</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>29</td>
+                   <td className='tableCellObese'>31</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>34</td>
+                   <td className='tableCellObese'>36</td>
+                   <td className='tableCellObese'>38</td>
+                   <td className='tableCellObese'>39</td>
+                   <td className='tableCellExtremelyObese'>41</td>
+                   <td className='tableCellExtremelyObese'>43</td>
+                   <td className='tableCellExtremelyObese'>45</td>
+                   <td className='tableCellExtremelyObese'>46</td>
+                   <td className='tableCellExtremelyObese'>48</td>
+                   <td className='tableCellExtremelyObese'>50</td>
                </tr>
                <tr>
                     <th>5'5"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellUnderweight'>22</td>
-                   <td className='tableCellUnderweight'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellHealthy'>29</td>
-                   <td className='tableCellHealthy'>31</td>
-                   <td className='tableCellOverweight'>34</td>
-                   <td className='tableCellOverweight'>36</td>
-                   <td className='tableCellOverweight'>38</td>
-                   <td className='tableCellObese'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellObese'>47</td>
-                   <td className='tableCellObese'>49</td>
-                   <td className='tableCellObese'>52</td>
-                   <td className='tableCellExtremelyObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                    <td className='tableCellUnderweight'>15</td>
+                   <td className='tableCellUnderweight'>17</td>
+                   <td className='tableCellUnderweight'>18</td>
+                   <td className='tableCellHealthy'>20</td>
+                   <td className='tableCellHealthy'>22</td>
+                   <td className='tableCellHealthy'>23</td>
+                   <td className='tableCellOverweight'>25</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>28</td>
+                   <td className='tableCellObese'>30</td>
+                   <td className='tableCellObese'>32</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>35</td>
+                   <td className='tableCellObese'>37</td>
+                   <td className='tableCellObese'>38</td>
+                   <td className='tableCellExtremelyObese'>40</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>43</td>
+                   <td className='tableCellExtremelyObese'>45</td>
+                   <td className='tableCellExtremelyObese'>47</td>
+                   <td className='tableCellExtremelyObese'>48</td>
                </tr>
                <tr>
                     <th>5'6"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellUnderweight'>22</td>
-                   <td className='tableCellUnderweight'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellHealthy'>29</td>
-                   <td className='tableCellHealthy'>31</td>
-                   <td className='tableCellHealthy'>34</td>
-                   <td className='tableCellOverweight'>36</td>
-                   <td className='tableCellOverweight'>38</td>
-                   <td className='tableCellOverweight'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellObese'>47</td>
-                   <td className='tableCellObese'>49</td>
-                   <td className='tableCellObese'>52</td>
-                   <td className='tableCellObese'>54</td>
-                   <td className='tableCellExtremelyObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                    <td className='tableCellUnderweight'>15</td>
+                   <td className='tableCellUnderweight'>16</td>
+                   <td className='tableCellUnderweight'>18</td>
+                   <td className='tableCellHealthy'>19</td>
+                   <td className='tableCellHealthy'>21</td>
+                   <td className='tableCellHealthy'>23</td>
+                   <td className='tableCellHealthy'>24</td>
+                   <td className='tableCellOverweight'>26</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>29</td>
+                   <td className='tableCellObese'>31</td>
+                   <td className='tableCellObese'>32</td>
+                   <td className='tableCellObese'>34</td>
+                   <td className='tableCellObese'>36</td>
+                   <td className='tableCellObese'>37</td>
+                   <td className='tableCellObese'>39</td>
+                   <td className='tableCellExtremelyObese'>40</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>44</td>
+                   <td className='tableCellExtremelyObese'>45</td>
+                   <td className='tableCellExtremelyObese'>47</td>
                </tr>
                <tr>
                     <th>5'7"</th>
-                    <td className='tableCellUnderweight'>20</td>
-                   <td className='tableCellUnderweight'>22</td>
-                   <td className='tableCellUnderweight'>25</td>
-                   <td className='tableCellHealthy'>27</td>
-                   <td className='tableCellHealthy'>29</td>
-                   <td className='tableCellHealthy'>31</td>
-                   <td className='tableCellHealthy'>34</td>
-                   <td className='tableCellOverweight'>36</td>
-                   <td className='tableCellOverweight'>38</td>
-                   <td className='tableCellOverweight'>40</td>
-                   <td className='tableCellObese'>43</td>
-                   <td className='tableCellObese'>45</td>
-                   <td className='tableCellObese'>47</td>
-                   <td className='tableCellObese'>49</td>
-                   <td className='tableCellObese'>52</td>
-                   <td className='tableCellObese'>54</td>
-                   <td className='tableCellObese'>56</td>
-                   <td className='tableCellExtremelyObese'>58</td>
-                   <td className='tableCellExtremelyObese'>61</td>
-                   <td className='tableCellExtremelyObese'>63</td>
-                   <td className='tableCellExtremelyObese'>65</td>
+                    <td className='tableCellUnderweight'>14</td>
+                   <td className='tableCellUnderweight'>16</td>
+                   <td className='tableCellUnderweight'>17</td>
+                   <td className='tableCellHealthy'>19</td>
+                   <td className='tableCellHealthy'>20</td>
+                   <td className='tableCellHealthy'>22</td>
+                   <td className='tableCellHealthy'>24</td>
+                   <td className='tableCellOverweight'>25</td>
+                   <td className='tableCellOverweight'>27</td>
+                   <td className='tableCellOverweight'>28</td>
+                   <td className='tableCellObese'>30</td>
+                   <td className='tableCellObese'>31</td>
+                   <td className='tableCellObese'>33</td>
+                   <td className='tableCellObese'>34</td>
+                   <td className='tableCellObese'>36</td>
+                   <td className='tableCellObese'>38</td>
+                   <td className='tableCellObese'>39</td>
+                   <td className='tableCellExtremelyObese'>41</td>
+                   <td className='tableCellExtremelyObese'>42</td>
+                   <td className='tableCellExtremelyObese'>44</td>
+                   <td className='tableCellExtremelyObese'>45</td>
                </tr>
                <tr>
                     <th>5'8"</th>
@@ -766,10 +766,14 @@ function WeightsPage()
            <br></br>
             <div className="calculator">
                 <br></br>
+                <label style={{textAlign: "left"}}>
+                        <text style={{color: 'white', fontSize: 40}}>BMI Calculator</text>
+                </label>
+                <br></br>
                 <br></br>
                 <br></br>
                 <label style={{textAlign: "left"}}>
-                        <text style={{color: 'white', fontSize: 40}}>Enter Height</text>
+                        <text style={{color: 'white', fontSize: 28}}>Enter Height</text>
                         <br></br>
                     <input type="number" placeholder='Height in inches' name="Push" id="height"/>
                 </label>
@@ -777,7 +781,7 @@ function WeightsPage()
                 <br></br>
                 <br></br>
                 <label style={{textAlign: "left"}}>
-                        <text style={{color: 'white', fontSize: 40}}>Enter Weight</text>
+                        <text style={{color: 'white', fontSize: 28}}>Enter Weight</text>
                         <br></br>
                     <input type="number" placeholder='Weight in pounds' name="Push" id="weight"/>
                 </label>
