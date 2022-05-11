@@ -1,5 +1,5 @@
 [![pages-build-deployment](https://github.com/LukeSandsor/GitFit-App/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/LukeSandsor/GitFit-App/actions/workflows/pages/pages-build-deployment)
-[![Full Stack Deployment](https://github.com/LukeSandsor/GitFit-App/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/LukeSandsor/GitFit-App/actions/workflows/main.yml)
+[![Backend Deployment via Docker](https://github.com/LukeSandsor/GitFit-App/actions/workflows/backend.yml/badge.svg)](https://github.com/LukeSandsor/GitFit-App/actions/workflows/backend.yml)
 # CSC307 Term Project
 
 ### Introduction
