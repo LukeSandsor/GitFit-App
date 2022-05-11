@@ -771,7 +771,7 @@ function WeightsPage()
                 <label style={{textAlign: "left"}}>
                         <text style={{color: 'white', fontSize: 40}}>Enter Height</text>
                         <br></br>
-                    <input type="number" name="Push" id="height"/>
+                    <input type="number" placeholder='Height in inches' name="Push" id="height"/>
                 </label>
                 <div id="heightError"></div> 
                 <br></br>
@@ -779,7 +779,7 @@ function WeightsPage()
                 <label style={{textAlign: "left"}}>
                         <text style={{color: 'white', fontSize: 40}}>Enter Weight</text>
                         <br></br>
-                    <input type="number" name="Push" id="weight"/>
+                    <input type="number" placeholder='Weight in pounds' name="Push" id="weight"/>
                 </label>
                 <div id="weightError"></div> 
                 <br></br>
