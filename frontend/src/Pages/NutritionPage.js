@@ -128,7 +128,7 @@ function NutritionPage() {
                             type='text'
                         />
                     </form>
-                    <button className='food-button' role='button'>Submit</button>
+                    <button className='food-button'>Submit</button>
                 </div>
                 <div className='nutrition-table'>
                     <NutritionTable foodOptions={foodOptions} />

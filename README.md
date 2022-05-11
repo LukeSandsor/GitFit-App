@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/LukeSandsor/GitFit-App/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/LukeSandsor/GitFit-App/actions/workflows/pages/pages-build-deployment)
+[![Full Stack Deployment](https://github.com/LukeSandsor/GitFit-App/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/LukeSandsor/GitFit-App/actions/workflows/main.yml)
 # CSC307 Term Project
 
 ### Introduction
