@@ -29,9 +29,9 @@ app.get('/calendar', async (req, res) => {
   try {
       const result = await calendarServices.getCalendaryByUser(username);
       if (result)
-        res.send(result);
+        res.send(result); // 200 ok response
       else
-        res.send('User not found');
+        res.status(204).send('User not found');
   } catch (error) {
       console.log(error);
       res.status(500).send('An error ocurred in the server.');
