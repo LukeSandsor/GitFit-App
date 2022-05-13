@@ -1,10 +1,8 @@
-/* eslint-disable import/no-named-as-default-member */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AboutPage.css';
 import gitfitlogo from '../images/GitFitLogo.svg';
 import groupPhoto from '../images/groupPhoto.png';
-// eslint-disable-next-line import/no-named-as-default
 import NavBar from '../NavBar';
 
 function AboutPage() {
