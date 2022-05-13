@@ -18,10 +18,99 @@ mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?r
   }).catch((error) => console.log(error));
 
 async function getCalendaryByUser(username) {
-  let result = await calendarModel.findOne({"user": username});
+  let result = await calendarModel.findOne({'user': username});
   console.log(result);
 
   return result;
 }
 
+// inefficient should be changed
+// look up how to upsert
+async function addInfoToCalendar(data) {
+  let username = data.user;
+  
+  // set current date and values
+  let dateObject = new Date();
+  let currentYear = dateObject.getFullYear();
+  let currentMonth = dateObject.getMonth();
+  let currentDay = dateObject.getDate();
+
+  // check if data is formatted properly
+  // there must be a user field to check the database
+  if (username) {
+    let userCalendar = await calendarModel.findOne({'user': username});
+
+    if (userCalendar) {
+      let monthData = userCalendar.years[currentYear][currentMonth];
+      console.log(monthData);
+      if (monthData) {
+        // initialize currentDay object if it does not yet exist
+        if (monthData[currentDay] === undefined) {
+          monthData[currentDay] = {};
+        }
+
+        // go through each key in the new data and update the day data
+        // ignore the user key
+        Object.entries(data).forEach(([key, value]) => {
+          if (key !== 'user') {
+            monthData[currentDay][key] = value;
+          }
+        });
+      }
+
+      // save the updated object in the db
+      await calendarModel.findOneAndUpdate(
+        { user: username }, 
+        userCalendar,
+        { new: true}
+      );
+
+      return true;
+    }
+    else {
+
+      // potentially want to verify that the user is real
+      // maybe look in another database
+      let newData = {user: username, years: {}};
+
+      // must follow the schema
+      // twelve empty month objects for this year
+      newData.years[currentYear] = [];
+      for (let i = 0; i < 12; i++) {
+        newData.years[currentYear].push({});
+      }
+
+      // need to add an empty object to the day key
+      newData.years[currentYear][currentMonth][currentDay] = {};
+
+      // go through each key in the new data and update the day data
+      // ignore the user key
+      Object.entries(data).forEach(([key, value]) => {
+        if (key !== 'user') {
+          newData.years[currentYear][currentMonth][currentDay][key] = value;
+        }
+      });
+
+      let newCalendar = new calendarModel(newData);
+      await newCalendar.save();
+      return true;
+    }
+  }
+
+  // User field does not exist
+  return false;
+}
+
+async function addUser(user) {
+  try {
+    const userToAdd = new userModel(user);
+    const savedUser = await userToAdd.save();
+    return savedUser;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
 exports.getCalendaryByUser = getCalendaryByUser;
+exports.addInfoToCalendar = addInfoToCalendar;

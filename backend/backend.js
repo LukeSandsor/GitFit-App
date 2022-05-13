@@ -38,6 +38,16 @@ app.get('/calendar', async (req, res) => {
   }
 });
 
+// post data to user calendar for the day
+app.post('/calendar', async (req, res) => {
+  const information = req.body;
+  const savedInfo = await calendarServices.addInfoToCalendar(information);
+  if (savedInfo)
+      res.status(201).send('Successfully updated calendar!');
+  else
+      res.status(500).end();
+});
+
 var server = app.listen(port, function () {
     let servhost = server.address().address
     let servport = server.address().port
