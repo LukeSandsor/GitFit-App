@@ -1,25 +1,25 @@
 {
-  "main.css": "/static/css/main.cdf5f6af.chunk.css",
-  "main.js": "/static/js/main.81f263ad.chunk.js",
-  "main.js.map": "/static/js/main.81f263ad.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/js/2.e260cc57.chunk.js": "/static/js/2.e260cc57.chunk.js",
-  "static/js/2.e260cc57.chunk.js.map": "/static/js/2.e260cc57.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.52cbf5bf2e31d2bae4a6e2499a3adca0.js": "/precache-manifest.52cbf5bf2e31d2bae4a6e2499a3adca0.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/main.cdf5f6af.chunk.css.map": "/static/css/main.cdf5f6af.chunk.css.map",
-  "static/media/BMI_icon3.png": "/static/media/BMI_icon3.895df7d0.png",
-  "static/media/GitFitLogo.svg": "/static/media/GitFitLogo.66da254f.svg",
-  "static/media/LegsLogo.png": "/static/media/LegsLogo.047d97b4.png",
-  "static/media/LoginGrandma.png": "/static/media/LoginGrandma.b30e2b3d.png",
-  "static/media/PullLogo.png": "/static/media/PullLogo.26e15e4f.png",
-  "static/media/PushLogo.png": "/static/media/PushLogo.dddcf89c.png",
-  "static/media/calendar_icon.svg": "/static/media/calendar_icon.bcdfe888.svg",
-  "static/media/dumbbell.png": "/static/media/dumbbell.87d71c09.png",
-  "static/media/dumbell.svg": "/static/media/dumbell.2e6e928c.svg",
-  "static/media/groupPhoto.png": "/static/media/groupPhoto.963f2fe6.png",
-  "static/media/home_icon.svg": "/static/media/home_icon.293e730f.svg",
-  "static/media/nutrition.png": "/static/media/nutrition.4e795d1c.png"
+  "files": {
+    "main.css": "/static/css/main.184a9506.css",
+    "main.js": "/static/js/main.52653da1.js",
+    "static/media/groupPhoto.png": "/static/media/groupPhoto.bc274f9a1a75ea458252.png",
+    "static/media/PullLogo.png": "/static/media/PullLogo.b83af2efe4af43ab6c0f.png",
+    "static/media/LegsLogo.png": "/static/media/LegsLogo.7b90ec6bc0c4d7bafa7d.png",
+    "static/media/LoginGrandma.png": "/static/media/LoginGrandma.ee2f5348ac65eb06ae1a.png",
+    "static/media/PushLogo.png": "/static/media/PushLogo.e56544b81ee89f922184.png",
+    "static/media/BMI_icon3.png": "/static/media/BMI_icon3.ba6e7cad741681fb5ac0.png",
+    "static/media/nutrition.png": "/static/media/nutrition.77d778cff60f79881c80.png",
+    "static/media/dumbbell.png": "/static/media/dumbbell.c8fb531bd07beab382a8.png",
+    "static/media/home_icon.svg": "/static/media/home_icon.91c3cf136f6ee9d60f029ac924a4334a.svg",
+    "static/media/GitFitLogo.svg": "/static/media/GitFitLogo.9abbadcd965ee7405bfe20eded38936b.svg",
+    "static/media/calendar_icon.svg": "/static/media/calendar_icon.ea577cbebe9c8c09c83e35fbc12477e4.svg",
+    "static/media/dumbell.svg": "/static/media/dumbell.dc5825857d582e3b11343cfd417d1080.svg",
+    "index.html": "/index.html",
+    "main.184a9506.css.map": "/static/css/main.184a9506.css.map",
+    "main.52653da1.js.map": "/static/js/main.52653da1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.184a9506.css",
+    "static/js/main.52653da1.js"
+  ]
 }
