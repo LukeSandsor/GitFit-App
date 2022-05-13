@@ -115,7 +115,6 @@ function Calendar() {
         newInfoGrid.push(newInfoRow);
       }
       newInfoRow = [];
-      console.log(dateData);
 
       // return from the column map, whole row
       return (
