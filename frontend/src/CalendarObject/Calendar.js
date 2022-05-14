@@ -25,6 +25,7 @@ function CalendarHeader() {
 }
 
 function Calendar() {
+  const [userData, setUserData] = useState({}); // stores user data from get
   const [currentMonth, setCurrentMonth] = useState((new Date()).getMonth());
   const [currentYear, setCurrentYear] = useState((new Date()).getFullYear());
   const [selectedTile, setSelectedTile] = useState();
@@ -51,7 +52,9 @@ function Calendar() {
     }
 
     // reset the currently selected tile
-    if (selectedTile) selectedTile.className = 'tile ';
+    if (selectedTile) 
+      selectedTile.className = 'tile ';
+
     setSelectedTile(undefined);
     updateDay({}); // reset Daily Breakdown info when switching
   }
@@ -65,14 +68,14 @@ function Calendar() {
       // change previous tile to a default active tile
       // make sure it's not undefined
       if (selectedTile) selectedTile.className = 'tile ';
+      
       setSelectedTile(tileObject);
       tileObject.className += 'selected-tile';
 
       // set daily info
-      // console.log(gridOfInfo);
       const getInfo = gridOfInfo[row][col];
-      // console.log(getInfo);
-      updateDay(getInfo); // this will set the context for calenderPage
+      if (getInfo)
+        updateDay(getInfo); // this will set the context for calenderPage
     }
   }
 
@@ -263,11 +266,17 @@ function Calendar() {
 
   // runs on first render, and any time month or selected tile is changed
   useEffect(() => {
-    getCalendarFromUser(user).then((result) => {
-      if (result) {
-        setCalendar(loadCalendarBodyInfo(result));
-      }
-    });
+    // before data is initialized
+    if (Object.keys(userData).length === 0) {
+        getCalendarFromUser(user).then((result) => {
+          if (result) {
+            setCalendar(loadCalendarBodyInfo(result));
+          }
+          setUserData(result); // cache the user data
+      });
+    }
+    else if (userData)
+      setCalendar(loadCalendarBodyInfo(userData));
   }, [currentMonth, selectedTile]);
 
   return (
