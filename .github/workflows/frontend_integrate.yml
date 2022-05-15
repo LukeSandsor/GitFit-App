@@ -1,33 +1,10 @@
-name: Full Stack Deployment
+name: Frontend Integration
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  deploy_backend:
-    runs-on: ubuntu-latest
-
-    steps:
-    # Backend Workflow
-    # connects to server via ssh
-    # sets up docker container running 'node backend.js'
-    - uses: actions/checkout@v2
-    - name: SSH into LUNA
-      uses: appleboy/ssh-action@master
-      with:
-        host: 45.77.6.116 
-        username: root
-        key: ${{ secrets.PRIV_KEY }}
-        port: 19122
-        script: |
-          cd Gitfit
-          git pull origin main
-          git status
-          cd backend
-          echo "${{ secrets.ENV }}" > .env
-          docker-compose up -d --build
-
   # deploy front end by using gh-pages branch
   deploy_frontend:
     runs-on: ubuntu-latest

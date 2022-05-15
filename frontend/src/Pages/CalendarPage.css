@@ -43,3 +43,7 @@
 #daily-breakdown>p {
   line-height: 20px !important;
 }
+
+.invalid {
+  background-color: salmon;
+}

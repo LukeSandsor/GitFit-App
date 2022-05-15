@@ -20,7 +20,7 @@ function CalendarPage() {
   return (
     <div>
       <NavBar />
-      <h3>GitFit: Calendar</h3>
+      <h1>Calendar</h1>
       <div id="page-contents">
         <CalendarDateInfoContext.Provider value={{ dailyInfo, updateDay }}>
           <Calendar />

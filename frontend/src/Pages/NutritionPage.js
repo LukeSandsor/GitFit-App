@@ -2,9 +2,9 @@ import React from 'react';
 import NavBar from '../NavBar';
 import DoughnutChart from '../DoughnutChart';
 import BarChart from '../BarChart';
-import './NutritionPage.css'
-import FoodSelect from '../FoodSelect.js'
-import NutritionTable from '../NutritionTable.js'
+import './NutritionPage.css';
+import FoodSelect from '../FoodSelect';
+import NutritionTable from '../NutritionTable';
 
 function NutritionPage() {
 
@@ -78,37 +78,37 @@ function NutritionPage() {
                 </div>
             </div>
             <div className='macro-table-container'>
-                <table>
+                <table className='macro-table'>
                     <thead>
                         <tr>
-                            <th>Macro Nutrient</th>
-                            <th>Actual Intake</th>
-                            <th>Target Intake</th>
-                            <th>Actual Percentage</th>
-                            <th>Target Percentage</th>
+                            <th className='table-data'>Macro Nutrient</th>
+                            <th className='table-data'>Actual Intake</th>
+                            <th className='table-data'>Target Intake</th>
+                            <th className='table-data'>Actual Percentage</th>
+                            <th className='table-data'>Target Percentage</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Protein</td>
-                            <td>120 g</td>
-                            <td>180 g</td>
-                            <td>40 %</td>
-                            <td>50 %</td>
+                            <td className='table-data'>Protein</td>
+                            <td className='table-data'>120 g</td>
+                            <td className='table-data'>180 g</td>
+                            <td className='table-data'>40 %</td>
+                            <td className='table-data'>50 %</td>
                         </tr>
                         <tr>
-                            <td>Carbohydrates</td> 
-                            <td>200 g</td>
-                            <td>220 g</td>
-                            <td>30 %</td>
-                            <td>50 %</td>
+                            <td className='table-data'>Carbohydrates</td> 
+                            <td className='table-data'>200 g</td>
+                            <td className='table-data'>220 g</td>
+                            <td className='table-data'>30 %</td>
+                            <td className='table-data'>50 %</td>
                         </tr>
                         <tr>
-                        <td>Fats</td> 
-                            <td>60 g</td>
-                            <td>80 g</td>
-                            <td>10 %</td>
-                            <td>20 %</td>
+                            <td className='table-data'>Fats</td> 
+                            <td className='table-data'>60 g</td>
+                            <td className='table-data'>80 g</td>
+                            <td className='table-data'>10 %</td>
+                            <td className='table-data'>20 %</td>
                         </tr>
                     </tbody>
                 </table>
@@ -128,7 +128,7 @@ function NutritionPage() {
                             type='text'
                         />
                     </form>
-                    <button className='food-button' role='button'>Submit</button>
+                    <button className='food-button'>Submit</button>
                 </div>
                 <div className='nutrition-table'>
                     <NutritionTable foodOptions={foodOptions} />

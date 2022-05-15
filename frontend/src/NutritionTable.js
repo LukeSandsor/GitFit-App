@@ -6,11 +6,11 @@ function TableHeader() {
     return (
         <thead>
             <tr>
-                <th>Food</th>
-                <th>Calories</th>
-                <th>Protein</th>
-                <th>Carbohydrates</th>
-                <th>Fats</th>
+                <th className='table-data'>Food</th>
+                <th className='table-data'>Calories</th>
+                <th className='table-data'>Protein</th>
+                <th className='table-data'>Carbohydrates</th>
+                <th className='table-data'>Fats</th>
             </tr>
         </thead>
     )
@@ -20,11 +20,11 @@ function TableBody(props) {
     const rows = props.foodOptions.map((row) => {
         return (
             <tr>
-                <td>{row.label}</td>
-                <td>{row.value.calories}</td>
-                <td>{row.value.protein}</td>
-                <td>{row.value.carbs}</td>
-                <td>{row.value.fats}</td>
+                <td className='table-data'>{row.label}</td>
+                <td className='table-data'>{row.value.calories}</td>
+                <td className='table-data'>{row.value.protein}</td>
+                <td className='table-data'>{row.value.carbs}</td>
+                <td className='table-data'>{row.value.fats}</td>
             </tr>
         );
     });
@@ -37,8 +37,8 @@ function TableBody(props) {
 
 function NutritionTable (props) {
     return (
-        <TableScrollBar rows={3}>
-            <table>
+        <TableScrollBar rows={6}>
+            <table className='macro-table'>
                 <TableHeader />
                 <TableBody foodOptions={props.foodOptions} />
             </table>
