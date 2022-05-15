@@ -8,63 +8,6 @@ import NutritionTable from '../NutritionTable';
 import axios from 'axios';
 
 function NutritionPage() {
-
-    // const foodOptions = [
-    //     {
-    //         label: 'Minced Beef',
-    //         value: {
-    //             calories: 337,
-    //             protein: 30,
-    //             carbs: 0,
-    //             fats: 24
-    //         }
-    //     },
-    //     {
-    //         label: 'Steak',
-    //         value: {
-    //             calories: 202,
-    //             protein: 35,
-    //             carbs: 0,
-    //             fats: 6.8
-    //         }
-    //     },
-    //     {
-    //         label: 'Chicken - Light Meat',
-    //         value: {
-    //             calories: 159,
-    //             protein: 35,
-    //             carbs: 0,
-    //             fats: 1.7
-    //         }
-    //     },
-    //     {
-    //         label: 'Chicken - Dark Meat',
-    //         value: {
-    //             calories: 156,
-    //             protein: 31,
-    //             carbs: 0,
-    //             fats: 4.2
-    //         }
-    //     },
-    //     {
-    //         label: 'Pork',
-    //         value: {
-    //             calories: 293,
-    //             protein: 28,
-    //             carbs: 0,
-    //             fats: 20
-    //         }
-    //     },
-    //     {
-    //         label: 'Cod',
-    //         value: {
-    //             calories: 113,
-    //             protein: 26,
-    //             carbs: 0,
-    //             fats: 0.9
-    //         }
-    //     }
-    // ]
     const [foodOptions, setFoodOptions] = useState([]);
 
     async function getFoodOptions() {
