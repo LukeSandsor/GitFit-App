@@ -247,7 +247,6 @@ function Calendar() {
 
   async function getCalendarFromUser(username) {
     try {
-      // returns an array of size 1 with advice object
       // cache this stuff later, don't need to get the whole calendar every time
       const response = await axios.get(`https://gitfit.lucasreyna.me/calendar?user=${username}`);
 
