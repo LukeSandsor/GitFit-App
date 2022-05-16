@@ -11,6 +11,8 @@ const user = 'guest';
 function SummaryPage() {
   const [adviceObject, setAdvice] = useState({});
   const [selectedEmoji, setSelectedEmoji] = useState("");
+  const [currentSteps, setCurrentSteps] = useState(0);
+  const [errorMessage, setErrorMessage] = useState({});
 
   async function getAdvice() {
     try {
@@ -35,6 +37,30 @@ function SummaryPage() {
         return response;
       }
     } catch (error) {
+      // possibly do something with error
+      return false;
+    }
+  }
+
+  const renderErrorMessage = (val) =>
+    val === errorMessage.type && (<error class="dailydose-error">{errorMessage.message}</error>);
+
+  async function postStep() {
+    try {
+      const stepValue = document.getElementById('step-input').valueAsNumber;
+
+      if (isNaN(stepValue)) {
+        setErrorMessage({type: 'step-input', message: "Step Input must be a number!"});
+        return false;
+      }
+      setErrorMessage( {} ); // remove error message
+      const response = await axios.post(
+        'https://gitfit.lucasreyna.me/calendar', 
+        {user: user, 'numStep': stepValue}
+      );
+      return response;
+    }
+    catch (error) {
       // possibly do something with error
       return false;
     }
@@ -84,12 +110,16 @@ function SummaryPage() {
     }
   }, [selectedEmoji]);
 
+  useEffect(() => {
+    console.log(errorMessage);
+  }, [errorMessage]);
+
   return (
     <div id="summary-page" className="user-page">
       <NavBar/>
       <h1>Daily Dose</h1>
       <h3 id='date-block'>{`${monthStrs[(new Date()).getMonth()]} ${(new Date()).getDate()}, ${(new Date()).getFullYear()}`}</h3>
-      
+
       <div class="user-block" id="mood-picker">
         <p>Pick a mood that describes your day:</p>
         <ul>
@@ -103,9 +133,11 @@ function SummaryPage() {
       </div>
 
       <div class="user-block" id="step-submit">
-        <p>Enter the amount of steps taken today:</p>
-          <input type="number" id="step-input" name="steps" min="0" required/>
-          <button onClick={() => null}>Submit</button>
+        <h3>Today's Recorded Steps: {currentSteps}</h3>
+        <p>Enter the amount of steps taken today</p>
+        <input type="number" id="step-input" name="steps" min="0" required/>
+        <button onClick={() => postStep()}>Submit</button> <br />
+        {renderErrorMessage('step-input')}
       </div>
       
       <div id="adviceDisplay">

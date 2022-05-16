@@ -95,6 +95,15 @@
   font-size: 72px; /* same value as width */
 }
 
+.dailydose-error
+{
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  background-color: white;
+  border-radius: 4px;
+}
+
 .selected {
   text-decoration: underline;
 }
