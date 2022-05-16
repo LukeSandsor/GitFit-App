@@ -89,7 +89,8 @@ function SummaryPage() {
       <NavBar/>
       <h1>Daily Dose</h1>
       <h3 id='date-block'>{`${monthStrs[(new Date()).getMonth()]} ${(new Date()).getDate()}, ${(new Date()).getFullYear()}`}</h3>
-      <div id="mood-picker">
+      
+      <div class="user-block" id="mood-picker">
         <p>Pick a mood that describes your day:</p>
         <ul>
           {emojis.map((item, index) => 
@@ -100,6 +101,13 @@ function SummaryPage() {
         </ul>
         <button onClick={() => postEmoji()}>Submit</button>
       </div>
+
+      <div class="user-block" id="step-submit">
+        <p>Enter the amount of steps taken today:</p>
+          <input type="number" id="step-input" name="steps" min="0" required/>
+          <button onClick={() => null}>Submit</button>
+      </div>
+      
       <div id="adviceDisplay">
             <a href={adviceObject.source}>{adviceObject.source}</a>
             <div id="advice-text-block">
