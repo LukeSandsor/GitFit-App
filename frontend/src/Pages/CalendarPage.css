@@ -44,6 +44,13 @@
   line-height: 20px !important;
 }
 
+#mood-bar-graph {
+  background-color: rgb(100, 130, 150);
+  border-radius: 20px;
+  display: inline-block;
+  width: 50%;
+}
+
 .invalid {
   background-color: salmon;
 }

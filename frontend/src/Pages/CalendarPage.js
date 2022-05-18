@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Calendar from '../CalendarObject/Calendar';
+import Calendar from '../CalendarObjects/Calendar';
 import NavBar from '../NavBar';
 import './CalendarPage.css';
 import CalendarDateInfoContext from '../context/calendar-date.context';
+import MoodBarGraph from '../CalendarObjects/MoodBarGraph';
 
 function CalendarPage() {
   const [dailyInfo, setDailyInfo] = useState({
@@ -39,6 +40,9 @@ function CalendarPage() {
             <p># of Steps Taken: {dailyInfo.numStep}</p>
             <p>Mood for the Day: {dailyInfo.mood}</p>
           </div>
+        </div>
+        <div id='mood-bar-graph'>
+          <MoodBarGraph />
         </div>
       </div>
     </div>
