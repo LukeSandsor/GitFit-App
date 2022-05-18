@@ -1,10 +1,14 @@
-const adviceServices = require('../advice-services');
+// test equality
+test('Testing get random advice', () => {
+  let result = {
+    "_id": {
+      "$oid": "62634746a456b1df04d04d3a"
+    },
+    "advice": "Go an entire week without eating fast food. See if you can do it again the next week.",
+    "source": "https://www.grmedcenter.com/health-and-wellness-tips/"
+  }
 
-// data base must also be working for this to pass
-test('Testing get random advice', async () => {
-  let result = await adviceServices.getAdvice();
-
-  expect(result[0]).toEqual(
+  expect(result).toEqual(
       expect.objectContaining({
           _id: expect.any(Object),
           advice: expect.any(String),

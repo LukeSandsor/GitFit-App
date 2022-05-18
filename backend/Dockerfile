@@ -10,4 +10,5 @@ WORKDIR /gitfit/backend
 
 RUN apt-get -y update && apt-get install -y npm
 RUN npm install
+RUN npm test
 CMD npm start > log.txt

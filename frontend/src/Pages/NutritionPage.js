@@ -1,69 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from '../NavBar';
 import DoughnutChart from '../DoughnutChart';
 import BarChart from '../BarChart';
-import './NutritionPage.css'
-import FoodSelect from '../FoodSelect.js'
-import NutritionTable from '../NutritionTable.js'
+import './NutritionPage.css';
+import FoodSelect from '../FoodSelect';
+import NutritionTable from '../NutritionTable';
+import axios from 'axios';
 
 function NutritionPage() {
+    const [foodOptions, setFoodOptions] = useState([]);
 
-    const foodOptions = [
-        {
-            label: 'Minced Beef',
-            value: {
-                calories: 337,
-                protein: 30,
-                carbs: 0,
-                fats: 24
-            }
-        },
-        {
-            label: 'Steak',
-            value: {
-                calories: 202,
-                protein: 35,
-                carbs: 0,
-                fats: 6.8
-            }
-        },
-        {
-            label: 'Chicken - Light Meat',
-            value: {
-                calories: 159,
-                protein: 35,
-                carbs: 0,
-                fats: 1.7
-            }
-        },
-        {
-            label: 'Chicken - Dark Meat',
-            value: {
-                calories: 156,
-                protein: 31,
-                carbs: 0,
-                fats: 4.2
-            }
-        },
-        {
-            label: 'Pork',
-            value: {
-                calories: 293,
-                protein: 28,
-                carbs: 0,
-                fats: 20
-            }
-        },
-        {
-            label: 'Cod',
-            value: {
-                calories: 113,
-                protein: 26,
-                carbs: 0,
-                fats: 0.9
-            }
+    async function getFoodOptions() {
+        try {
+            const response = await axios.get("https://gitfit.lucasreyna.me/nutrition/table");
+            console.log(response.data);
+            return response.data;
         }
-    ]
+        catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    useEffect(() => {
+        getFoodOptions().then(result => {
+            if (result)
+                setFoodOptions(result);
+        })
+    });
 
     return (
         <div>

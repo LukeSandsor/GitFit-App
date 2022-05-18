@@ -9,9 +9,10 @@
   top: 0;
   display: block;
   color: black;
+  text-align: center;
   margin-top: 0;
   background-color: white;
-  padding: 25px 100px 25px 25px;
+  padding: 25px 45px 25px 45px;
   border-radius:  0 0 15px 15px;
   box-shadow: 0 0 25px black;
 }
@@ -57,16 +58,28 @@
 #mood-picker > ul > li {
   list-style-type: none;
   margin: 5px;
+  margin-bottom: 40px;
   font-size: 48px;
   width: 72px;       /* needed to freeze components in place */
   line-height: 40px; /* needed to freeze components in place */
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
   transition: 0.3s;
 }
 
 #mood-picker > ul > li:hover {
   font-size: 72px; /* same value as width */
+}
+
+#mood-picker > button {
+  width: 150px;
+  font-size: 15px;
+  background: lightgray;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #adviceDisplay {
@@ -106,4 +119,8 @@
   color: black;
   font-style: oblique;
   padding: 15px 50px 15px 50px; /* top right bottom left */
+}
+
+.selected {
+  text-decoration: underline;
 }
