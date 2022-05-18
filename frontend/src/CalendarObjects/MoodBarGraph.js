@@ -1,6 +1,7 @@
 import {Bar} from 'react-chartjs-2';
 
 function MoodBarGraph() {
+  
   const data = {
       labels: ['Protein', 'Carbs', 'Fats'],
       datasets: [

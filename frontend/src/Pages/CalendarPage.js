@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from '../CalendarObjects/Calendar';
 import NavBar from '../NavBar';
 import './CalendarPage.css';
 import CalendarDateInfoContext from '../context/calendar-date.context';
+import MonthlyMoodDataContext from '../context/calendar-mood.context';
 import MoodBarGraph from '../CalendarObjects/MoodBarGraph';
 
 function CalendarPage() {
@@ -16,7 +17,10 @@ function CalendarPage() {
     mood: '',
   });
 
+  const [monthlyMoodData, setMonthlyMoodData] = useState({});
+
   const updateDay = (info) => setDailyInfo(info);
+  const updateMonthlyMoodData = (info) => setMonthlyMoodData(info);
 
   return (
     <div>
@@ -24,7 +28,9 @@ function CalendarPage() {
       <h1>Calendar</h1>
       <div id="page-contents">
         <CalendarDateInfoContext.Provider value={{ dailyInfo, updateDay }}>
-          <Calendar />
+            <MonthlyMoodDataContext.Provider value={{ monthlyMoodData, updateMonthlyMoodData }}>
+                <Calendar />
+            </MonthlyMoodDataContext.Provider>
         </CalendarDateInfoContext.Provider>
         <div id="day-info-block">
           <div id="day-title">
