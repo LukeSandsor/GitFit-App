@@ -1,9 +1,8 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
-import './WeightsPage.css';
 import './BMIPage.css';
 import NavBar from '../NavBar';
 
+// The brains of the BMI Calcultor. Calculates a theoretical BMI based on given height and weight
 function calculateBMI(height, weight, BMI, heightError, weightError){
     var flag = 0;
     heightError.innerHTML = " ";
@@ -25,14 +24,17 @@ function calculateBMI(height, weight, BMI, heightError, weightError){
     }
 }
 
-function WeightsPage()
+// Main return for the BMI Page.
+// The return contains the NavBar, the Calculation Info Block, the BMI Bubble, the BMI calculator, and the BMI table.
+// The BMI table is composed of many cells that have a class that determines their color. At the start of the row,
+// there is a table header which labels the height, and each column thereafter represents a weight.
+function BMIPage()
 {
-
     return (
         <div>
             <NavBar/>
             <h1>BMI</h1>
-            <div className="block--calcInfo2">
+            <div className="block--calcInfo">
                 <br></br>
                 <label style={{textAlign: "center"}}>
                             <text style={{color: 'white', fontSize: 32}}>BMI is calculated with the folowing formula:</text>                  
@@ -775,7 +777,7 @@ function WeightsPage()
                 <label style={{textAlign: "left"}}>
                         <text style={{color: 'white', fontSize: 28}}>Enter Height</text>
                         <br></br>
-                    <input type="number" placeholder='Height in inches' name="Push" id="height"/>
+                    <input type="number" placeholder='Inches' name="Push" id="height"/>
                 </label>
                 <div id="heightError"></div> 
                 <br></br>
@@ -783,7 +785,7 @@ function WeightsPage()
                 <label style={{textAlign: "left"}}>
                         <text style={{color: 'white', fontSize: 28}}>Enter Weight</text>
                         <br></br>
-                    <input type="number" placeholder='Weight in pounds' name="Push" id="weight"/>
+                    <input type="number" placeholder='Pounds' name="Push" id="weight"/>
                 </label>
                 <div id="weightError"></div> 
                 <br></br>
@@ -806,16 +808,5 @@ function WeightsPage()
         
     );
 }
-/*<label style={{textAlign: "left"}}>
-            <input type="text" name="Push" />
-            </label>
-            <input type="submit" value="Submit" />
-            <label style={{padding: 18, textAlign: "center"}}>
-            <input type="text" name="Pull" />
-            </label>
-            <input type="submit" value="Submit" />
-            <label style={{padding: 18, textAlign: "right"}}>
-            <input type="text" name="Leg" />
-            </label>
-            <input type="submit" value="Submit" />*/
-export default WeightsPage;
+
+export default BMIPage;
