@@ -25,7 +25,7 @@ function CalendarPage() {
   return (
     <div>
       <NavBar />
-      <h1>Calendar</h1>
+      <h1 id="page-title">Calendar</h1>
       <div id="page-contents">
         <CalendarDateInfoContext.Provider value={{ dailyInfo, updateDay }}>
             <MonthlyMoodDataContext.Provider value={{ monthlyMoodData, updateMonthlyMoodData }}>
@@ -46,9 +46,9 @@ function CalendarPage() {
             <p># of Steps Taken: {dailyInfo.numStep}</p>
             <p>Mood for the Day: {dailyInfo.mood}</p>
           </div>
-        </div>
-        <div id='mood-bar-graph'>
-          <MoodBarGraph />
+          <div id='mood-bar-graph'>
+            <MoodBarGraph moodData={monthlyMoodData}/>
+          </div>
         </div>
       </div>
     </div>

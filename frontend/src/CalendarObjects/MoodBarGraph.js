@@ -1,14 +1,16 @@
 import {Bar} from 'react-chartjs-2';
 
-function MoodBarGraph() {
-  
+const colorsForEmoji = {'😡': 'salmon', '😢': 'lightblue', '🤒': 'green', '😐': 'gray', '🙂': 'lightyellow', '🤩': 'pink'};
+
+function MoodBarGraph(props) {
+
   const data = {
-      labels: ['Protein', 'Carbs', 'Fats'],
+      labels: Object.keys(props.moodData),
       datasets: [
         {
             label: "Target",
-            data: [200, 160, 80],
-            backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+            data: Object.values(props.moodData),
+            backgroundColor: Object.keys(props.moodData).map( (key) => colorsForEmoji[key] ),
             borderColor: 'white',
             borderWidth: 2,
         }
@@ -24,15 +26,22 @@ function MoodBarGraph() {
                   borderColor: 'white'
               },
               ticks: {
+                  font: {
+                    size: 36
+                  },
                   color: 'white'
               }
           },
           y: {
               grid: {
-                  display: false,
+                  display: true,
                   borderColor: 'white'
               },
               ticks: {
+                  font: {
+                    size: 20
+                  },
+                  precision: 0,
                   color: 'white'
               }
           }
@@ -42,7 +51,7 @@ function MoodBarGraph() {
               display: true,
               text: 'Mood Chart',
               color: 'white',
-              font: {size: 36}
+              font: {size: 24}
           },
           legend: {
               display: false,
@@ -54,6 +63,8 @@ function MoodBarGraph() {
           }
       }
   }
+
+  console.log(props);
 
   return (
       <Bar 
