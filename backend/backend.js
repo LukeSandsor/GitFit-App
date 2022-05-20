@@ -4,6 +4,7 @@ const cors = require('cors');
 const adviceServices = require('./models/health_advice/advice-services');
 const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
+const weight_history = require('./models/weights_log/weights_log');
 
 const app = express();
 const port = process.env.PORT;
@@ -61,6 +62,25 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
+app.get('/weights/:name', async (req, res) => {
+    const name = req.params.name;
+    const result = await weights_history.getWorkoutByName(name);
+    if (result === null || result === undefined)
+         res.status(404).send('Resource not found.');
+    else {
+        res.status(201).send({weights_hisotry: result});
+    }
+});
+
+app.get('weights/:date', async (req, res) => {
+    const date = req.params.date
+    const result = await weights_history.getWorkoutByDate(date);
+    if (result === null || result === undefined)
+        res.status(404).send('Resource not found.');
+    else {
+        res.status(201).send({weights_hisotry: result})
+    }
+})
 
 
 var server = app.listen(port, function () {
