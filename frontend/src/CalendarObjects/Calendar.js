@@ -4,6 +4,7 @@ import './Calendar.css';
 import Tile from './Tile/Tile.jsx';
 // import exampleDateData from './ExampleCalendarData.json'; // For testing purposes
 import CalendarDateInfoContext from '../context/calendar-date.context';
+import MonthlyMoodDataContext from '../context/calendar-mood.context';
 
 const user = 'guest';
 
@@ -11,6 +12,7 @@ const NUM_COLS = 7; // seven days in a week
 const NUM_ROWS = 6; // at most 6 weeks to display
 const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const monthStrs = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DEFAULT_EMPTY = 'N/A';
 
 // sets up the days of the week in table format
 function CalendarHeader() {
@@ -34,6 +36,36 @@ function Calendar() {
   let gridOfInfo = []; // makes grid accessible in other functions
 
   const { updateDay } = useContext(CalendarDateInfoContext);
+  const { updateMonthlyMoodData } = useContext(MonthlyMoodDataContext);
+
+  function collectMoodsForMonth()
+  {
+    let moodData = {};
+
+    /// iterate through grid of info
+    for (let row = 0; row < gridOfInfo.length; row++) {
+      for (let col = 0; col < gridOfInfo[row].length; col++) {
+        // check if mood exists
+        if (gridOfInfo[row][col]['mood'])
+        {
+          // grab mood
+          const newMood = gridOfInfo[row][col]['mood'];
+
+          // check if mood is already in the object
+          if (newMood != DEFAULT_EMPTY) {
+            if (moodData[newMood]) {
+              moodData[newMood] += 1;
+            }
+            else {
+              moodData[newMood] = 1;
+            }
+          }
+        }
+      }
+    }
+
+    return moodData;
+  }
 
   function UpdateCalendar(incrementMonth) {
     // in case value > 12
@@ -125,12 +157,12 @@ function Calendar() {
           <tr>
             {row.map((tile, tileIndex) => {
               let currentInfo = { // set all info for Tile
-                calLost: 'N/A',
-                calCons: 'N/A',
-                weight: 'N/A',
-                numWork: 'N/A',
-                numStep: 'N/A',
-                mood: 'N/A',
+                calLost: DEFAULT_EMPTY,
+                calCons: DEFAULT_EMPTY,
+                weight: DEFAULT_EMPTY,
+                numWork: DEFAULT_EMPTY,
+                numStep: DEFAULT_EMPTY,
+                mood: DEFAULT_EMPTY,
               };
 
               // return from the row map, single Tile
@@ -242,12 +274,14 @@ function Calendar() {
     newInfoGrid.push(newInfoRow); // must push last row
     gridOfInfo = newInfoGrid; // set component variable to newGrid
 
+    // send moodData to summaryPage through context
+    updateMonthlyMoodData(collectMoodsForMonth());
+
     return newCalendarBody;
   }
 
   async function getCalendarFromUser(username) {
     try {
-      // returns an array of size 1 with advice object
       // cache this stuff later, don't need to get the whole calendar every time
       const response = await axios.get(`https://gitfit.lucasreyna.me/calendar?user=${username}`);
 
