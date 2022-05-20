@@ -15,8 +15,8 @@ test('Testing get random user', () => {
           _id: expect.any(Object),
           firstname: expect.any(String),
           lastname: expect.any(String),
-          height: expect.any(int),
-          weight: expect.any(int)
+          height: expect.any(Number),
+          weight: expect.any(Number)
       })
   );
 });
