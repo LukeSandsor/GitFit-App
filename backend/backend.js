@@ -4,6 +4,7 @@ const cors = require('cors');
 const adviceServices = require('./models/health_advice/advice-services');
 const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
+const userServices = require('./models/user/user-services');
 
 const app = express();
 const port = process.env.PORT;
@@ -58,6 +59,18 @@ app.get('/nutrition/table', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).send('An error occured in the server.');
+    }
+});
+
+
+// get user info
+app.get('/user', async (req, res) => {
+    try {
+        const result = await userServices.getUser();
+        res.send(result);      
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error ocurred in the server.');
     }
 });
 
