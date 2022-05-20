@@ -61,7 +61,18 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
-
+// get daily nutrition table chart
+app.get('/nutrition', async (req, res) => {
+    console.log(req.body);
+    try {
+        const username = req.query.username;
+        const result = await nutritionServices.getUserNutrtition(username);
+        return res.send(result);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error occured in the server');
+    }
+});
 
 var server = app.listen(port, function () {
     let servhost = server.address().address

@@ -19,7 +19,12 @@ mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?r
 
 
 async function getFoodList() {
-    return nutritionModels.NutritionTable.find();
+  return nutritionModels.NutritionTable.find();
+}
+
+async function getUserNutrtition(username) {
+  return nutritionModels.UserNutrition.findOne( { username: username } )
 }
 
 exports.getFoodList = getFoodList;
+exports.getUserNutrtition = getUserNutrtition;
