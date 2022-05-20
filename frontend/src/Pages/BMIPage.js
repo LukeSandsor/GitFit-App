@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './BMIPage.css';
 import NavBar from '../NavBar';
+import axios from 'axios';
+
 
 // The brains of the BMI Calcultor. Calculates a theoretical BMI based on given height and weight
 function calculateBMI(height, weight, BMI, heightError, weightError){
@@ -22,7 +24,13 @@ function calculateBMI(height, weight, BMI, heightError, weightError){
         heightError.innerHTML = " ";
         weightError.innerHTML = " ";
     }
+    return Math.round(weight / Math.pow(height,2) * 703 * 10) / 10;
 }
+
+
+
+
+
 
 // Main return for the BMI Page.
 // The return contains the NavBar, the Calculation Info Block, the BMI Bubble, the BMI calculator, and the BMI table.
@@ -30,6 +38,30 @@ function calculateBMI(height, weight, BMI, heightError, weightError){
 // there is a table header which labels the height, and each column thereafter represents a weight.
 function BMIPage()
 {
+    const [User, setUser] = useState({});
+
+    async function getUser() {
+        try {
+        // returns the first user in the database (to be modified later)
+        const response = await axios.get('https://gitfit.lucasreyna.me/user');
+     //    const response = await axios.get('http://localhost:2414/user');
+        console.log(response.data);
+        return response.data[0];
+        } catch (error) {
+        console.log(error);
+        return false;
+        }
+    }
+
+    useEffect(() => {
+        getUser().then((result) => {
+          if (result) {
+            setUser(result);
+          }
+        });
+      }, []); // only load on first render
+
+
     return (
         <div>
             <NavBar/>
@@ -56,7 +88,7 @@ function BMIPage()
                     </label>
                     <br></br>
                     <label style={{textAlign: "center"}}>
-                            <text style={{color: 'white', fontSize: 96}}>56.3</text>                  
+                            <text style={{color: 'white', fontSize: 96}} id="user_BMI" value="">{Math.round(User.weight / Math.pow(User.height,2) * 703 * 10) / 10}</text>                  
                     </label>
                 </div>
             </div>
