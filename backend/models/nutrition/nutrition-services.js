@@ -26,5 +26,17 @@ async function getUserNutrtition(username) {
   return nutritionModels.UserNutrition.findOne( { username: username } )
 }
 
+async function updateUserNutrition(updatedUser) {
+  return nutritionModels.UserNutrition.updateOne( 
+    { username: updatedUser.username },
+    {
+      $set: {
+        nutritionStats: updatedUser.nutritionStats
+      }
+    }
+  )
+}
+
 exports.getFoodList = getFoodList;
 exports.getUserNutrtition = getUserNutrtition;
+exports.updateUserNutrition = updateUserNutrition;
