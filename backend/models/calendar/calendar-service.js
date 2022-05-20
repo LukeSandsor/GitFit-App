@@ -101,16 +101,5 @@ async function addInfoToCalendar(data) {
   return false;
 }
 
-async function addUser(user) {
-  try {
-    const userToAdd = new userModel(user);
-    const savedUser = await userToAdd.save();
-    return savedUser;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
-}
-
 exports.getCalendaryByUser = getCalendaryByUser;
 exports.addInfoToCalendar = addInfoToCalendar;
