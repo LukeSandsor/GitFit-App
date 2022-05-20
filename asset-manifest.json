@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.913e5393.css",
-    "main.js": "/static/js/main.690f5c6e.js",
+    "main.js": "/static/js/main.0ff55215.js",
     "static/media/groupPhoto.png": "/static/media/groupPhoto.bc274f9a1a75ea458252.png",
     "static/media/PullLogo.png": "/static/media/PullLogo.b83af2efe4af43ab6c0f.png",
     "static/media/LegsLogo.png": "/static/media/LegsLogo.7b90ec6bc0c4d7bafa7d.png",
@@ -16,10 +16,10 @@
     "static/media/dumbell.svg": "/static/media/dumbell.dc5825857d582e3b11343cfd417d1080.svg",
     "index.html": "/index.html",
     "main.913e5393.css.map": "/static/css/main.913e5393.css.map",
-    "main.690f5c6e.js.map": "/static/js/main.690f5c6e.js.map"
+    "main.0ff55215.js.map": "/static/js/main.0ff55215.js.map"
   },
   "entrypoints": [
     "static/css/main.913e5393.css",
-    "static/js/main.690f5c6e.js"
+    "static/js/main.0ff55215.js"
   ]
 }
