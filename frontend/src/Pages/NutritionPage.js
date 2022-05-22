@@ -5,6 +5,7 @@ import BarChart from '../BarChart';
 import './NutritionPage.css';
 import FoodSelect from '../FoodSelect';
 import NutritionTable from '../NutritionTable';
+import PersonalNutritionTable from '../PersonalNutritionTable';
 import axios from 'axios';
 
 function NutritionPage() {
@@ -23,11 +24,27 @@ function NutritionPage() {
         }
     }
 
+    async function getUserNutrition () {
+        try {
+            const response = await axios.get("https://gitfit.lucasreyna.me/nutrition?username=nutritionTest");
+            console.log(response.data);
+            return response.data;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     useEffect(() => {
         getFoodOptions().then(result => {
             if (result)
                 setFoodOptions(result);
-        })
+        });
+
+        getUserNutrition().then(result => {
+            if (result)
+                setUserFoodInfo(result);
+        });
     });
 
     return (
@@ -43,40 +60,7 @@ function NutritionPage() {
                 </div>
             </div>
             <div className='macro-table-container'>
-                <table className='macro-table'>
-                    <thead>
-                        <tr>
-                            <th className='table-data'>Macro Nutrient</th>
-                            <th className='table-data'>Actual Intake</th>
-                            <th className='table-data'>Target Intake</th>
-                            <th className='table-data'>Actual Percentage</th>
-                            <th className='table-data'>Target Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className='table-data'>Protein</td>
-                            <td className='table-data'>120 g</td>
-                            <td className='table-data'>180 g</td>
-                            <td className='table-data'>40 %</td>
-                            <td className='table-data'>50 %</td>
-                        </tr>
-                        <tr>
-                            <td className='table-data'>Carbohydrates</td> 
-                            <td className='table-data'>200 g</td>
-                            <td className='table-data'>220 g</td>
-                            <td className='table-data'>30 %</td>
-                            <td className='table-data'>50 %</td>
-                        </tr>
-                        <tr>
-                            <td className='table-data'>Fats</td> 
-                            <td className='table-data'>60 g</td>
-                            <td className='table-data'>80 g</td>
-                            <td className='table-data'>10 %</td>
-                            <td className='table-data'>20 %</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <PersonalNutritionTable />
             </div>
             <div className='food-selecter-container'>
                 <div className='log-food'>
