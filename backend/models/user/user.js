@@ -2,12 +2,27 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
     {
-        firstname: {
+        username: {
             type: String,
             required: true,
             trim: true
         },
-        lastname: {
+        password: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        email: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        gender: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        birthday: {
             type: String,
             required: true,
             trim: true
@@ -22,8 +37,13 @@ const UserSchema = new mongoose.Schema(
             required: true,
             trim: true
         },
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
     },
-    { collection: "personalInfoTest" }
+    { collection: "user_list" }
 );
 
 const User = mongoose.model("user", UserSchema);
