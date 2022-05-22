@@ -19,7 +19,7 @@ function TableHeader() {
 function TableBody(props) {
     const rows = props.foodOptions.map((row) => {
         return (
-            <tr>
+            <tr key={row.food}>
                 <td className='table-data'>{row.food}</td>
                 <td className='table-data'>{row.calories}</td>
                 <td className='table-data'>{row.protein}</td>

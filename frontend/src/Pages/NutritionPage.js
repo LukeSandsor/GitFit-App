@@ -3,10 +3,9 @@ import NavBar from '../NavBar';
 import DoughnutChart from '../DoughnutChart';
 import BarChart from '../BarChart';
 import './NutritionPage.css';
-import FoodSelect from '../FoodSelect';
-import NutritionTable from '../NutritionTable';
 import PersonalNutritionTable from '../PersonalNutritionTable';
 import axios from 'axios';
+import MealLogger from '../MealLogger'
 
 function NutritionPage() {
     const [foodOptions, setFoodOptions] = useState([]);
@@ -62,27 +61,8 @@ function NutritionPage() {
             <div className='macro-table-container'>
                 <PersonalNutritionTable userFoodInfo={userFoodInfo}/>
             </div>
-            <div className='food-selecter-container'>
-                <div className='log-food'>
-                    <h2>Log Meals</h2>
-                    
-                    <div  className='food-selecter'>
-                        <FoodSelect foodOptions={foodOptions}/>
-                    </div>
-                    
-                    <form>
-                        <input
-                            className='food-input'
-                            placeholder='Quantity in grams'
-                            type='text'
-                        />
-                    </form>
-                    <button className='food-button'>Submit</button>
-                </div>
-                <div className='nutrition-table'>
-                    <NutritionTable foodOptions={foodOptions} />
-                </div>
-            </div>
+            
+            <MealLogger foodOptions={foodOptions}/>
         </div>
     )
 }
