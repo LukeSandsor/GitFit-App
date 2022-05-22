@@ -2,9 +2,9 @@ import React from 'react';
 import './Pages/NutritionPage.css';
 
 function PersonalNutritionTable(props) {
-    const protein = `${props.userFoodInfo.protein} g`;
-    const carbs = `${props.userFoodInfo.carbs} g`;
-    const fats = `${props.userFoodInfo.fats} g`;
+    const protein = `${Math.round(props.userFoodInfo.protein * 100) / 100} g`;
+    const carbs = `${Math.round(props.userFoodInfo.carbs * 100) / 100} g`;
+    const fats = `${Math.round(props.userFoodInfo.fats * 100) / 100} g`;
     
     return (
         <table className='macro-table'>
