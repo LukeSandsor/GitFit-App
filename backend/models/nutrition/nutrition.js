@@ -31,8 +31,25 @@ const NutritionTableSchema = new mongoose.Schema(
     { collection: "food_list" }
 );
 
+const UserNutritionSchema = new mongoose.Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        nutritionStats: {
+            type: Array,
+            required: true
+        }
+    },
+    { collection: "user_nutrition" }
+)
+
 const NutritionTable = mongoose.model("NutritionTable", NutritionTableSchema);
+const UserNutrition = mongoose.model("UserNutrition", UserNutritionSchema);
 
 module.exports = {
-    NutritionTable: NutritionTable
+    NutritionTable: NutritionTable,
+    UserNutrition: UserNutrition
 }

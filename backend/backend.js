@@ -94,7 +94,43 @@ app.get('/user', async (req, res) => {
     }
 });
 
+// get daily nutrition table chart
+app.get('/nutrition', async (req, res) => {
+    try {
+        const username = req.query.username;
+        const user = await nutritionServices.getUserNutrtition(username);
+        today = new Date();
 
+
+        entry = user.nutritionStats.filter(stats => {
+            return (
+                stats.date === today.getDate() 
+                && stats.month === today.getMonth()
+                && stats.year === today.getFullYear()
+            )
+        })
+        if (entry.length === 0) {
+            const newEntry = {
+                date: today.getDate(),
+                month: today.getMonth(),
+                year: today.getFullYear(),
+                protein: 0,
+                carbs: 0,
+                fats: 0,
+                calories: 0
+            }
+            user.nutritionStats.push(newEntry);
+            await nutritionServices.updateUserNutrition(user);
+            return res.send(newEntry);
+        }
+        else {
+            return res.send(entry[0]);
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error occured in the server');
+    }
+});
 
 var server = app.listen(port, function () {
     let servhost = server.address().address
