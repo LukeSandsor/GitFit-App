@@ -1,13 +1,29 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import gitfitlogo from '../images/GitFitLogo.svg';
+import GenderSelect from '../GenderSelect';
+
 
 import './RegisterPage.css';
 
 function RegisterPage() {
+   const genderOptions = [
+        {
+            label: 'Male',
+            value: 'm'
+        },
+        {
+          label: 'Female',
+          value: 'f'
+        },
+        {
+          label: 'Other',
+          value: 'o'
+        }
+      ]
 
-  const [errorMessages, /*etErrorMessages*/] = useState({});
-const [isSubmitted, /*setIsSubmitted*/] = useState(false);
+  const [errorMessages, setErrorMessages] = useState({});
+const [isSubmitted, setIsSubmitted] = useState(false);
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -22,8 +38,17 @@ const [isSubmitted, /*setIsSubmitted*/] = useState(false);
   
   const handleSubmit = (event) => {
     event.preventDefault();
-      //will add to database
     
+    // eslint-disable-next-line
+    var { uname, pass , repass} = document.forms[0];
+
+    //add if username taken code later
+
+    if( pass.value !== repass.value)
+    {
+      setErrorMessages({name: "repass", message: "mismatched passwords"})
+    }
+    setIsSubmitted(true);
   };
 
   const renderForm = (
@@ -54,7 +79,9 @@ const [isSubmitted, /*setIsSubmitted*/] = useState(false);
           </div>
           <div className="input-container">
           <label>Gender: </label>
-          <input className='input-box' type="text" name="gender" required />
+          <div style={{backgroundColor: 'white', margin: '10px', gap: '8px', borderRadius: '5px', display: 'flex', flexDirection: 'column', fontSize: '16px'}}>
+            <GenderSelect genderOptions={genderOptions} required/>
+          </div>
           {renderErrorMessage("Gender")}
         </div>
         <div className="input-container">
@@ -76,12 +103,12 @@ const [isSubmitted, /*setIsSubmitted*/] = useState(false);
         </div>
         <div className="input-container">
           <label>Name: </label>
-          <input className='input-box' type="number" name="name" required />
+          <input className='input-box' type="text" name="name" required />
           {renderErrorMessage("name")}
         </div>
       </div>
         <div className="button-container">
-          <input type="submit" ></input>
+          <input type="submit"></input>
        </div>
       </form>
     </div>

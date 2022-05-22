@@ -4,6 +4,8 @@ const cors = require('cors');
 const adviceServices = require('./models/health_advice/advice-services');
 const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
+const weight_history = require('./models/weights_log/weights_log');
+const userServices = require('./models/user/user-services');
 
 const app = express();
 const port = process.env.PORT;
@@ -61,12 +63,42 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
+app.get('/weights/:name', async (req, res) => {
+    const name = req.params.name;
+    const result = await weights_history.getWorkoutByName(name);
+    if (result === null || result === undefined)
+         res.status(404).send('Resource not found.');
+    else {
+        res.status(201).send({weights_hisotry: result});
+    }
+});
+
+app.get('weights/:date', async (req, res) => {
+    const date = req.params.date
+    const result = await weights_history.getWorkoutByDate(date);
+    if (result === null || result === undefined)
+        res.status(404).send('Resource not found.');
+    else {
+        res.status(201).send({weights_hisotry: result})
+    }
+})
+
+// get user info
+app.get('/user', async (req, res) => {
+    try {
+        const result = await userServices.getUser();
+        res.send(result);      
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error ocurred in the server.');
+    }
+});
+
 // get daily nutrition table chart
 app.get('/nutrition', async (req, res) => {
     try {
         const username = req.query.username;
         const user = await nutritionServices.getUserNutrtition(username);
-
         today = new Date();
 
 
