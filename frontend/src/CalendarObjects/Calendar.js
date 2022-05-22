@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import './Calendar.css';
 import Tile from './Tile/Tile.jsx';
-import exampleDateData from './ExampleCalendarData.json'; // For testing purposes
+// import exampleDateData from './ExampleCalendarData.json'; // For testing purposes
 import CalendarDateInfoContext from '../context/calendar-date.context';
+import MonthlyMoodDataContext from '../context/calendar-mood.context';
+
+const user = 'guest';
 
 const NUM_COLS = 7; // seven days in a week
 const NUM_ROWS = 6; // at most 6 weeks to display
 const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const monthStrs = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DEFAULT_EMPTY = 'N/A';
 
 // sets up the days of the week in table format
 function CalendarHeader() {
@@ -22,13 +27,45 @@ function CalendarHeader() {
 }
 
 function Calendar() {
+  const [userData, setUserData] = useState({}); // stores user data from get
   const [currentMonth, setCurrentMonth] = useState((new Date()).getMonth());
   const [currentYear, setCurrentYear] = useState((new Date()).getFullYear());
   const [selectedTile, setSelectedTile] = useState();
   const [calendarBody, setCalendar] = useState();
+  const [calendarClassname, setCalendarClass] = useState('');
   let gridOfInfo = []; // makes grid accessible in other functions
 
   const { updateDay } = useContext(CalendarDateInfoContext);
+  const { updateMonthlyMoodData } = useContext(MonthlyMoodDataContext);
+
+  function collectMoodsForMonth()
+  {
+    let moodData = {};
+
+    /// iterate through grid of info
+    for (let row = 0; row < gridOfInfo.length; row++) {
+      for (let col = 0; col < gridOfInfo[row].length; col++) {
+        // check if mood exists
+        if (gridOfInfo[row][col]['mood'])
+        {
+          // grab mood
+          const newMood = gridOfInfo[row][col]['mood'];
+
+          // check if mood is already in the object
+          if (newMood != DEFAULT_EMPTY) {
+            if (moodData[newMood]) {
+              moodData[newMood] += 1;
+            }
+            else {
+              moodData[newMood] = 1;
+            }
+          }
+        }
+      }
+    }
+
+    return moodData;
+  }
 
   function UpdateCalendar(incrementMonth) {
     // in case value > 12
@@ -47,7 +84,9 @@ function Calendar() {
     }
 
     // reset the currently selected tile
-    if (selectedTile) selectedTile.className = 'tile ';
+    if (selectedTile) 
+      selectedTile.className = 'tile ';
+
     setSelectedTile(undefined);
     updateDay({}); // reset Daily Breakdown info when switching
   }
@@ -61,14 +100,14 @@ function Calendar() {
       // change previous tile to a default active tile
       // make sure it's not undefined
       if (selectedTile) selectedTile.className = 'tile ';
+      
       setSelectedTile(tileObject);
       tileObject.className += 'selected-tile';
 
       // set daily info
-      // console.log(gridOfInfo);
       const getInfo = gridOfInfo[row][col];
-      // console.log(getInfo);
-      updateDay(getInfo); // this will set the context for calenderPage
+      if (getInfo)
+        updateDay(getInfo); // this will set the context for calenderPage
     }
   }
 
@@ -118,12 +157,12 @@ function Calendar() {
           <tr>
             {row.map((tile, tileIndex) => {
               let currentInfo = { // set all info for Tile
-                calLost: 'N/A',
-                calCons: 'N/A',
-                weight: 'N/A',
-                numWork: 'N/A',
-                numStep: 'N/A',
-                mood: 'N/A',
+                calLost: DEFAULT_EMPTY,
+                calCons: DEFAULT_EMPTY,
+                weight: DEFAULT_EMPTY,
+                numWork: DEFAULT_EMPTY,
+                numStep: DEFAULT_EMPTY,
+                mood: DEFAULT_EMPTY,
               };
 
               // return from the row map, single Tile
@@ -160,7 +199,24 @@ function Calendar() {
                 currentDay.setDate(currentDay.getDate() + 1);
                 if (currentMonth === currentDay.getMonth()) {
                   const dateText = `${monthStrs[currentMonth]} ${currentDay.getDate()}, ${currentYear}`;
-                  const thisDateData = dateData[currentYear][currentMonth][currentDay.getDate()];
+                  if (dateData.years[currentYear] === undefined) {
+                    // year does not exist for user
+                    setCalendarClass('invalid'); // changes background color of calendar
+                    updateDay({ dateString: 'No data for this year!' });
+                    return <td>
+                            <Tile
+                              key={tileIndex}
+                              onMouseDown={onMouseDown}
+                              row={rowIndex}
+                              col={tileIndex}
+                              mood={currentMood}
+                              num={currentDay.getDate()}
+                              isNotActive={false}
+                              ></Tile>
+                            </td>;
+                  }
+                  setCalendarClass('');
+                  const thisDateData = dateData.years[currentYear][currentMonth][currentDay.getDate()];
                   currentInfo.dateString = dateText;
 
                   // check if this day has a mood loggged
@@ -218,16 +274,47 @@ function Calendar() {
     newInfoGrid.push(newInfoRow); // must push last row
     gridOfInfo = newInfoGrid; // set component variable to newGrid
 
+    // send moodData to summaryPage through context
+    updateMonthlyMoodData(collectMoodsForMonth());
+
     return newCalendarBody;
+  }
+
+  async function getCalendarFromUser(username) {
+    try {
+      // cache this stuff later, don't need to get the whole calendar every time
+      const response = await axios.get(`https://gitfit.lucasreyna.me/calendar?user=${username}`);
+
+      if (response.status === 200) {
+        return response.data;
+      }
+      // else handle user not being in the calendar db
+      // most likely a 204 response
+      return { years: {} };
+    } catch (error) {
+      // possible do something with no advice
+      // console.log(error);
+      return false;
+    }
   }
 
   // runs on first render, and any time month or selected tile is changed
   useEffect(() => {
-    setCalendar(loadCalendarBodyInfo(exampleDateData));
+    // before data is initialized
+    if (Object.keys(userData).length === 0) {
+        getCalendarFromUser(user).then((result) => {
+          if (result) {
+            setCalendar(loadCalendarBodyInfo(result));
+          }
+          setUserData(result); // cache the user data
+      });
+    }
+    else if (userData)
+      setCalendar(loadCalendarBodyInfo(userData));
   }, [currentMonth, selectedTile]);
 
   return (
-    <div className='calendar'>
+    <div className={`calendar ${calendarClassname}`}>
         <div className="calendar-top">
           <button className="arrow-button" onClick={() => UpdateCalendar(-1)}>&#8678;</button>
           <span id="month-year-text">{monthStrs[currentMonth]} {currentYear}</span>

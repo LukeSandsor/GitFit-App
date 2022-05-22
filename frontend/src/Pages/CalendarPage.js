@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import Calendar from '../CalendarObject/Calendar';
+import React, { useEffect, useState } from 'react';
+import Calendar from '../CalendarObjects/Calendar';
 import NavBar from '../NavBar';
 import './CalendarPage.css';
 import CalendarDateInfoContext from '../context/calendar-date.context';
+import MonthlyMoodDataContext from '../context/calendar-mood.context';
+import MoodBarGraph from '../CalendarObjects/MoodBarGraph';
 
 function CalendarPage() {
   const [dailyInfo, setDailyInfo] = useState({
@@ -15,15 +17,20 @@ function CalendarPage() {
     mood: '',
   });
 
+  const [monthlyMoodData, setMonthlyMoodData] = useState({});
+
   const updateDay = (info) => setDailyInfo(info);
+  const updateMonthlyMoodData = (info) => setMonthlyMoodData(info);
 
   return (
     <div>
       <NavBar />
-      <h3>GitFit: Calendar</h3>
+      <h1 id="page-title">Calendar</h1>
       <div id="page-contents">
         <CalendarDateInfoContext.Provider value={{ dailyInfo, updateDay }}>
-          <Calendar />
+            <MonthlyMoodDataContext.Provider value={{ monthlyMoodData, updateMonthlyMoodData }}>
+                <Calendar />
+            </MonthlyMoodDataContext.Provider>
         </CalendarDateInfoContext.Provider>
         <div id="day-info-block">
           <div id="day-title">
@@ -38,6 +45,9 @@ function CalendarPage() {
             <p># of Workouts: {dailyInfo.numWork}</p>
             <p># of Steps Taken: {dailyInfo.numStep}</p>
             <p>Mood for the Day: {dailyInfo.mood}</p>
+          </div>
+          <div id='mood-bar-graph'>
+            <MoodBarGraph moodData={monthlyMoodData}/>
           </div>
         </div>
       </div>

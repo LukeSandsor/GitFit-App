@@ -20,11 +20,11 @@ function TableBody(props) {
     const rows = props.foodOptions.map((row) => {
         return (
             <tr>
-                <td className='table-data'>{row.label}</td>
-                <td className='table-data'>{row.value.calories}</td>
-                <td className='table-data'>{row.value.protein}</td>
-                <td className='table-data'>{row.value.carbs}</td>
-                <td className='table-data'>{row.value.fats}</td>
+                <td className='table-data'>{row.food}</td>
+                <td className='table-data'>{row.calories}</td>
+                <td className='table-data'>{row.protein}</td>
+                <td className='table-data'>{row.carbs}</td>
+                <td className='table-data'>{row.fats}</td>
             </tr>
         );
     });
