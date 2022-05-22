@@ -53,14 +53,14 @@ function NutritionPage() {
             <h1>Nutrition Page</h1>
             <div className='chart-container'>
                 <div className='doughnut'>
-                    <DoughnutChart />
+                    <DoughnutChart userFoodInfo={userFoodInfo}/>
                 </div>
                 <div className='bar'>
-                    <BarChart />
+                    <BarChart userFoodInfo={userFoodInfo}/>
                 </div>
             </div>
             <div className='macro-table-container'>
-                <PersonalNutritionTable />
+                <PersonalNutritionTable userFoodInfo={userFoodInfo}/>
             </div>
             <div className='food-selecter-container'>
                 <div className='log-food'>

@@ -17,13 +17,13 @@ Chart.overrides.doughnut.plugins.tooltip.titleAlign = 'center';
 Chart.overrides.doughnut.plugins.tooltip.bodyFont = { weight: 'bold', size: 14 };
 Chart.overrides.doughnut.plugins.tooltip.bodyAlign = 'center';
 
-function DoughnutChart() {
+function DoughnutChart(props) {
   const data = {
     labels: ['Protein', 'Carbs', 'Fats'],
     datasets: [
       {
         label: 'Current',
-        data: [0.4, 0.4, 0.2],
+        data: [props.userFoodInfo.protein, props.userFoodInfo.carbs, props.userFoodInfo.fats],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
         // hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
         hoverOffset: 10,
