@@ -9,6 +9,7 @@ import axios from 'axios';
 
 function NutritionPage() {
     const [foodOptions, setFoodOptions] = useState([]);
+    const [userFoodInfo, setUserFoodInfo] = useState({});
 
     async function getFoodOptions() {
         try {
