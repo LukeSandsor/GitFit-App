@@ -138,9 +138,9 @@ app.put('/nutrition', async (req, res) => {
         console.log(req.body);
         const username = req.query.username;
         const food = req.body.food;
-        const quantity = req.body.quantity;
+        const quantity = Number(req.body.quantity);
 
-        if (typeof quantity === 'number' && quantity > 0) {
+        if (quantity > 0) {
             var ratio = 0;
             var calories = 0;
             var protein = 0;

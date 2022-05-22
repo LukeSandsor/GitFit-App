@@ -6,7 +6,7 @@ import { Doughnut } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
 Chart.overrides.doughnut.plugins.tooltip.callbacks.label = function (context) {
-  return `${context.parsed * 100}%`;
+  return `${context.parsed}%`;
 };
 Chart.overrides.doughnut.plugins.tooltip.callbacks.title = function (context) {
   console.log(context);
@@ -18,12 +18,17 @@ Chart.overrides.doughnut.plugins.tooltip.bodyFont = { weight: 'bold', size: 14 }
 Chart.overrides.doughnut.plugins.tooltip.bodyAlign = 'center';
 
 function DoughnutChart(props) {
+  const total = props.userFoodInfo.protein + props.userFoodInfo.carbs + props.userFoodInfo.fats
+  const protein = Math.round(props.userFoodInfo.protein / total * 100);
+  const carbs = Math.round(props.userFoodInfo.carbs / total * 100);
+  const fats = Math.round(props.userFoodInfo.fats / total * 100);
+
   const data = {
     labels: ['Protein', 'Carbs', 'Fats'],
     datasets: [
       {
         label: 'Current',
-        data: [props.userFoodInfo.protein, props.userFoodInfo.carbs, props.userFoodInfo.fats],
+        data: [protein, carbs, fats],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
         // hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
         hoverOffset: 10,
