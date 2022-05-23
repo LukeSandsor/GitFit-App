@@ -186,7 +186,19 @@ app.put('/nutrition', async (req, res) => {
         console.log(error);
         res.status(500).send('An error occured in the server');
     }
-})
+});
+
+// Middlewares
+const bodyParser = require('body-parser'),
+      flash = require('connect-flash'),
+      passportControl = require('./lib/passport-control')
+
+app.use(bodyParser.urlencoded({ extended: false }))
+//app.use(express.static(path.join(__dirname, 'public')))
+app.use(passportControl.initialize())
+
+// Routers
+app.use('/api', require('./routes'));
 
 var server = app.listen(port, function () {
     let servhost = server.address().address

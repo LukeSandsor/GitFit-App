@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
+var UserSchema = new mongoose.Schema(
     {
         firstname: {
             type: String,
@@ -25,6 +25,33 @@ const UserSchema = new mongoose.Schema(
     },
     { collection: "personalInfoTest" }
 );
+
+// Hash password before saving
+UserSchema.pre('save', function(next) {
+  var user = this;
+
+  // If not registration
+  if ( !user.isModified('password') ) return next();
+
+  bcrypt.hash(user.password, 10, (err, hash) => {
+    if (err) {
+      return next(err);
+    }
+    user.password = hash;
+    next();
+  });
+});
+
+// Password verification
+UserSchema.methods.login = function(password) {
+  var user = this
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(password, user.password, (err, result) => {
+      if ( err ) { reject(err) }
+      resolve()
+    })
+  })
+}
 
 const User = mongoose.model("user", UserSchema);
 
