@@ -6,6 +6,8 @@
 ### Introduction
 A free to use an open source fitness app for Cal Poly's CSC 307 class taught by professor BJ Klingenberg
 
+See more here https://www.gitfit.me/#/about
+
 ### Description
 
 ### [Website](https://www.gitfit.me)
