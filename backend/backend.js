@@ -81,7 +81,16 @@ app.get('weights/:date', async (req, res) => {
     else {
         res.status(201).send({weights_hisotry: result})
     }
-})
+});
+
+app.post('/weights', async (req, res) => {
+  const workout = req.body;
+  const savedInfo = await weight_history.addWorkout(workout);
+  if (savedInfo)
+      res.status(201).send('Successfully added workout');
+  else
+      res.status(500).end();
+});
 
 // get user info
 app.get('/user', async (req, res) => {
@@ -93,8 +102,6 @@ app.get('/user', async (req, res) => {
         res.status(500).send('An error ocurred in the server.');
     }
 });
-
-
 
 var server = app.listen(port, function () {
     let servhost = server.address().address

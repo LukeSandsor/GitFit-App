@@ -19,9 +19,9 @@ mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?r
 
 async function addWorkout(workout) {
     try {
-        const userToAdd = new weightsModel(workout);
-        const savedUser = await userToAdd.save();
-        return savedUser;
+        const workoutToAdd = new weightsModel(workout);
+        const savedWorkout = await workoutToAdd.save();
+        return savedWorkout;
     } 
     catch (error) {
         console.log(error);
@@ -53,3 +53,8 @@ async function getWorkoutByDate(date) {
     if(date !== undefined)
         return weightsModel.find({ date: date});
 }
+
+exports.getWorkoutByDate = getWorkoutByDate;
+exports.getWorkoutByName = getWorkoutByName;
+exports.getWorkoutByWeight = getWorkoutByWeight;
+exports.addWorkout = addWorkout;

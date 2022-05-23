@@ -52,7 +52,7 @@ function Calendar() {
           const newMood = gridOfInfo[row][col]['mood'];
 
           // check if mood is already in the object
-          if (newMood != DEFAULT_EMPTY) {
+          if (newMood !== DEFAULT_EMPTY) {
             if (moodData[newMood]) {
               moodData[newMood] += 1;
             }

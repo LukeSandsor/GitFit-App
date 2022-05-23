@@ -12,7 +12,8 @@ function AboutPage() {
             <div className='GitFit logo'><img src={gitfitlogo} alt="GitFit Logo" sytle={{ verticalAlign: 'top', width: 700, height: 250 }}></img></div>
             <h1>About GitFit</h1>
             <img src={groupPhoto} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 1000 }}></img>
-            <h2>Meet the Developers</h2>
+            <h2>Meet the Developers:</h2>
+                <text>"(Right to left) Lucas Sandsor, Lucas Reyna, Brett Gowling, Joey Marenin"</text>
             <br></br>
             <br></br>
             <br></br>
