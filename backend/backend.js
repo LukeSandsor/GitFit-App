@@ -4,7 +4,10 @@ const cors = require('cors');
 const adviceServices = require('./models/health_advice/advice-services');
 const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
+const weight_history = require('./models/weights_log/weights_log');
 const userServices = require('./models/user/user-services');
+const nutrition = require('./models/nutrition/nutrition');
+const { type } = require('express/lib/response');
 
 const app = express();
 const port = process.env.PORT;
@@ -62,6 +65,25 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
+app.get('/weights/:name', async (req, res) => {
+    const name = req.params.name;
+    const result = await weights_history.getWorkoutByName(name);
+    if (result === null || result === undefined)
+         res.status(404).send('Resource not found.');
+    else {
+        res.status(201).send({weights_hisotry: result});
+    }
+});
+
+app.get('weights/:date', async (req, res) => {
+    const date = req.params.date
+    const result = await weights_history.getWorkoutByDate(date);
+    if (result === null || result === undefined)
+        res.status(404).send('Resource not found.');
+    else {
+        res.status(201).send({weights_hisotry: result})
+    }
+})
 
 // get user info
 app.get('/user', async (req, res) => {
@@ -74,7 +96,97 @@ app.get('/user', async (req, res) => {
     }
 });
 
+// get daily nutrition table chart
+app.get('/nutrition', async (req, res) => {
+    try {
+        const username = req.query.username;
+        const user = await nutritionServices.getUserNutrtition(username);
+        today = new Date();
 
+
+        entry = user.nutritionStats.filter(stats => {
+            return (
+                stats.date === today.getDate() 
+                && stats.month === today.getMonth()
+                && stats.year === today.getFullYear()
+            )
+        })
+        if (entry.length === 0) {
+            const newEntry = {
+                date: today.getDate(),
+                month: today.getMonth(),
+                year: today.getFullYear(),
+                protein: 0,
+                carbs: 0,
+                fats: 0,
+                calories: 0
+            }
+            user.nutritionStats.push(newEntry);
+            await nutritionServices.updateUserNutrition(user);
+            return res.send(newEntry);
+        }
+        else {
+            return res.send(entry[0]);
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error occured in the server');
+    }
+});
+app.put('/nutrition', async (req, res) => {
+    try {
+        console.log(req.body);
+        const username = req.query.username;
+        const food = req.body.food;
+        const quantity = Number(req.body.quantity);
+
+        if (quantity > 0) {
+            var ratio = 0;
+            var calories = 0;
+            var protein = 0;
+            var carbs = 0;
+            var fats = 0;
+
+            const user = await nutritionServices.getUserNutrtition(username);
+            const nutritionTable = await nutritionServices.getFoodList();
+
+            for (const foodEntry of nutritionTable) {
+                if (foodEntry.food === food) {
+                    ratio = Math.round(quantity / foodEntry.average_portion * 100) / 100;
+                    calories = Math.round(ratio * foodEntry.calories * 100) / 100;
+                    protein = Math.round(ratio * foodEntry.protein * 100) / 100;
+                    carbs = Math.round(ratio * foodEntry.carbs * 100) / 100;
+                    fats = Math.round(ratio * foodEntry.fats * 100) / 100;
+                    break;
+                }
+            }
+            console.log(ratio, calories, protein, carbs, fats);
+
+            today = new Date();
+            for (const nutritionEntry of user.nutritionStats) {
+                if (nutritionEntry.date === today.getDate() 
+                && nutritionEntry.month === today.getMonth()
+                && nutritionEntry.year === today.getFullYear())
+                {
+                    nutritionEntry.calories += calories;
+                    nutritionEntry.protein += protein;
+                    nutritionEntry.carbs += carbs;
+                    nutritionEntry.fats += fats;
+                }
+            }
+
+            console.log(user.nutritionStats);
+            await nutritionServices.updateUserNutrition(user);
+            res.send("Success");
+        } else {
+            res.status(500).send("Quantity must be a number greater than 0");
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error occured in the server');
+    }
+})
 
 var server = app.listen(port, function () {
     let servhost = server.address().address

@@ -3,7 +3,7 @@ import {Bar} from 'react-chartjs-2';
 //eslint-disable-next-line
 import Chart from 'chart.js/auto';
 
-function BarChart() {
+function BarChart(props) {
     const data = {
         labels: ['Protein', 'Carbs', 'Fats'],
         datasets: [
@@ -16,7 +16,7 @@ function BarChart() {
             },
             {
                 label: "Current",
-                data: [140, 50, 20],
+                data: [props.userFoodInfo.protein, props.userFoodInfo.carbs, props.userFoodInfo.fats],
                 backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
                 borderColor: 'white',
                 borderWidth: 2,
