@@ -86,7 +86,7 @@ app.get('weights/:date', async (req, res) => {
 })
 
 // get user info
-app.get('/user', async (req, res) => {
+/*app.get('/user', async (req, res) => {
     try {
         const result = await userServices.getUser();
         res.send(result);      
@@ -94,7 +94,7 @@ app.get('/user', async (req, res) => {
         console.log(error);
         res.status(500).send('An error ocurred in the server.');
     }
-});
+});*/
 
 // get daily nutrition table chart
 app.get('/nutrition', async (req, res) => {
@@ -186,7 +186,21 @@ app.put('/nutrition', async (req, res) => {
         console.log(error);
         res.status(500).send('An error occured in the server');
     }
-})
+});
+
+// Middlewares
+const bodyParser = require('body-parser'),
+      flash = require('connect-flash'),
+      passportControl = require('./lib/passport-control')
+
+app.use(bodyParser.urlencoded({ extended: false }));
+//const path = require('path');
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(passportControl.initialize());
+
+// Routers
+// example 'localhost:5000/passport/{router js defines}'
+app.use('/passport', require('./routes/passportAPI'));
 
 var server = app.listen(port, function () {
     let servhost = server.address().address

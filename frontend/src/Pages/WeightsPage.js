@@ -16,7 +16,7 @@ function WeightsPage() {
                     <img src={pushLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
                     <label style={{ textAlign: 'left' }}>
-                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
                     <input type="text" name="Push" />
                     </label>
                     <input type="submit" value="Submit" />
@@ -26,7 +26,7 @@ function WeightsPage() {
                     <img src={pullLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
                     <label style={{ textAlign: 'left' }}>
-                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
                     <input type="text" name="Push" />
                     </label>
                     <input type="submit" value="Submit" />
@@ -36,7 +36,7 @@ function WeightsPage() {
                     <img src={legsLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
                     <label style={{ textAlign: 'left' }}>
-                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
                     <input type="text" name="Push" />
                     </label>
                     <input type="submit" value="Submit" />
