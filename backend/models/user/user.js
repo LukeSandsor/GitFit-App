@@ -59,13 +59,13 @@ UserSchema.pre('save', function(next) {
 
 // Password verification
 UserSchema.methods.login = function(password) {
-  var user = this
+  var user = this;
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, user.password, (err, result) => {
-      if ( err ) { reject(err) }
-      resolve()
-    })
-  })
+      if ( err || !result ) { reject(err); }
+      resolve(result);
+    });
+  });
 }
 
 const User = mongoose.model("user", UserSchema);

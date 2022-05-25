@@ -34,14 +34,16 @@ router.post('/signup', (req, res) => {
 router.post('/login', passport.authenticate('local', {
     session: false
   }), (req, res) => {
-  console.log(req);
-  console.log(req.body);
-  console.log(req.user);
-  // Token
-  const token = jwt.sign({id: req.user.id}, 'jwt_secret')
-
-  res.json({token: token})
-});
+    if (req.user != -1) {
+      // create and send Token
+      const token = jwt.sign({id: req.user._id}, 'jwt_secret')
+      res.status(201).json({token: token});
+    }
+    else {
+      res.status(401).send(req.authInfo); // send 401 response with message
+    }
+  }
+);
 
 // Return user data
 router.get('/user', passport.authenticate('jwt', {
@@ -58,4 +60,4 @@ router.get('/user', passport.authenticate('jwt', {
   });
 });
 
-module.exports = router
+module.exports = router;

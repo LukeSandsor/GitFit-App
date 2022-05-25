@@ -59,34 +59,14 @@ function LoginPage() {
     }*/
     // TODO: changing the url to /signup and creating new data works
     // logging in afterwards works too
-    try {
-      await axios.post('http://localhost:2414/passport/login', // 'https://gitfit.lucasreyna.me/passport/login'
-        params
-      ).then((res) => {
-        console.log(res);
-        return res;
-      }).then(data => {
-        localStorage.setItem('token', data.token);
-        setIsLoggedIn(true);
-      }).catch( (err) => {
-        console.error(err);
-      });
-    }
-    catch (err)
-    {
-      console.error(err);
-    }
-    /*await axios.get('http://localhost:2414/passport/user', {// 'https://gitfit.lucasreyna.me/passport/user'
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token') 
-      }
-    }).then(res => {
-      console.log(res.json());
-    }).then(user => {
-      // set user context
-    }).catch(err => {
-      console.log(err);
-    });*/
+    await axios.post('http://localhost:2414/passport/login', // 'https://gitfit.lucasreyna.me/passport/login'
+      params
+    ).then((res) => {
+      localStorage.setItem('token', res.data.token);
+      setIsLoggedIn(true);
+    }).catch((err) => {
+      console.error(err.response.data.message);
+    });
   }
 
   const renderForm = (

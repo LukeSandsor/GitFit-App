@@ -8,20 +8,19 @@ const passport = require('passport'),
 // Local Strategy
 passport.use(new Strategy( (username, password, done) => {
   User.findOne({username: username}, (err, user) => {
-
     // If any error
     if (err) { return done(err); }
 
     if (!user) {
-      return done(null, false, {
+      return done(null, -1, {
         message: 'No user found.'
       });
     }
 
     user.login(password).then(() => {
-       return done(null, user)
-    }).catch((err) => {
-      return done(err, false, {
+      return done(null, user);
+    }).catch(() => {
+      return done(null, -1, {
         message: 'Password not matched.'
       });
     });
