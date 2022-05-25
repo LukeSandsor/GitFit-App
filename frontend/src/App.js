@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
@@ -15,6 +15,12 @@ import AboutPage from './Pages/AboutPage';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    
+  }, []);
+
   // note that the Route changes what's being rendered, it doesn't actually load a new page
   // we might want to have a folder with all of the pages inside
   

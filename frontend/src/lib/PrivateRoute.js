@@ -1,6 +1,6 @@
-import React from 'react'
-import { Outlet, Navigate } from 'react-router-dom'
-import isAuthenticated from './isAuthenticated'
+import React from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+import isAuthenticated from './isAuthenticated';
 
 // Router that checks if user is logged-in
 // If not, redirect to "/login"
@@ -14,7 +14,7 @@ const PrivateRouteWrapper = ({...props }) => {
       replace
       state={{ from: props.location }}
     />
-  )
+  );
 };
 
 export default PrivateRouteWrapper;

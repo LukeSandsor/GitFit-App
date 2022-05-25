@@ -1,29 +1,44 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"),
+      bcrypt = require('bcrypt');
 
 var UserSchema = new mongoose.Schema(
     {
-        firstname: {
-            type: String,
-            required: true,
-            trim: true
-        },
-        lastname: {
-            type: String,
-            required: true,
-            trim: true
-        },
-        height: {
-            type: Number,
-            required: true,
-            trim: true
-        },
-        weight: {
-            type: Number,
-            required: true,
-            trim: true
-        },
+      username: {
+        type: String,
+        index: true,
+        unique: true,
+        minlength: 2,
+        maxlength: 16,
+        lowercase: true,
+        required: true,
+    
+      },
+      password: {
+        type: String,
+        required: true,
+      },
+      firstname: {
+          type: String,
+          required: true,
+          trim: true
+      },
+      lastname: {
+          type: String,
+          required: true,
+          trim: true
+      },
+      height: {
+          type: Number,
+          required: true,
+          trim: true
+      },
+      weight: {
+          type: Number,
+          required: true,
+          trim: true
+      },
     },
-    { collection: "personalInfoTest" }
+    { collection: 'user_list' }
 );
 
 // Hash password before saving

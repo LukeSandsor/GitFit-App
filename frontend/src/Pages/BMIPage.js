@@ -69,12 +69,12 @@ function BMIPage()
             <div className="block--calcInfo">
                 <br></br>
                 <label style={{textAlign: "center"}}>
-                            <text style={{color: 'white', fontSize: 32}}>BMI is calculated with the folowing formula:</text>                  
+                            <span style={{color: 'white', fontSize: 32}}>BMI is calculated with the folowing formula:</span>                  
                 </label>
                 <br></br>
                 <br></br>
                 <label style={{textAlign: "center"}}>
-                            <text style={{color: 'white', fontSize: 40}}>BMI = Weight (lbs) / Height<sup>2</sup> (in<sup>2</sup>) x 703</text>                  
+                            <span style={{color: 'white', fontSize: 40}}>BMI = Weight (lbs) / Height<sup>2</sup> (in<sup>2</sup>) x 703</span>                  
                 </label>
             </div>
             <div id="circleWrapper">
@@ -84,11 +84,11 @@ function BMIPage()
                     <br></br>
                     <br></br>
                     <label style={{textAlign: "center"}}>
-                            <text style={{color: 'white', fontSize: 32}}>Your BMI:</text>                  
+                            <span style={{color: 'white', fontSize: 32}}>Your BMI:</span>                  
                     </label>
                     <br></br>
                     <label style={{textAlign: "center"}}>
-                            <text style={{color: 'white', fontSize: 96}} id="user_BMI" value="">{Math.round(User.weight / Math.pow(User.height,2) * 703 * 10) / 10}</text>                  
+                            <span style={{color: 'white', fontSize: 96}} id="user_BMI" value="">{Math.round(User.weight / Math.pow(User.height,2) * 703 * 10) / 10}</span>                  
                     </label>
                 </div>
             </div>
@@ -801,13 +801,13 @@ function BMIPage()
             <div className="calculator">
                 <br></br>
                 <label style={{textAlign: "left"}}>
-                        <text style={{color: 'white', fontSize: 40}}>BMI Calculator</text>
+                        <span style={{color: 'white', fontSize: 40}}>BMI Calculator</span>
                 </label>
                 <br></br>
                 <br></br>
                 <br></br>
                 <label style={{textAlign: "left"}}>
-                        <text style={{color: 'white', fontSize: 28}}>Enter Height</text>
+                        <span style={{color: 'white', fontSize: 28}}>Enter Height</span>
                         <br></br>
                     <input type="number" placeholder='Inches' name="Push" id="height"/>
                 </label>
@@ -815,7 +815,7 @@ function BMIPage()
                 <br></br>
                 <br></br>
                 <label style={{textAlign: "left"}}>
-                        <text style={{color: 'white', fontSize: 28}}>Enter Weight</text>
+                        <span style={{color: 'white', fontSize: 28}}>Enter Weight</span>
                         <br></br>
                     <input type="number" placeholder='Pounds' name="Push" id="weight"/>
                 </label>
@@ -823,14 +823,14 @@ function BMIPage()
                 <br></br>
                 <br></br>
                 <br></br>
-                <text style={{color: 'white', fontSize: 40}}>---------------</text>
+                <span style={{color: 'white', fontSize: 40}}>---------------</span>
                 <br></br>
                 <br></br>
                 <br></br>
-                <text style={{color: 'white', fontSize: 28}}>Calculated BMI:</text>
+                <span style={{color: 'white', fontSize: 28}}>Calculated BMI:</span>
                 <br></br>
                 <br></br>
-                <text style={{color: 'white', fontSize: 66}} id="BMI"></text>
+                <span style={{color: 'white', fontSize: 66}} id="BMI"></span>
                 <br></br>
                 <br></br>
                 <input type="button" onClick={() => calculateBMI(+document.getElementById('height').value, +document.getElementById('weight').value, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'))} value="Calculate" id="Calculate"/>

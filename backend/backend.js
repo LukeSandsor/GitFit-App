@@ -193,13 +193,14 @@ const bodyParser = require('body-parser'),
       flash = require('connect-flash'),
       passportControl = require('./lib/passport-control')
 
-app.use(bodyParser.urlencoded({ extended: false }))
-//app.use(express.static(path.join(__dirname, 'public')))
-app.use(passportControl.initialize())
+app.use(bodyParser.urlencoded({ extended: false }));
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(passportControl.initialize());
 
 // Routers
-// example 'localhost:5000/api/{router js defines}'
-app.use('/passport', require('./routes'));
+// example 'localhost:5000/passport/{router js defines}'
+app.use('/passport', require('./routes/passportAPI'));
 
 var server = app.listen(port, function () {
     let servhost = server.address().address
