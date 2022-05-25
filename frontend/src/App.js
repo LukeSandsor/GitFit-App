@@ -11,6 +11,7 @@ import WeightsPage from './Pages/WeightsPage';
 import NutritionPage from './Pages/NutritionPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
+import PrivacyPage from './Pages/PrivacyPage';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
@@ -29,12 +30,18 @@ function App() {
           <Route path='/nutrition' element={<NutritionPage />} />
           <Route path="/bmi" element={<BMIPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="*" element={<ErrorPage />}/>
         </Routes>
       </div>
       <a href="/#">
         <Link to="/about" title="Summary">
             About GitFit
+        </Link>
+      </a>
+      <a href="/#">
+        <Link to="/privacy" title="Summary">
+            Privacy Policy
         </Link>
       </a>
       <a
