@@ -86,7 +86,7 @@ app.get('weights/:date', async (req, res) => {
 })
 
 // get user info
-app.get('/user', async (req, res) => {
+/*app.get('/user', async (req, res) => {
     try {
         const result = await userServices.getUser();
         res.send(result);      
@@ -94,7 +94,7 @@ app.get('/user', async (req, res) => {
         console.log(error);
         res.status(500).send('An error ocurred in the server.');
     }
-});
+});*/
 
 // get daily nutrition table chart
 app.get('/nutrition', async (req, res) => {
@@ -198,7 +198,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(passportControl.initialize())
 
 // Routers
-app.use('/api', require('./routes'));
+// example 'localhost:5000/api/{router js defines}'
+app.use('/passport', require('./routes'));
 
 var server = app.listen(port, function () {
     let servhost = server.address().address
