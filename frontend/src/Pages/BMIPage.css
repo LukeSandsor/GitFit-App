@@ -146,6 +146,7 @@
     position: relative;
     top: 200px;
     right: -375px;
+    float: right;
 }
 
 

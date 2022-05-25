@@ -838,15 +838,11 @@ function BMIPage()
                          <br></br>
                          <input type="button" onClick={() => calculateBMI(+document.getElementById('height').value, +document.getElementById('weight').value, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'))} value="Calculate" id="Calculate"/>
                     </div>
-            
            <br></br>
-           
            <br></br>
            <br></br>
            <br></br>
         </div>
-        
-        
     );
 }
 
