@@ -6,14 +6,32 @@ const express = require('express'),
 
 /* API entrypoints */
 // Singup
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
+  // check params
+  // make sure username is unique
+  console.log(req.body.username);
+  let submittedUser = await User.findOne({username: req.body.username});
+  if (submittedUser) {
+    res.status(401).send('username already exists');
+    return;
+  }
+
+  let submittedEmail = await User.findOne({email: req.body.email});
+  if (submittedEmail) {
+    res.status(401).send('email already associate with account');
+    return;
+  }
+
   var user = new User({
     username: req.body.username,
     password: req.body.password,
-    weight: 150,
-    height: 170,
-    firstname: 'Jeff',
-    lastname: 'MyName'
+    email: req.body.email,
+    gender: req.body.gender,
+    birthday: req.body.birthday,
+    weight: req.body.weight,
+    height: req.body.height,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname
   });
 
   console.log(user);
