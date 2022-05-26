@@ -113,7 +113,6 @@ function LoginPage() {
             </form>
         </div>
         <br/>
-        <Link to="/summary">Summary Link for Dev Purposes</Link>
       </div>
     );
   }

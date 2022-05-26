@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import { Link, useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import gitfitlogo from '../images/GitFitLogo.svg';
 import GenderSelect from '../GenderSelect';
 import isAuthenticated from '../lib/isAuthenticated';
@@ -56,7 +56,7 @@ function RegisterPage() {
     // verify format of email (regex)
 
     // sign up post request
-    await axios.post('http://localhost:2414/passport/signup',//'https://gitfit.lucasreyna.me/passport/signup',
+    await axios.post('https://gitfit.lucasreyna.me/passport/signup',
       params
     ).then((res) => {
       console.log(res.data);
@@ -145,6 +145,7 @@ function RegisterPage() {
     );
   }
   else {
+    // bruh use css file what is this
     return (
       <div>
         <div className='GitFit logo'><img src={gitfitlogo} alt='GitFit Logo' sytle={{ verticalAlign: 'top', width: 700, height: 250 }}></img></div>
@@ -168,7 +169,6 @@ function RegisterPage() {
         <div style={{ alignContent: 'center', margin: 10 }}>
             <button className='btn' onClick={routeChange} style={{ width: '35%', maxWidth: 500 }}>Already have an account? Login here!</button>
         </div>
-        <Link to='/summary'>Summary Link for Dev Purposes</Link>
       </div>
     );
   }

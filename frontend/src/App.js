@@ -12,6 +12,7 @@ import WeightsPage from './Pages/WeightsPage';
 import NutritionPage from './Pages/NutritionPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
+import Logout from './component/Logout';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
@@ -48,22 +49,14 @@ function App() {
           <Route path='/bmi' element={<PrivateRouteWrapper />}>
             <Route path='/bmi' element={<BMIPage />} />
           </Route>
+          <Route path='/about' element={<PrivateRouteWrapper />}>
+            <Route path='/about' element={<AboutPage />} />
+          </Route>
 
-          <Route path='/about' element={<AboutPage />} />
+          <Route path='/logout' element={<Logout />} />
           <Route path='*' element={<ErrorPage />}/>
         </Routes>
       </div>
-      <Link to='/about' title='Summary'>
-          About GitFit
-      </Link>
-      <a
-        className='App-link'
-        href='https://github.com/LukeSandsor/GitFit-App'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Link to GitHub Repo
-      </a>
     </div>
   );
 }
