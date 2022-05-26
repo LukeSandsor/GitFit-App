@@ -8,6 +8,7 @@ COPY . /gitfit/backend
 
 WORKDIR /gitfit/backend
 
+RUN apt-get --allow-releaseinfo-change -y update
 RUN apt-get -y update && apt-get install -y npm
 RUN npm install
 RUN npm test
