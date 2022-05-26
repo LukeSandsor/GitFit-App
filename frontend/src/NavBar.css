@@ -39,9 +39,3 @@
   border-bottom: 5px solid black;
   padding-bottom: 0;
 }
-
-#logout-button {
-  position: fixed;
-  bottom: 0px;
-  background-color: white;
-}

@@ -194,6 +194,8 @@ const bodyParser = require('body-parser'),
       passportControl = require('./lib/passport-control')
 
 app.use(bodyParser.urlencoded({ extended: false }));
+//const path = require('path');
+//app.use(express.static(path.join(__dirname, 'public')));
 app.use(passportControl.initialize());
 
 // Routers

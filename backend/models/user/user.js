@@ -17,18 +17,15 @@ var UserSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-      email: {
-        type: String,
-        required: true,
-      },
-      gender: {
+      firstname: {
           type: String,
           required: true,
           trim: true
       },
-      birthday: {
-        type: String,
-        required: false,
+      lastname: {
+          type: String,
+          required: true,
+          trim: true
       },
       height: {
           type: Number,
@@ -37,16 +34,6 @@ var UserSchema = new mongoose.Schema(
       },
       weight: {
           type: Number,
-          required: true,
-          trim: true
-      },
-      firstname: {
-        type: String,
-        required: true,
-        trim: true
-      },
-      lastname: {
-          type: String,
           required: true,
           trim: true
       },

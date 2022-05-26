@@ -68,7 +68,7 @@ function SummaryPage() {
   }
 
   const renderErrorMessage = (val) =>
-    val === errorMessage.type && (<span class="dailydose-error">{errorMessage.message}</span>);
+    val === errorMessage.type && (<error class="dailydose-error">{errorMessage.message}</error>);
 
   async function postStep() {
     try {

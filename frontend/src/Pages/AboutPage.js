@@ -23,6 +23,13 @@ function AboutPage() {
                         <span style={{ color: 'white', fontSize: 24 }}>The GitFit App is a fitness tracker designed for the CSC307 Introduction to Software Engineering course at California Polytechnic State University San Luis Obispo, taught by BJ Klingenberg. The app is a way to practically apply lessons learned, like linking frontend and backend implementations.</span>
                     </label>
             </div>
+        <div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        </div>
+            <Link to="/summary">Summary Link for Dev Purposes</Link>
         </div>
   );
 }

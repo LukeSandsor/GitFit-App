@@ -19,6 +19,18 @@ function LoginPage() {
     navigate(path);
   }
 
+  const database = [
+    {
+      username: "user1",
+      password: "pass1"
+    },
+    {
+      username: "user2",
+      password: "pass2"
+    }
+  
+  ]
+
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className='error'>{errorMessages.message}</div>
@@ -31,8 +43,22 @@ function LoginPage() {
     let form = event.target;
     let formData = new FormData(form);
     let params = new URLSearchParams(formData);
+  
+    /*const userData = database.find((user) => user.username === uname.value);
 
-    // make login post call
+    if (userData) {
+      if (userData.password !== pass.value) {
+        // Invalid password
+        setErrorMessages({ name: "pass", message: errors.pass });
+      } else {
+        setIsSubmitted(true);
+      }
+    } else {
+      // Username not found
+      setErrorMessages({ name: "uname", message: errors.uname });
+    }*/
+    // TODO: changing the url to /signup and creating new data works
+    // logging in afterwards works too
     await axios.post('https://gitfit.lucasreyna.me/passport/login',
       params
     ).then((res) => {
@@ -113,6 +139,7 @@ function LoginPage() {
             </form>
         </div>
         <br/>
+        <Link to="/summary">Summary Link for Dev Purposes</Link>
       </div>
     );
   }

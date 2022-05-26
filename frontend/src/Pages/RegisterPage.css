@@ -24,18 +24,10 @@
     /* Neutral/ 10 */
     color: #FFFFFF;
 }
-
 .btn:hover{
     background: #009cad;
 }
 
-.register-error
-{
-  color: red;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: large;
-  border-radius: 4px;
-}
 
 .login {
     font-family: sans-serif;
