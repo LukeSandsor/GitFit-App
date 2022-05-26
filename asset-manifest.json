@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.913e5393.css",
-    "main.js": "/static/js/main.6b0673e9.js",
+    "main.css": "/static/css/main.824cedc3.css",
+    "main.js": "/static/js/main.649b0590.js",
     "static/media/groupPhoto.png": "/static/media/groupPhoto.bc274f9a1a75ea458252.png",
     "static/media/PullLogo.png": "/static/media/PullLogo.b83af2efe4af43ab6c0f.png",
     "static/media/LegsLogo.png": "/static/media/LegsLogo.7b90ec6bc0c4d7bafa7d.png",
@@ -10,16 +10,18 @@
     "static/media/BMI_icon3.png": "/static/media/BMI_icon3.ba6e7cad741681fb5ac0.png",
     "static/media/nutrition.png": "/static/media/nutrition.77d778cff60f79881c80.png",
     "static/media/dumbbell.png": "/static/media/dumbbell.c8fb531bd07beab382a8.png",
+    "static/media/about_icon.png": "/static/media/about_icon.cd8a42306cb1f3a779ae.png",
+    "static/media/logout_icon.png": "/static/media/logout_icon.607065433fff03983ce3.png",
     "static/media/home_icon.svg": "/static/media/home_icon.91c3cf136f6ee9d60f029ac924a4334a.svg",
     "static/media/GitFitLogo.svg": "/static/media/GitFitLogo.9abbadcd965ee7405bfe20eded38936b.svg",
     "static/media/calendar_icon.svg": "/static/media/calendar_icon.ea577cbebe9c8c09c83e35fbc12477e4.svg",
     "static/media/dumbell.svg": "/static/media/dumbell.dc5825857d582e3b11343cfd417d1080.svg",
     "index.html": "/index.html",
-    "main.913e5393.css.map": "/static/css/main.913e5393.css.map",
-    "main.6b0673e9.js.map": "/static/js/main.6b0673e9.js.map"
+    "main.824cedc3.css.map": "/static/css/main.824cedc3.css.map",
+    "main.649b0590.js.map": "/static/js/main.649b0590.js.map"
   },
   "entrypoints": [
-    "static/css/main.913e5393.css",
-    "static/js/main.6b0673e9.js"
+    "static/css/main.824cedc3.css",
+    "static/js/main.649b0590.js"
   ]
 }
