@@ -9,8 +9,7 @@ import "./LoginPage.css";
 
 function LoginPage() {
   
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated());
 
   let navigate = useNavigate();
@@ -19,10 +18,8 @@ function LoginPage() {
     navigate(path);
   }
 
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className='error'>{errorMessages.message}</div>
-    )
+  const renderErrorMessage = (val) =>
+    val === errorMessage.type && (<span class='login-error'>{errorMessage.message}</span>);
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +36,7 @@ function LoginPage() {
       localStorage.setItem('token', res.data.token);
       setIsLoggedIn(true);
     }).catch((err) => {
-      console.error(err.response.data.message);
+      setErrorMessage({type: 'login-error', message: err.response.data.message});
     });
   }
 
@@ -49,24 +46,18 @@ function LoginPage() {
         <div className='input-container'>
           <label>Username: </label>
           <input className='input-box' type="text" name="username" required />
-          {renderErrorMessage("uname")}
         </div>
         <div className="input-container">
          <label>Password: </label>
          <input className='input-box' type="password" name="password" required />
-         {renderErrorMessage("pass")}
        </div>
        <div className="button-container">
          <input type="submit" />
        </div>
+       {renderErrorMessage('login-error')}
       </form>
     </div>
   );
-
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
 
   // localStorage.setItem('token', true) in broswer console to override this
   // delete localStorage token to remove this
@@ -92,7 +83,7 @@ function LoginPage() {
               color: '#444444', textAlign: 'left', fontSize: 56, marginTop: 10, marginLeft: 9,
             }}>Login</h2>
             <div className="login"stlye={{ marginLeft: 15, marginBottom: 15, marginRight: 10, backgroundColor: 'white', color: 'black', borderRadius: 5,}}><span>Sign In</span>
-              {isSubmitted ? navigate("/summary", {replace: true}) : renderForm}
+              {renderForm}
             </div>
             <br/>
             <br/>
