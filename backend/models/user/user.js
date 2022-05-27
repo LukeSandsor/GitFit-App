@@ -55,20 +55,18 @@ var UserSchema = new mongoose.Schema(
 );
 
 // Hash password before saving
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', userPreSaveHook);
+
+async function userPreSaveHook(next) {
   var user = this;
 
   // If not registration
   if ( !user.isModified('password') ) return next();
 
-  bcrypt.hash(user.password, 10, (err, hash) => {
-    if (err) {
-      return next(err);
-    }
-    user.password = hash;
-    next();
-  });
-});
+  // hash the password
+  user.password = await bcrypt.hash(user.password, 10);
+  next();
+};
 
 // Password verification
 UserSchema.methods.login = function(password) {
@@ -81,6 +79,9 @@ UserSchema.methods.login = function(password) {
   });
 }
 
-const User = mongoose.model("user", UserSchema);
+const User = mongoose.model('user', UserSchema);
 
-module.exports = User
+module.exports = {
+  User,
+  userPreSaveHook
+};

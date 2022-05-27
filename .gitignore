@@ -28,3 +28,4 @@ frontend/build
 .editorconfig
 .env
 **.rest
+**/coverage/**
