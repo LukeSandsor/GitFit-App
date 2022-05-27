@@ -8,8 +8,25 @@ jobs:
   deploy_backend:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
     # Backend Workflow
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: "npm"
+    - name: install packages
+      working-directory: ./backend
+      run: npm install
+    - name: test coverage of model files
+      working-directory: ./backend
+      run: npm run coverage
     # connects to server via ssh
     # sets up docker container running 'node backend.js'
     - uses: actions/checkout@v2

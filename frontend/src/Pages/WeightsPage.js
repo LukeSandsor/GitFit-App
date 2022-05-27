@@ -12,40 +12,99 @@ function WeightsPage() {
             <NavBar/>
             <h1>Weight Training</h1>
             <div className="block--styling">
-                <h3>Push</h3>
+                <h1>Push</h1>
                     <img src={pushLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
-                    <label style={{ textAlign: 'left' }}>
-                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
-                    <input type="text" name="Push" />
+                    <label style={{ textAlign: 'center' }}>
+                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                    <form>
+                        <input
+                            className='weight-input'
+                            placeholder='Number of Sets'
+                            type='number'
+                        /><br/>
+                        <input
+                            className='weight-input'
+                            placeholder='Number of Rets'
+                            type='number'
+                        /><br/>
+                        <input
+                            className='weight-input'
+                            placeholder='Weight in pounds'
+                            type='number'
+                        />
+                        <button className="weight-button">
+                            Log Workout</button>
+                    </form>
                     </label>
-                    <input type="submit" value="Submit" />
             </div>
             <div className="block--styling">
-                <h3>Pull</h3>
+                <h1>Pull</h1>
                     <img src={pullLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
-                    <label style={{ textAlign: 'left' }}>
-                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
-                    <input type="text" name="Push" />
+                    <label style={{ textAlign: 'center' }}>
+                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                    <form>
+                        <input
+                            className='weight-input'
+                            placeholder='Number of Sets'
+                            type='number'
+                        /><br/>
+                        <input
+                            className='weight-input'
+                            placeholder='Number of Rets'
+                            type='number'
+                        /><br/>
+                        <input
+                            className='weight-input'
+                            placeholder='Weight in pounds'
+                            type='number'
+                        />
+                        <button className="weight-button">
+                            Log Workout</button>
+                    </form>
                     </label>
-                    <input type="submit" value="Submit" />
             </div>
             <div className="block--styling">
-                <h3>Legs</h3>
+                <h1>Legs</h1>
                     <img src={legsLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
-                    <label style={{ textAlign: 'left' }}>
-                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
-                    <input type="text" name="Push" />
+                    <label style={{ textAlign: 'center' }}>
+                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                    <form>
+                        <input
+                            className='weight-input'
+                            placeholder='Number of Sets'
+                            type='number'
+                        /><br/>
+                        <input
+                            className='weight-input'
+                            placeholder='Number of Rets'
+                            type='number'
+                        /><br/>
+                        <input
+                            className='weight-input'
+                            placeholder='Weight in pounds'
+                            type='number'
+                        />
+                        <button className="weight-button">
+                            Log Workout</button>
+                    </form>
                     </label>
-                    <input type="submit" value="Submit" />
             </div>
-
         <div>
         </div>
-            <Link to="/summary">Summary Link for Dev Purposes</Link>
+        <div className="block--styling">
+            <h3>Legs</h3>
+                <img src={legsLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
+                <br></br>
+                <label style={{ textAlign: 'left' }}>
+                    <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
+                <input type="text" name="Push" />
+                </label>
+                <input type="submit" value="Submit" />
         </div>
+     </div>
   );
 }
 /* <label style={{textAlign: "left"}}>
