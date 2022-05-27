@@ -94,8 +94,17 @@ function WeightsPage() {
             </div>
         <div>
         </div>
-            <Link to="/summary">Summary Link for Dev Purposes</Link>
+        <div className="block--styling">
+            <h3>Legs</h3>
+                <img src={legsLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
+                <br></br>
+                <label style={{ textAlign: 'left' }}>
+                    <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
+                <input type="text" name="Push" />
+                </label>
+                <input type="submit" value="Submit" />
         </div>
+     </div>
   );
 }
 /* <label style={{textAlign: "left"}}>

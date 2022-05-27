@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Select from 'react-dropdown-select';
 
 function FoodSelect(props) {
@@ -11,15 +11,15 @@ function FoodSelect(props) {
         )
     });
 
-    console.log(foodList);
-
     return (
         <Select 
             options={foodList}
             placeholder='Select Meal'
             searchable={true}
             closeOnSelect={true}
-            onChange={() => undefined}
+            onChange={(e) => {
+                props.setSelectedFood(e[0].label);
+            }}
         />
     );
 }
