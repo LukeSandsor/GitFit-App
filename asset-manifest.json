@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.695e15d0.css",
-    "main.js": "/static/js/main.fcb7d06c.js",
+    "main.css": "/static/css/main.58ac3bc2.css",
+    "main.js": "/static/js/main.1a636818.js",
     "static/media/groupPhoto.png": "/static/media/groupPhoto.bc274f9a1a75ea458252.png",
     "static/media/PullLogo.png": "/static/media/PullLogo.b83af2efe4af43ab6c0f.png",
     "static/media/LegsLogo.png": "/static/media/LegsLogo.7b90ec6bc0c4d7bafa7d.png",
@@ -13,15 +13,16 @@
     "static/media/about_icon.png": "/static/media/about_icon.cd8a42306cb1f3a779ae.png",
     "static/media/logout_icon.png": "/static/media/logout_icon.607065433fff03983ce3.png",
     "static/media/home_icon.svg": "/static/media/home_icon.91c3cf136f6ee9d60f029ac924a4334a.svg",
+    "static/media/privacyIcon.png": "/static/media/privacyIcon.2cd0f2d7faf4eb8d56fb.png",
     "static/media/GitFitLogo.svg": "/static/media/GitFitLogo.9abbadcd965ee7405bfe20eded38936b.svg",
     "static/media/calendar_icon.svg": "/static/media/calendar_icon.ea577cbebe9c8c09c83e35fbc12477e4.svg",
     "static/media/dumbell.svg": "/static/media/dumbell.dc5825857d582e3b11343cfd417d1080.svg",
     "index.html": "/index.html",
-    "main.695e15d0.css.map": "/static/css/main.695e15d0.css.map",
-    "main.fcb7d06c.js.map": "/static/js/main.fcb7d06c.js.map"
+    "main.58ac3bc2.css.map": "/static/css/main.58ac3bc2.css.map",
+    "main.1a636818.js.map": "/static/js/main.1a636818.js.map"
   },
   "entrypoints": [
-    "static/css/main.695e15d0.css",
-    "static/js/main.fcb7d06c.js"
+    "static/css/main.58ac3bc2.css",
+    "static/js/main.1a636818.js"
   ]
 }
