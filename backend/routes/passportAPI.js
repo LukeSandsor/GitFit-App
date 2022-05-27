@@ -2,6 +2,7 @@ const express = require('express'),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
       { User } = require('../models/user/user'),
+      userServices = require('../models/user/user-services'),
       router = express.Router();
 
 /* API entrypoints */
@@ -50,11 +51,28 @@ router.post('/login', passport.authenticate('local', {
   }), (req, res) => {
     if (req.user != -1) {
       // create and send Token
-      const token = jwt.sign({id: req.user._id}, 'jwt_secret')
+      const token = jwt.sign({id: req.user._id}, 'jwt_secret');
       res.status(201).json({token: token});
     }
     else {
       res.status(401).send(req.authInfo); // send 401 response with message
+    }
+  }
+);
+
+// Login
+router.delete('/user', passport.authenticate('jwt', {
+  session: false
+}), async (req, res) => {
+    const userIDToDelete = req.user.id;
+
+    // result should be the object that was delete or null
+    let result = await userServices.deleteUser(userIDToDelete);
+    if (result === null) {
+      res.status(404).send('Resource not found.\n');
+    }
+    else {
+      res.status(204).end();
     }
   }
 );
