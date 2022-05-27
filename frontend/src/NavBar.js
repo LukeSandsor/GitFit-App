@@ -7,6 +7,7 @@ import weightIcon from './images/dumbbell.png';
 import nutritionIcon from './images/nutrition.png';
 import bmiIcon from './images/BMI_icon3.png';
 import aboutIcon from './images/about_icon.png';
+import settingsIcon from './images/settings_icon.png';
 import logoutIcon from './images/logout_icon.png';
 import privacyIcon from './images/privacyIcon.png';
 
@@ -52,6 +53,11 @@ function NavBar() {
         <li>
           <Link to="/privacy" title="Privacy">
             <img src={privacyIcon} className="navbar-icon" alt="Privacy" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/settings" title="Settings">
+            <img src={settingsIcon} className="navbar-icon" alt="Settings" />
           </Link>
         </li>
         <li id='logout-button'>

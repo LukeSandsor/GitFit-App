@@ -6,8 +6,6 @@ import Tile from './Tile/Tile.jsx';
 import CalendarDateInfoContext from '../context/calendar-date.context';
 import MonthlyMoodDataContext from '../context/calendar-mood.context';
 
-const user = 'guest';
-
 const NUM_COLS = 7; // seven days in a week
 const NUM_ROWS = 6; // at most 6 weeks to display
 const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
@@ -30,6 +28,7 @@ function Calendar() {
   const [userData, setUserData] = useState({}); // stores user data from get
   const [currentMonth, setCurrentMonth] = useState((new Date()).getMonth());
   const [currentYear, setCurrentYear] = useState((new Date()).getFullYear());
+  const [currentUser, setCurrentUser] = useState('');
   const [selectedTile, setSelectedTile] = useState();
   const [calendarBody, setCalendar] = useState();
   const [calendarClassname, setCalendarClass] = useState('');
@@ -298,11 +297,15 @@ function Calendar() {
     }
   }
 
+  useEffect(() => {
+    setCurrentUser(localStorage.getItem('username'));
+  }, []);
+
   // runs on first render, and any time month or selected tile is changed
   useEffect(() => {
     // before data is initialized
     if (Object.keys(userData).length === 0) {
-        getCalendarFromUser(user).then((result) => {
+        getCalendarFromUser(currentUser).then((result) => {
           if (result) {
             setCalendar(loadCalendarBodyInfo(result));
           }
@@ -311,7 +314,7 @@ function Calendar() {
     }
     else if (userData)
       setCalendar(loadCalendarBodyInfo(userData));
-  }, [currentMonth, selectedTile]);
+  }, [currentUser, currentMonth, selectedTile]);
 
   return (
     <div className={`calendar ${calendarClassname}`}>

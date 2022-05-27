@@ -5,15 +5,13 @@ import './SummaryPage.css';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const emojis = ['😡', '😢', '🤒', '😐', '🙂', '🤩'];
-
-const user = 'guest';
-
 const maxSteps = 200000;
 
 function SummaryPage() {
   const [adviceObject, setAdvice] = useState({});
-  const [selectedEmoji, setSelectedEmoji] = useState("");
+  const [selectedEmoji, setSelectedEmoji] = useState('');
   const [currentSteps, setCurrentSteps] = useState(0);
+  const [currentUser, setCurrentUser] = useState('');
   const [errorMessage, setErrorMessage] = useState({});
 
   const todayDateObject = new Date();
@@ -57,7 +55,7 @@ function SummaryPage() {
         const emojiStr = document.getElementById(selectedEmoji).innerHTML;
         const response = await axios.post(
           'https://gitfit.lucasreyna.me/calendar', 
-          {user: user, 'mood': emojiStr}
+          {user: currentUser, 'mood': emojiStr}
         );
         return response;
       }
@@ -89,7 +87,7 @@ function SummaryPage() {
       setErrorMessage( {} ); // remove error message
       const response = await axios.post(
         'https://gitfit.lucasreyna.me/calendar', 
-        {user: user, 'numStep': stepValue}
+        {user: currentUser, 'numStep': stepValue}
       );
       
       // check the backend response
@@ -136,6 +134,7 @@ function SummaryPage() {
     }
   }
 
+  // only run on first render
   useEffect(() => {
     getAdvice().then((result) => {
       if (result) {
@@ -143,15 +142,20 @@ function SummaryPage() {
       }
     });
 
-    getCalendarFromUser(user).then((result) => {
+    setCurrentUser(localStorage.getItem('username'));
+  }, []);
+
+  // if the user changes, load new calendar info
+  useEffect(() => {
+    getCalendarFromUser(currentUser).then((result) => {
       // make sure result is defined
-      if (result === null) return;
+      if (result === undefined) return;
       result = result.years;
-      if (result[currentYear] === null) return;
-      if (result[currentYear][currentMonth] === null) return;
-      
+      if (result[currentYear] === undefined) return;
+      if (result[currentYear][currentMonth] === undefined) return;
+
       const todayData = result[currentYear][currentMonth][currentDay];
-      if (todayData === null) return;
+      if (todayData === undefined) return;
 
       // after checking for valid data, set states if possible
       if (todayData['mood']) {
@@ -162,9 +166,10 @@ function SummaryPage() {
 
       if (todayData['numStep'])
         setCurrentSteps(todayData['numStep']);
-    })
-  }, []); // only load on first render
+    });
+  }, [currentUser]);
 
+  // deselects old emoji when submitting a new one
   useEffect(() => {
     if (selectedEmoji !== '') {
       changeEmojiClass('selected');
@@ -175,6 +180,7 @@ function SummaryPage() {
     <div id="summary-page" className="user-page">
       <NavBar/>
       <h1>Daily Dose</h1>
+      <h3 id='name-block'>{`Hello, ${currentUser}`}</h3>
       <h3 id='date-block'>{`${monthStrs[currentMonth]} ${currentDay}, ${currentYear}`}</h3>
 
       <div className="user-block" id="mood-picker">
