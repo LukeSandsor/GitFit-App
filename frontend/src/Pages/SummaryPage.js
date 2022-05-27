@@ -31,18 +31,6 @@ function SummaryPage() {
     }
   }
 
-  async function getUser() {
-    await axios.get('https://gitfit.lucasreyna.me/passport/user', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-      }
-    }).then(res => {
-      setCurrentUser(res.data.username);
-    }).catch( err => {
-      console.error(err);
-    });
-  }
-
   async function getCalendarFromUser(username) {
     try {
       // cache this stuff later, don't need to get the whole calendar every time
@@ -154,7 +142,7 @@ function SummaryPage() {
       }
     });
 
-    getUser();
+    setCurrentUser(localStorage.getItem('username'));
   }, []);
 
   // if the user changes, load new calendar info

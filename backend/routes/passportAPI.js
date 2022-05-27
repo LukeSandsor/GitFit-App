@@ -37,7 +37,7 @@ router.post('/signup', async (req, res) => {
   user.save().then(() => {
     // Token
     const token = jwt.sign({id: user._id}, 'jwt_secret');
-    res.json({token: token});
+    res.json({username: user.username, token: token});
 
   }).catch((err) => {
     console.error(err);
@@ -52,7 +52,7 @@ router.post('/login', passport.authenticate('local', {
     if (req.user != -1) {
       // create and send Token
       const token = jwt.sign({id: req.user._id}, 'jwt_secret');
-      res.status(201).json({token: token});
+      res.status(201).json({username: req.user.username, token: token});
     }
     else {
       res.status(401).send(req.authInfo); // send 401 response with message
@@ -87,9 +87,7 @@ router.get('/user', passport.authenticate('jwt', {
       });
     }
 
-  res.json({
-    username: req.user.username
-  });
+  res.json(req.user);
 });
 
 module.exports = router;

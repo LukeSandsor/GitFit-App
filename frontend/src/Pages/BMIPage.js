@@ -38,29 +38,32 @@ function calculateBMI(height, weight, BMI, heightError, weightError){
 // there is a table header which labels the height, and each column thereafter represents a weight.
 function BMIPage()
 {
-    const [User, setUser] = useState({});
+  const [currentUserName, setCurrentUserName] = useState('');
+  const [currentUserData, setCurrentUserData] = useState({});
 
-    async function getUser() {
-        try {
-        // returns the first user in the database (to be modified later)
-     //    const response = await axios.get('https://gitfit.lucasreyna.me/user');
-        const response = await axios.get('http://localhost:2414/user');
-     //    console.log(response.data);
-        return response.data[0];
-        } catch (error) {
-        console.log(error);
-        return false;
-        }
+  async function getUserData() {
+    await axios.get('https://gitfit.lucasreyna.me/passport/user', {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }
+    }).then((res) => {
+      if (res.status === 200) {
+        setCurrentUserData(res.data);
+      }
+    }).catch((err) => {
+      console.error(err);
+    })
+  }
+
+  useEffect(() => {
+    setCurrentUserName(localStorage.getItem('username'));
+  }, []); // only load on first render
+
+  useEffect(() => {
+    if (currentUserData !== {}) {
+      getUserData();
     }
-
-    useEffect(() => {
-        getUser().then((result) => {
-          if (result) {
-            setUser(result);
-          }
-        });
-      }, []); // only load on first render
-
+  }, [currentUserName]);
 
     return (
         <div>
@@ -796,7 +799,7 @@ function BMIPage()
                          </label>
                          <br></br>
                          <label style={{textAlign: "center"}}>
-                              <text style={{color: 'white', fontSize: 96}} id="user_BMI" value="">{Math.round(User.weight / Math.pow(User.height,2) * 703 * 10) / 10}*</text>                  
+                              <text style={{color: 'white', fontSize: 96}} id="user_BMI" value="">{Math.round(currentUserData.weight / Math.pow(currentUserData.height,2) * 703 * 10) / 10}</text>                  
                          </label>
                     </div>
                </div>

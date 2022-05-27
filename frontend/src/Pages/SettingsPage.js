@@ -10,7 +10,7 @@ function SettingsPage() {
 
   async function deleteUser() {
     try {
-      await axios.delete(`http://localhost:2414/passport/user`, {
+      await axios.delete('https://gitfit.lucasreyna.me/passport/user', {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }}).then((res) => {

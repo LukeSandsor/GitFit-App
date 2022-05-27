@@ -9,11 +9,11 @@ function MoodBarGraph(props) {
       labels: Object.keys(props.moodData),
       datasets: [
         {
-            label: "Target",
-            data: Object.values(props.moodData),
-            backgroundColor: Object.keys(props.moodData).map( (key) => colorsForEmoji[key] ),
-            borderColor: 'white',
-            borderWidth: 2,
+          label: " Days",
+          data: Object.values(props.moodData),
+          backgroundColor: Object.keys(props.moodData).map( (key) => colorsForEmoji[key] ),
+          borderColor: 'white',
+          borderWidth: 2,
         }
       ]
   }

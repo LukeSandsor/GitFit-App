@@ -33,6 +33,7 @@ function LoginPage() {
     await axios.post('https://gitfit.lucasreyna.me/passport/login',
       params
     ).then((res) => {
+      localStorage.setItem('username', res.data.username);
       localStorage.setItem('token', res.data.token);
       setIsLoggedIn(true);
     }).catch((err) => {
