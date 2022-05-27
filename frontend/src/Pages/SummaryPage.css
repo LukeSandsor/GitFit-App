@@ -17,6 +17,21 @@
   box-shadow: 0 0 25px black;
 }
 
+#name-block {
+  width: fit-content;
+  position: fixed;
+  top: 0;
+  display: block;
+  color: black;
+  text-align: center;
+  margin-top: 0;
+  margin-left: 20px;
+  background-color: white;
+  padding: 25px 45px 25px 45px;
+  border-radius:  0 0 15px 15px;
+  box-shadow: 0 0 25px black;
+}
+
 .user-block {
   border: 2px dotted white;
   display: inline-block;
