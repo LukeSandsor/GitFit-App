@@ -90,6 +90,7 @@ app.get('weights/:date', async (req, res) => {
     try {
         const result = await userServices.getUser();
         res.send(result);      
+        // console.log(result);
     } catch (error) {
         console.log(error);
         res.status(500).send('An error ocurred in the server.');

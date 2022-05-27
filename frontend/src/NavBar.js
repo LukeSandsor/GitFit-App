@@ -8,10 +8,10 @@ import nutritionIcon from './images/nutrition.png';
 import bmiIcon from './images/BMI_icon3.png';
 import aboutIcon from './images/about_icon.png';
 import logoutIcon from './images/logout_icon.png';
+import privacyIcon from './images/privacyIcon.png';
 
 /* Vertical NavBar using fixed positioning in CSS
   This will be an object that provides links to all of the other user pages
-
   Navbar should be a list of nested links
   The title attribute of links shows text when you hover over it
 */
@@ -47,6 +47,11 @@ function NavBar() {
         <li>
           <Link to="/about" title="About">
             <img src={aboutIcon} className="navbar-icon" alt="About" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/privacy" title="Privacy">
+            <img src={privacyIcon} className="navbar-icon" alt="Privacy" />
           </Link>
         </li>
         <li id='logout-button'>
