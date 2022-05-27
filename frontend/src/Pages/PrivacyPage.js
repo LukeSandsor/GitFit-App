@@ -59,7 +59,6 @@ function PrivacyPage() {
         <br></br>
         <br></br>
         </div>
-            <Link to="/summary">Summary Link for Dev Purposes</Link>
         </div>
   );
 }

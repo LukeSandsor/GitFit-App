@@ -53,6 +53,9 @@ function App() {
           <Route path='/about' element={<PrivateRouteWrapper />}>
             <Route path='/about' element={<AboutPage />} />
           </Route>
+          <Route path='/privacy' element={<PrivateRouteWrapper />}>
+            <Route path='/privacy' element={<PrivacyPage />} />
+          </Route>
 
           <Route path='/logout' element={<Logout />} />
           <Route path='*' element={<ErrorPage />}/>
