@@ -58,17 +58,6 @@ function App() {
           <Route path='*' element={<ErrorPage />}/>
         </Routes>
       </div>
-      <Link to='/about' title='Summary'>
-          About GitFit
-      </Link>
-      <a
-        className='App-link'
-        href='https://github.com/LukeSandsor/GitFit-App'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Link to GitHub Repo
-      </a>
     </div>
   );
 }
