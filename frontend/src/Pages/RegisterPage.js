@@ -44,7 +44,7 @@ function RegisterPage() {
     let params = new URLSearchParams(formData);
 
     // debug form parameters
-    params.forEach((v, k) => {console.log(`${k}: ${v}`);});
+    // params.forEach((v, k) => {console.log(`${k}: ${v}`);});
 
     // verify that passwords match
     if (params.get('password') !== params.get('repassword'))
@@ -63,8 +63,10 @@ function RegisterPage() {
       localStorage.setItem('token', res.data.token);
       setIsLoggedIn(true);
     }).catch((err) => {
-      console.error(err.response.data.message);
-      // need to decode this for set error message
+      if (err.response) {
+        console.error(err.response.data.message);
+        // need to decode this for set error message
+      }
     });
   };
 

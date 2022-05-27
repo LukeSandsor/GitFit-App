@@ -1,7 +1,7 @@
 const express = require('express'),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
-      User = require('../models/user/user'),
+      { User } = require('../models/user/user'),
       router = express.Router();
 
 /* API entrypoints */
@@ -9,7 +9,6 @@ const express = require('express'),
 router.post('/signup', async (req, res) => {
   // check params
   // make sure username is unique
-  console.log(req.body.username);
   let submittedUser = await User.findOne({username: req.body.username});
   if (submittedUser) {
     res.status(401).send('username already exists');

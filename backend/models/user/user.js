@@ -57,6 +57,7 @@ var UserSchema = new mongoose.Schema(
 // Hash password before saving
 UserSchema.pre('save', userPreSaveHook);
 
+// async function that hashes user password
 async function userPreSaveHook(next) {
   var user = this;
 
