@@ -5,9 +5,6 @@ import './SummaryPage.css';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const emojis = ['😡', '😢', '🤒', '😐', '🙂', '🤩'];
-
-//const user = 'guest';
-
 const maxSteps = 200000;
 
 function SummaryPage() {
@@ -170,7 +167,7 @@ function SummaryPage() {
       if (result[currentYear][currentMonth] === undefined) return;
 
       const todayData = result[currentYear][currentMonth][currentDay];
-      if (todayData === null) return;
+      if (todayData === undefined) return;
 
       // after checking for valid data, set states if possible
       if (todayData['mood']) {

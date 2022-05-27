@@ -1,0 +1,24 @@
+#settings-list {
+  width: 50%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  list-style-type: none;
+  display: inline-block;
+}
+
+.settings-list-element {
+  font-size: 0;
+}
+
+.settings-text {
+  font-size: 36px;
+  float: left;
+}
+
+.settings-buttons {
+  font-size: 36px;
+  float: right;
+}
+
+#delete-button {
+  background-color: red;
+}
