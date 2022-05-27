@@ -5,6 +5,7 @@
   "main": "backend.js",
   "scripts": {
     "test": "jest",
+    "coverage": "jest --collectCoverage",
     "dev": "nodemon backend.js",
     "start": "node backend.js"
   },

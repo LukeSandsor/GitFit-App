@@ -1,25 +1,39 @@
 const express = require('express'),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
-      User = require('../models/user/user'),
+      { User } = require('../models/user/user'),
       router = express.Router();
 
 /* API entrypoints */
 // Singup
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
+  // check params
+  // make sure username is unique
+  let submittedUser = await User.findOne({username: req.body.username});
+  if (submittedUser) {
+    res.status(401).send('username already exists');
+    return;
+  }
+
+  let submittedEmail = await User.findOne({email: req.body.email});
+  if (submittedEmail) {
+    res.status(401).send('email already associate with account');
+    return;
+  }
+
   var user = new User({
     username: req.body.username,
     password: req.body.password,
-    weight: 150,
-    height: 170,
-    firstname: 'Jeff',
-    lastname: 'MyName'
+    email: req.body.email,
+    gender: req.body.gender,
+    birthday: req.body.birthday,
+    weight: req.body.weight,
+    height: req.body.height,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname
   });
 
-  console.log(user);
-
   user.save().then(() => {
-
     // Token
     const token = jwt.sign({id: user._id}, 'jwt_secret');
     res.json({token: token});

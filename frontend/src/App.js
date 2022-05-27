@@ -13,6 +13,7 @@ import NutritionPage from './Pages/NutritionPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
 import PrivacyPage from './Pages/PrivacyPage';
+import Logout from './component/Logout';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
@@ -49,12 +50,11 @@ function App() {
           <Route path='/bmi' element={<PrivateRouteWrapper />}>
             <Route path='/bmi' element={<BMIPage />} />
           </Route>
-
-          <Route path='/about' element={<AboutPage />} />
-
-          <Route path='/privacy' element={<PrivateRouteWrapper />}>
-            <Route path='/privacy' element={<PrivacyPage />} />
+          <Route path='/about' element={<PrivateRouteWrapper />}>
+            <Route path='/about' element={<AboutPage />} />
           </Route>
+
+          <Route path='/logout' element={<Logout />} />
           <Route path='*' element={<ErrorPage />}/>
         </Routes>
       </div>

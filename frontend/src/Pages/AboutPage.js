@@ -12,7 +12,8 @@ function AboutPage() {
             <div className='GitFit logo'><img src={gitfitlogo} alt="GitFit Logo" sytle={{ verticalAlign: 'top', width: 700, height: 250 }}></img></div>
             <h1>About GitFit</h1>
             <img src={groupPhoto} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 1000 }}></img>
-            <h2>Meet the Developers</h2>
+            <h2>Meet the Developers:</h2>
+                <text>"(Right to left) Lucas Sandsor, Lucas Reyna, Brett Gowling, Joey Marenin"</text>
             <br></br>
             <br></br>
             <br></br>
@@ -23,13 +24,6 @@ function AboutPage() {
                         <span style={{ color: 'white', fontSize: 24 }}>The GitFit App is a fitness tracker designed for the CSC307 Introduction to Software Engineering course at California Polytechnic State University San Luis Obispo, taught by BJ Klingenberg. The app is a way to practically apply lessons learned, like linking frontend and backend implementations.</span>
                     </label>
             </div>
-        <div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        </div>
-            <Link to="/summary">Summary Link for Dev Purposes</Link>
         </div>
   );
 }

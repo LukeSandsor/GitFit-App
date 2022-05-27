@@ -65,9 +65,11 @@ input[type="submit"]:hover {
   margin: 10px;
 }
 
-.error {
+.login-error {
   color: red;
-  font-size: 12px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  border-radius: 4px;
 }
 
 .input-box {

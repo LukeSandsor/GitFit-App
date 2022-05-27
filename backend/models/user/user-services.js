@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const userModels = require("./user");
+const { User } = require('./user');
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -18,7 +18,7 @@ mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?r
   }).catch((error) => console.log(error));
 
 async function getUser() {
-    return await userModels.find().limit(1);
+    return await User.find().limit(1);
 }
 
 exports.getUser = getUser;
