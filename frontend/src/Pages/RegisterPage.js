@@ -128,7 +128,7 @@ const [isSubmitted, setIsSubmitted] = useState(false);
           <h2 style={{
             color: '#444444', textAlign: 'left', fontSize: 56, marginTop: 10, marginLeft: 9,
           }}>Create New Account</h2>
-          <div className="login"stlye={{ marginLeft: 15, marginBottom: 15, marginRight: 10, backgroundColor: 'white', color: 'black', borderRadius: 5,}}><text>Register</text>
+          <div className="login"stlye={{ marginLeft: 15, marginBottom: 15, marginRight: 10, backgroundColor: 'white', color: 'black', borderRadius: 5,}}><span>Register</span>
             {isSubmitted ? navigate("/summary", {replace: true}) : renderForm}</div>
           <br/>
           <br/>
