@@ -62,7 +62,23 @@ router.post('/login', passport.authenticate('local', {
   }
 );
 
-// Login
+// change an entry in the user data
+router.post('/user', passport.authenticate('jwt', {
+  session: false
+}), async (req, res) => {
+
+    await User.findOneAndUpdate({user: req.user.username}, {'$set': req.body}).then((result) => {
+      if (result === null) {
+        res.status(404).send('Resource not found.\n');
+      }
+      else {
+        res.status(201).end();
+      }
+    });
+  }
+);
+
+// delete user account and info
 router.delete('/user', passport.authenticate('jwt', {
   session: false
 }), async (req, res) => {

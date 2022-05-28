@@ -14,19 +14,48 @@ function SettingsPage() {
 
   async function deleteUser() {
     try {
-      let submittedUsername = document.getElementById('settings-text-box').value;
+      let submittedUsername = document.getElementById('delete').value;
       submittedUsername = submittedUsername.toLowerCase();
       if (submittedUsername !== localStorage.getItem('username')) {
         setErrorMessage({type: 'wrong-username', message: 'incorrect username entered, account not deleted'});
         return false;
       }
       await axios.delete('https://gitfit.lucasreyna.me/passport/user', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-      }}).then((res) => {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      }).then((res) => {
         // verify that user was actually deleted
         if (res.status == 204) {
           navigate('/logout');
+        }
+      });
+    }
+    catch (error) {
+      // set error message later
+      console.log(error);
+      return false;
+    }
+  }
+
+  async function updateUser(formID) {
+    try {
+      let submittedInfo = document.getElementById(formID).value;
+
+      // must use square brackets to set formID value as key
+      const params = {[formID]: submittedInfo};
+
+      await axios.post('https://gitfit.lucasreyna.me/passport/user', {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        },
+        body: 
+          params
+        }
+      ).then((res) => {
+        // verify that user was actually deleted
+        if (res.status == 201) {
+          setErrorMessage({type: 'height-submit', message: 'successfully changed'});
         }
       });
     }
@@ -43,10 +72,18 @@ function SettingsPage() {
       <h1>User Settings</h1>
       <ul id='settings-list'>
         <li className='settings-list-element'>
+          <span className='settings-text'>Update Height</span>
+          <button className='settings-buttons' onClick={() => updateUser('height')}>SUBMIT</button>
+          <span>
+            <input id='height' className='settings-text-box' type="number" placeholder='Enter New Height' />
+            {renderErrorMessage('height-submit')}
+          </span>
+        </li>
+        <li className='settings-list-element'>
           <span className='settings-text'>Delete Account</span>
           <button id='delete-button' className='settings-buttons' onClick={() => deleteUser()}>DELETE</button>
           <span>
-            <input id='settings-text-box' type="text" placeholder='Enter Username' />
+            <input id='delete' className='settings-text-box' type="text" placeholder='Enter Username' />
             {renderErrorMessage('wrong-username')}
           </span>
         </li>
