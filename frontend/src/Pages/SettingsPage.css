@@ -14,9 +14,21 @@
   float: left;
 }
 
+#settings-text-box {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
 .settings-buttons {
-  font-size: 36px;
+  font-size: 32px;
   float: right;
+}
+
+.settings-error {
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  border-radius: 4px;
 }
 
 #delete-button {
