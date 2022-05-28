@@ -83,19 +83,7 @@ app.get('weights/:date', async (req, res) => {
     else {
         res.status(201).send({weights_hisotry: result})
     }
-})
-
-// get user info
-/*app.get('/user', async (req, res) => {
-    try {
-        const result = await userServices.getUser();
-        res.send(result);      
-        // console.log(result);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('An error ocurred in the server.');
-    }
-});*/
+});
 
 // get daily nutrition table chart
 app.get('/nutrition', async (req, res) => {
@@ -283,7 +271,7 @@ app.put('/nutrition', async (req, res) => {
 // Middlewares
 const bodyParser = require('body-parser'),
       flash = require('connect-flash'),
-      passportControl = require('./lib/passport-control')
+      passportControl = require('./lib/passport-control');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passportControl.initialize());
