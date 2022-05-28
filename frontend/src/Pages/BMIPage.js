@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 // The brains of the BMI Calcultor. Calculates a theoretical BMI based on given height and weight
-function calculateBMI(height, weight, BMI, heightError, weightError){
+function calculateBMI(height, weight, BMI, heightError, weightError, heightText, weightText){
     var flag = 0;
     heightError.innerHTML = " ";
     weightError.innerHTML = " ";
@@ -21,6 +21,8 @@ function calculateBMI(height, weight, BMI, heightError, weightError){
     }
     if(!flag){
         BMI.innerHTML = Math.round(weight / Math.pow(height,2) * 703 * 10) / 10;
+        heightText.value = height;
+        weightText.value = weight;
         heightError.innerHTML = " ";
         weightError.innerHTML = " ";
     }
@@ -110,27 +112,27 @@ function BMIPage()
                          </tr>
                          <tr>
                               <th>4'8"</th>
-                              <td className='tableCellHealthy'>20</td>
-                              <td className='tableCellHealthy'>22</td>
-                              <td className='tableCellOverweight'>25</td>
-                              <td className='tableCellOverweight'>27</td>
-                              <td className='tableCellOverweight'>29</td>
-                              <td className='tableCellObese'>31</td>
-                              <td className='tableCellObese'>34</td>
-                              <td className='tableCellObese'>36</td>
-                              <td className='tableCellObese'>38</td>
-                              <td className='tableCellExtremelyObese'>40</td>
-                              <td className='tableCellExtremelyObese'>43</td>
-                              <td className='tableCellExtremelyObese'>45</td>
-                              <td className='tableCellExtremelyObese'>47</td>
-                              <td className='tableCellExtremelyObese'>49</td>
-                              <td className='tableCellExtremelyObese'>52</td>
-                              <td className='tableCellExtremelyObese'>54</td>
-                              <td className='tableCellExtremelyObese'>56</td>
-                              <td className='tableCellExtremelyObese'>58</td>
-                              <td className='tableCellExtremelyObese'>61</td>
-                              <td className='tableCellExtremelyObese'>63</td>
-                              <td className='tableCellExtremelyObese'>65</td>
+                              <td className='tableCellHealthy' onClick={() => calculateBMI(+56, +90, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">20</td>
+                              <td className='tableCellHealthy' onClick={() => calculateBMI(+56, +100, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">22</td>
+                              <td className='tableCellOverweight' onClick={() => calculateBMI(+56, +110, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">25</td>
+                              <td className='tableCellOverweight' onClick={() => calculateBMI(+56, +120, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">27</td>
+                              <td className='tableCellOverweight' onClick={() => calculateBMI(+56, +130, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">29</td>
+                              <td className='tableCellObese' onClick={() => calculateBMI(+56, +140, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">31</td>
+                              <td className='tableCellObese' onClick={() => calculateBMI(+56, +150, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">34</td>
+                              <td className='tableCellObese' onClick={() => calculateBMI(+56, +160, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">36</td>
+                              <td className='tableCellObese' onClick={() => calculateBMI(+56, +170, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">38</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +180, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">40</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +190, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">43</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +200, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">45</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +210, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">47</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +220, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">49</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +230, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">52</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +240, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">54</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +250, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">56</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +260, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">58</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +270, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">61</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +280, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">63</td>
+                              <td className='tableCellExtremelyObese' onClick={() => calculateBMI(+56, +290, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate">65</td>
                          </tr>
                          <tr>
                               <th>4'9"</th>
@@ -836,7 +838,7 @@ function BMIPage()
                          <text style={{color: 'white', fontSize: 66}} id="BMI"></text>
                          <br></br>
                          <br></br>
-                         <input type="button" onClick={() => calculateBMI(+document.getElementById('height').value, +document.getElementById('weight').value, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'))} value="Calculate" id="Calculate"/>
+                         <input type="button" onClick={() => calculateBMI(+document.getElementById('height').value, +document.getElementById('weight').value, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))} value="Calculate" id="Calculate"/>
                     </div>
            <br></br>
            <br></br>
