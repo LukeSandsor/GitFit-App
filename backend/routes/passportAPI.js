@@ -1,7 +1,9 @@
 const express = require('express'),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
+      // add all models with user information for deletion
       { User } = require('../models/user/user'),
+      calendarModel = require('../models/calendar/calendar'),
       userServices = require('../models/user/user-services'),
       router = express.Router();
 
@@ -68,6 +70,11 @@ router.delete('/user', passport.authenticate('jwt', {
 
     // result should be the object that was delete or null
     let result = await userServices.deleteUser(userIDToDelete);
+
+    // delete user information
+    await calendarModel.findOneAndDelete({user: req.user.username});
+    // add more later
+
     if (result === null) {
       res.status(404).send('Resource not found.\n');
     }
