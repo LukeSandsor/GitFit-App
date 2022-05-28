@@ -156,22 +156,35 @@
 
 
 /* BMI table */
-.centeredBMI{
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: separate;
-    border: solid rgb(0, 214, 225) 10px;
-    border-spacing: 0.3rem;
-    padding-right: 1em;
-    padding-bottom: 1em;
-    border-radius: 10px;
-    background-color: #1f2329;
-    position: relative;
-    /* left: 100px; */
-    top: 30px;
-    font-size: 1.0vw;
-    width: 1.5vw;
-    /* float: left; */
+.centeredBMI {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border: solid rgb(0, 214, 225) 10px;
+  border-spacing: 0.3rem;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  border-radius: 10px;
+  background-color: #1f2329;
+  position: relative;
+  /* left: 100px; */
+  top: 30px;
+  font-size: 1.0vw;
+  width: 1.5vw;
+  /* float: left; */
+
+  /* this makes it so you can't highlight this object */
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10 */
+
+  /* Currently not supported in Opera but will be soon */
+  -o-user-select: none;
+  user-select: none;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /*************/
 }
 
 .tableHeaderBMI{
