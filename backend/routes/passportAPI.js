@@ -66,11 +66,17 @@ router.post('/login', passport.authenticate('local', {
 router.put('/user', async (req, res) => {
   let submittedUsername = req.body.body['username'];
   delete req.body.body['username'];
+  let change = Object.values(req.body.body).at(0);
+
+  // in case of form issues
+  if (change === null || change === '') {
+    res.status(404).send('Incorrect Form\n');
+  }
 
   await User.findOneAndUpdate({username: submittedUsername}, {'$set': req.body.body}
   ).then((result) => {
     if (result === undefined) {
-      res.status(404).send('Resource not found.\n');
+      res.status(404).send('Server Issue\n');
     }
     else {
       res.status(200).end();

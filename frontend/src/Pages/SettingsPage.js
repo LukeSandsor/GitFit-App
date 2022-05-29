@@ -54,9 +54,8 @@ function SettingsPage() {
         if (res.status == 200) {
           setErrorMessage({type: 'height-submit', extraClass: 'settings-confirm', message: 'successfully changed'});
         }
-        else {
-          setErrorMessage({type: 'height-submit', message: 'error occurred changes not saved'});
-        }
+      }).catch(() => {
+        setErrorMessage({type: 'height-submit', message: 'error occurred changes not saved'});
       });
     }
     catch (error) {
