@@ -10,7 +10,7 @@ function SettingsPage() {
 
   const navigate = useNavigate();
   const renderErrorMessage = (val) =>
-    val === errorMessage.type && (<div className='settings-error'>{errorMessage.message}</div>);
+    val === errorMessage.type && (<div className={`settings-error ${errorMessage.extraClass}`}>{errorMessage.message}</div>);
 
   async function deleteUser() {
     try {
@@ -43,19 +43,19 @@ function SettingsPage() {
       let submittedInfo = document.getElementById(formID).value;
 
       // must use square brackets to set formID value as key
-      const params = {[formID]: submittedInfo};
+      const params = {username: localStorage.getItem('username'), [formID]: submittedInfo};
 
-      await axios.post('https://gitfit.lucasreyna.me/passport/user', {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
-        },
+      await axios.put('https://gitfit.lucasreyna.me/passport/user', {
         body: 
           params
         }
       ).then((res) => {
         // verify that user was actually deleted
-        if (res.status == 201) {
-          setErrorMessage({type: 'height-submit', message: 'successfully changed'});
+        if (res.status == 200) {
+          setErrorMessage({type: 'height-submit', extraClass: 'settings-confirm', message: 'successfully changed'});
+        }
+        else {
+          setErrorMessage({type: 'height-submit', message: 'error occurred changes not saved'});
         }
       });
     }
