@@ -19,6 +19,15 @@ function SummaryPage() {
   const currentMonth = todayDateObject.getMonth();
   const currentDay = todayDateObject.getDate();
 
+  function getDateAsObject()
+  {
+    return {
+      year: currentYear,
+      month: currentMonth,
+      day: currentDay
+    };
+  }
+
   async function getAdvice() {
     try {
       // returns an array of size 1 with advice object
@@ -55,7 +64,7 @@ function SummaryPage() {
         const emojiStr = document.getElementById(selectedEmoji).innerHTML;
         const response = await axios.post(
           'https://gitfit.lucasreyna.me/calendar', 
-          {user: currentUser, 'mood': emojiStr}
+          {...getDateAsObject(), user: currentUser, mood: emojiStr}
         );
         return response;
       }
@@ -87,7 +96,7 @@ function SummaryPage() {
       setErrorMessage( {} ); // remove error message
       const response = await axios.post(
         'https://gitfit.lucasreyna.me/calendar', 
-        {user: currentUser, 'numStep': stepValue}
+        {...getDateAsObject(), user: currentUser, numStep: stepValue}
       );
       
       // check the backend response

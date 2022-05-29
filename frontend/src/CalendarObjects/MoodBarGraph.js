@@ -65,8 +65,6 @@ function MoodBarGraph(props) {
       }
   }
 
-  console.log(props);
-
   return (
       <Bar 
           data={data}
