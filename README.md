@@ -6,7 +6,7 @@
 ### Introduction
 A free to use an open source fitness app for Cal Poly's CSC 307 class taught by professor BJ Klingenberg
 
-See more here https://www.gitfit.me/#/about
+See more here https://www.gitfit.me/
 
 ### Description
 
@@ -17,7 +17,11 @@ See more here https://www.gitfit.me/#/about
 ### [User Stories](https://docs.google.com/document/d/1CP-tN6rDFB8FBo0jSky3IIFh5eqhp1LKlqd6ki4Q-wI/edit?usp=sharing)
 
 ### Software Overview 
-
+- Create an account with an encrypted password
+- Store information fitness and nutrition information on a daily basis to get track of your health
+- Explore the calendar to see an overview of your moods and health statistics
+- Checkout the BMI page for a useful calculator and interactive chart
+- Users can also delete their account and information in the settings page
 
 ### [Backend](https://gitfit.lucasreyna.me)
 
