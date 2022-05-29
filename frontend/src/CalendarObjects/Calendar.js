@@ -5,6 +5,7 @@ import Tile from './Tile/Tile.jsx';
 // import exampleDateData from './ExampleCalendarData.json'; // For testing purposes
 import CalendarDateInfoContext from '../context/calendar-date.context';
 import MonthlyMoodDataContext from '../context/calendar-mood.context';
+import dumbbell from '../dumbell.svg';
 
 const NUM_COLS = 7; // seven days in a week
 const NUM_ROWS = 6; // at most 6 weeks to display
@@ -32,6 +33,8 @@ function Calendar() {
   const [selectedTile, setSelectedTile] = useState();
   const [calendarBody, setCalendar] = useState();
   const [calendarClassname, setCalendarClass] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
   let gridOfInfo = []; // makes grid accessible in other functions
 
   const { updateDay } = useContext(CalendarDateInfoContext);
@@ -303,6 +306,8 @@ function Calendar() {
 
   // runs on first render, and any time month or selected tile is changed
   useEffect(() => {
+    if (currentUser === '') return;
+
     // before data is initialized
     if (Object.keys(userData).length === 0) {
         getCalendarFromUser(currentUser).then((result) => {
@@ -310,25 +315,46 @@ function Calendar() {
             setCalendar(loadCalendarBodyInfo(result));
           }
           setUserData(result); // cache the user data
+          setIsLoading(false); // you to set loading to false after promise is complete
       });
     }
     else if (userData)
       setCalendar(loadCalendarBodyInfo(userData));
+
   }, [currentUser, currentMonth, selectedTile]);
 
-  return (
-    <div className={`calendar ${calendarClassname}`}>
-        <div className="calendar-top">
-          <button className="arrow-button" onClick={() => UpdateCalendar(-1)}>&#8678;</button>
-          <span id="month-year-text">{monthStrs[currentMonth]} {currentYear}</span>
-          <button className="arrow-button" onClick={() => UpdateCalendar(1)}>&#8680;</button>
+  function renderCalendar() {
+    return (
+      <div className={`calendar ${calendarClassname}`}>
+          <div className="calendar-top">
+            <button className="arrow-button" onClick={() => UpdateCalendar(-1)}>&#8678;</button>
+            <span id="month-year-text">{monthStrs[currentMonth]} {currentYear}</span>
+            <button className="arrow-button" onClick={() => UpdateCalendar(1)}>&#8680;</button>
+          </div>
+          <table>
+              <CalendarHeader />
+              {calendarBody}
+          </table>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <span>
+        {renderCalendar()}
+        <div id='loading-screen'>
+          <h1>Loading...</h1>
+          <img src={dumbbell} className="App-logo" alt="dumbell" />
         </div>
-        <table>
-            <CalendarHeader />
-            {calendarBody}
-        </table>
-    </div>
-  );
+      </span>
+    );
+  }
+  else {
+    return (
+      renderCalendar()
+    );
+  }
 }
 
 export default Calendar;
