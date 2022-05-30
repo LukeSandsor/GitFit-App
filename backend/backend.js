@@ -9,6 +9,7 @@ const weight_history = require('./models/weights_log/weights_log');
 const userServices = require('./models/user/user-services');
 const nutrition = require('./models/nutrition/nutrition');
 const { type } = require('express/lib/response');
+const { User } = require('./models/user/user');
 
 const app = express();
 const port = process.env.PORT;
@@ -49,7 +50,38 @@ app.get('/goals', async (req, res) => {
         console.log(error);
         res.status(500).send('An error occured in the server.');
     }
-})
+});
+
+function getAge(dateString) {
+    var ageInMilliseconds = new Date() - new Date(dateString);
+    return Math.floor(ageInMilliseconds/1000/60/60/24/365);
+}
+
+app.get('/goals/calories', async (req, res) => {
+    try {
+        const user = await User.findOne({username: req.query.username});
+        const goalList = await goalsServices.getGoalList();
+
+        const matchedGoal = goalList.find(element => element.goal === user.goal);
+        const multiplier = matchedGoal.calorie_multiplier;
+        const age = getAge(user.birthday)
+
+        var baseCalories = 10 * 0.453592 * user.weight + 6.25 * 2.54 * user.height - 5 * age
+        if (user.gender === "Male") {
+            baseCalories += 5;
+        }
+        else {
+            baseCalories -= 161;
+        }
+
+        baseCalories = Math.floor(baseCalories * multiplier);
+        res.send({targetCalories: baseCalories});
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error occured in the server.');
+    }
+});
+
 
 app.get('/weights/:name', async (req, res) => {
     const name = req.params.name;
