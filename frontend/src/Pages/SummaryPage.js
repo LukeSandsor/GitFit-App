@@ -368,7 +368,7 @@ function SummaryPage() {
   async function getUserCalories() {
     try {
       const response = await axios.get(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`);
-      return response.data.calories
+      return response.data.calories;
     } catch (error) {
       console.log(error);
       return false;
@@ -379,6 +379,23 @@ function SummaryPage() {
     getUserCalories().then(result => {
       if (result)
         setCurrentCalories(result)
+    });
+  });
+
+  async function getTargetCalories() {
+    try {
+      const response = await axios.get(`https://gitfit.lucasreyna.me/goals/calories?username=${currentUser}`);
+      return response.data.targetCalories;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    getTargetCalories().then(result => {
+      if (result)
+        setTargetCalories(result)
     });
   });
 
@@ -439,6 +456,7 @@ function SummaryPage() {
 
         <div className='user-block' id='calorie-counter'>
           <h3>Calorie Counter</h3>
+          <p>Target Calories: {targetCalories}</p>
           <p>Current Calories: {currentCalories}</p>
           {renderErrorMessage('goal-input')}
         </div>
