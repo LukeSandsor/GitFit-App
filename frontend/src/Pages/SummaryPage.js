@@ -20,7 +20,8 @@ function SummaryPage() {
 
   // nutrition goals
   const [goalList, setGoalList] = useState([]);
-  const [selectedGoal, setGoal] = useState('');
+  const [selectedGoal, setSelectedGoal] = useState('');
+  const [currentGoal, setCurrentGoal] = useState('');
 
   const todayDateObject = new Date();
   const currentYear = todayDateObject.getFullYear();
@@ -295,6 +296,30 @@ function SummaryPage() {
   
   }, [selectedEmoji]);
 
+  async function getGoalList() {
+    try {
+      const response = await axios.get('https://gitfit.lucasreyna.me/goals');
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    getGoalList().then(result => {
+      if (result)
+        setGoalList(result.map((item) => {
+          return (
+            {
+              label: item.goal,
+              value: item
+            }
+          )
+        }))
+    });
+  });
+
   function renderPage()
   {
     return (
@@ -332,12 +357,23 @@ function SummaryPage() {
           {renderErrorMessage('weight-input')}
         </div>
 
-        {/* <div className='user-block' id='goal-submit'>
-          <h3>Current Goal: {currentWeight}</h3>
+        <div className='user-block' id='goal-submit'>
+          <h3>Current Goal: {currentGoal}</h3>
           <p>Enter new goal</p>
+          <div className='food-selecter'>
+            <Select
+              options={goalList}
+              placeholder='Select New Goal'
+              searchable={true}
+              closeOnSelect={true}
+              onChange={(e) => {
+                setSelectedGoal(e[0].label)
+              }}
+            />
+          </div>
           <button onClick={() => updateUserWeight()}>Submit</button> <br />
           {renderErrorMessage('goal-input')}
-        </div> */}
+        </div>
         
         <div id='adviceDisplay'>
               <a href={adviceObject.source}>{adviceObject.source}</a>
