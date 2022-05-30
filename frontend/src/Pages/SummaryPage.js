@@ -4,6 +4,7 @@ import NavBar from '../NavBar';
 import './SummaryPage.css';
 import dumbbell from '../dumbell.svg';
 import Select from 'react-dropdown-select';
+import { useParams } from 'react-router-dom';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const emojis = ['😡', '😢', '🤒', '😐', '🙂', '🤩'];
@@ -320,6 +321,42 @@ function SummaryPage() {
     });
   });
 
+  async function getUserCurrentGoal() {
+    try {
+      const response = await axios.get('https://gitfit.lucasreyna.me/passport/user', {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      });
+      if (response.status === 200) {
+        return response.data.goal;
+      }
+    } catch (error) {
+      // console.log(error);
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    getUserCurrentGoal().then(result => {
+      if (result)
+        setCurrentGoal(result)
+    });
+  });
+
+  async function updateUserGoal() {
+    if (selectedGoal !== '') {
+      try {
+        const params = {username: localStorage.getItem('username'), goal: selectedGoal};
+        await axios.put('https://gitfit.lucasreyna.me/passport/user', {
+          body: params
+        })
+      } catch (error) {
+        return false
+      }
+    }
+  }
+
   function renderPage()
   {
     return (
@@ -371,7 +408,7 @@ function SummaryPage() {
               }}
             />
           </div>
-          <button onClick={() => updateUserWeight()}>Submit</button> <br />
+          <button onClick={() => updateUserGoal()}>Submit</button> <br />
           {renderErrorMessage('goal-input')}
         </div>
         
