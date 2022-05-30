@@ -1,16 +1,19 @@
-
+:root {
+    --cell-width: 2vw;
+  }
 
 /* Box at top with Calculation Info */
 .block--calcInfo{
     background-color: rgb(12, 139, 146);
-    display: inline-block;
-    margin: 50px;
-    height: 150px;
-    width: 1000px;
+    /* display: inline-block; */
+    margin: 10px;
+    height: 100px;
+    width: 62vw;
     border-radius: 40px;
     position: relative;
-    /* top: 50px;
-    left: 150px; */
+    /* top: 50px; */
+    left: 75px;
+    float: left;
 }
 
 
@@ -22,8 +25,9 @@
     height: 250px;
     margin: 25px;
     position: relative;
+    /* display: inline-block; */
     float: right;
-    right: 75px;
+    /* right: 75px; */
     z-index: 100;
 }
 
@@ -140,7 +144,9 @@
     width: 400px;
     border-radius: 40px;
     position: relative;
-    right: -175px;
+    top: 200px;
+    right: -375px;
+    float: right;
 }
 
 
@@ -150,27 +156,48 @@
 
 
 /* BMI table */
-.centeredBMI{
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: separate;
-    border: solid rgb(0, 214, 225) 10px;
-    border-spacing: 0.3rem;
-    border-radius: 10px;
-    background-color: rgb(12, 139, 146);
-    position: relative;
-    left: 100px;
-    float: left;
+.centeredBMI {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border: solid rgb(0, 214, 225) 10px;
+  border-spacing: 0.3rem;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  border-radius: 10px;
+  background-color: #1f2329;
+  position: relative;
+  /* left: 100px; */
+  top: 30px;
+  font-size: 1.0vw;
+  width: 1.5vw;
+  /* float: left; */
+
+  /* this makes it so you can't highlight this object */
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10 */
+
+  /* Currently not supported in Opera but will be soon */
+  -o-user-select: none;
+  user-select: none;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /*************/
 }
 
 .tableHeaderBMI{
-    background-color: rgb(12, 139, 146);
+    background-color: #1f2329;
+    font-size: 1.2vw;
+    width: var(--cell-width);
 }
 
 .tableCellUnderweight{
     background-color: rgb(3, 150, 218);
     height: 22px;
-    width: 30px;
+    /* width: 30px; */
+    width: var(--cell-width);
 }
 .tableCellUnderweight:hover{
     background-color: rgb(0, 119, 255);
@@ -180,6 +207,7 @@
 .tableCellHealthy{
     background-color: rgb(24, 116, 16);
     height: 22px;
+    width: var(--cell-width);
 }
 .tableCellHealthy:hover{
     background-color: rgb(33, 175, 20);
@@ -189,6 +217,7 @@
 .tableCellOverweight{
     background-color: rgb(142, 138, 0);
     height: 22px;
+    width: var(--cell-width);
 }
 .tableCellOverweight:hover{
     background-color: rgb(177, 171, 0);
@@ -198,6 +227,7 @@
 .tableCellObese{
     background-color: rgb(190, 117, 0);
     height: 22px;
+    width: var(--cell-width);
 }
 .tableCellObese:hover{
     background-color: rgb(242, 149, 0);
@@ -207,6 +237,7 @@
 .tableCellExtremelyObese{
     background-color: rgb(169, 23, 1);
     height: 22px;
+    width: var(--cell-width);
 }
 .tableCellExtremelyObese:hover{
     background-color: rgb(211, 28, 0);

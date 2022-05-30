@@ -59,7 +59,7 @@ function RegisterPage() {
     await axios.post('https://gitfit.lucasreyna.me/passport/signup',
       params
     ).then((res) => {
-      console.log(res.data);
+      localStorage.setItem('username', res.data.username);
       localStorage.setItem('token', res.data.token);
       setIsLoggedIn(true);
     }).catch((err) => {

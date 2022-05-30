@@ -17,10 +17,25 @@
   box-shadow: 0 0 25px black;
 }
 
+#name-block {
+  width: fit-content;
+  position: fixed;
+  top: 0;
+  display: block;
+  color: black;
+  text-align: center;
+  margin-top: 0;
+  margin-left: 20px;
+  background-color: white;
+  padding: 25px 45px 25px 45px;
+  border-radius:  0 0 15px 15px;
+  box-shadow: 0 0 25px black;
+}
+
 .user-block {
   border: 2px dotted white;
   display: inline-block;
-  margin-left: 25px;
+  margin-left: 45px;
   margin-right: auto;
   margin-bottom: 25px;
 
@@ -104,6 +119,11 @@
   border-radius: 4px;
 }
 
+.posted
+{
+  color: green;
+}
+
 .selected {
   text-decoration: underline;
 }
@@ -114,9 +134,15 @@
   width: fit-content;
 }
 
+#weight-submit {
+  background-color: darkcyan;
+  padding: 5px 25px 25px 25px;
+  width: fit-content;
+}
+
 #adviceDisplay {
   border-radius: 50px 0 0 0;
-  position: absolute;
+  position: fixed;
   background-color: turquoise;
   bottom: 0;
   right: 0;

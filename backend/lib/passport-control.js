@@ -35,6 +35,7 @@ passport.use(new JWTStrategy({
   User.findById(jwt_payload.id).then(user => {
     return done(null, user);
   }).catch(err => {
+    // might want to cause logout
     return done(err, false, {
       message: 'Token not matched.'
     });

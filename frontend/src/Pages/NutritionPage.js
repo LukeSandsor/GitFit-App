@@ -10,6 +10,7 @@ import MealLogger from '../MealLogger'
 function NutritionPage() {
     const [foodOptions, setFoodOptions] = useState([]);
     const [userFoodInfo, setUserFoodInfo] = useState({});
+    const [currentUser, setCurrentUser] = useState('');
 
     async function getFoodOptions() {
         try {
@@ -25,7 +26,7 @@ function NutritionPage() {
 
     async function getUserNutrition () {
         try {
-            const response = await axios.get("https://gitfit.lucasreyna.me/nutrition?username=nutritionTest");
+            const response = await axios.get(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`);
             console.log(response.data);
             return response.data;
         } catch (error) {
@@ -33,6 +34,10 @@ function NutritionPage() {
             return false;
         }
     }
+
+    useEffect(() => {
+      setCurrentUser(localStorage.getItem('username'));
+    }, []);
 
     useEffect(() => {
         getFoodOptions().then(result => {
