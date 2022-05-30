@@ -41,7 +41,7 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
-app.get('/nutrition/goals', async (req, res) => {
+app.get('/goals', async (req, res) => {
     try {
         const result = await goalsServices.getGoalList();
         res.send(result);
