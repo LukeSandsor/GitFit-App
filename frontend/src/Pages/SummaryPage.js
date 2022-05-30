@@ -4,6 +4,7 @@ import NavBar from '../NavBar';
 import './SummaryPage.css';
 import dumbbell from '../dumbell.svg';
 import Select from 'react-dropdown-select';
+import { useParams } from 'react-router-dom';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const emojis = ['😡', '😢', '🤒', '😐', '🙂', '🤩'];
@@ -20,7 +21,8 @@ function SummaryPage() {
 
   // nutrition goals
   const [goalList, setGoalList] = useState([]);
-  const [selectedGoal, setGoal] = useState('');
+  const [selectedGoal, setSelectedGoal] = useState('');
+  const [currentGoal, setCurrentGoal] = useState('');
 
   const todayDateObject = new Date();
   const currentYear = todayDateObject.getFullYear();
@@ -295,6 +297,66 @@ function SummaryPage() {
   
   }, [selectedEmoji]);
 
+  async function getGoalList() {
+    try {
+      const response = await axios.get('https://gitfit.lucasreyna.me/goals');
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    getGoalList().then(result => {
+      if (result)
+        setGoalList(result.map((item) => {
+          return (
+            {
+              label: item.goal,
+              value: item
+            }
+          )
+        }))
+    });
+  });
+
+  async function getUserCurrentGoal() {
+    try {
+      const response = await axios.get('https://gitfit.lucasreyna.me/passport/user', {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      });
+      if (response.status === 200) {
+        return response.data.goal;
+      }
+    } catch (error) {
+      // console.log(error);
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    getUserCurrentGoal().then(result => {
+      if (result)
+        setCurrentGoal(result)
+    });
+  });
+
+  async function updateUserGoal() {
+    if (selectedGoal !== '') {
+      try {
+        const params = {username: localStorage.getItem('username'), goal: selectedGoal};
+        await axios.put('https://gitfit.lucasreyna.me/passport/user', {
+          body: params
+        })
+      } catch (error) {
+        return false
+      }
+    }
+  }
+
   function renderPage()
   {
     return (
@@ -332,12 +394,23 @@ function SummaryPage() {
           {renderErrorMessage('weight-input')}
         </div>
 
-        {/* <div className='user-block' id='goal-submit'>
-          <h3>Current Goal: {currentWeight}</h3>
+        <div className='user-block' id='goal-submit'>
+          <h3>Current Goal: {currentGoal}</h3>
           <p>Enter new goal</p>
-          <button onClick={() => updateUserWeight()}>Submit</button> <br />
+          <div className='food-selecter'>
+            <Select
+              options={goalList}
+              placeholder='Select New Goal'
+              searchable={true}
+              closeOnSelect={true}
+              onChange={(e) => {
+                setSelectedGoal(e[0].label)
+              }}
+            />
+          </div>
+          <button onClick={() => updateUserGoal()}>Submit</button> <br />
           {renderErrorMessage('goal-input')}
-        </div> */}
+        </div>
         
         <div id='adviceDisplay'>
               <a href={adviceObject.source}>{adviceObject.source}</a>
