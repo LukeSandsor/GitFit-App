@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavBar from '../NavBar';
 import './SummaryPage.css';
 import dumbbell from '../dumbell.svg';
+import Select from 'react-dropdown-select';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const emojis = ['😡', '😢', '🤒', '😐', '🙂', '🤩'];
@@ -18,6 +19,7 @@ function SummaryPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   // nutrition goals
+  const [goalList, setGoalList] = useState([]);
   const [selectedGoal, setGoal] = useState('');
 
   const todayDateObject = new Date();
@@ -329,6 +331,13 @@ function SummaryPage() {
           <button onClick={() => updateUserWeight()}>Submit</button> <br />
           {renderErrorMessage('weight-input')}
         </div>
+
+        {/* <div className='user-block' id='goal-submit'>
+          <h3>Current Goal: {currentWeight}</h3>
+          <p>Enter new goal</p>
+          <button onClick={() => updateUserWeight()}>Submit</button> <br />
+          {renderErrorMessage('goal-input')}
+        </div> */}
         
         <div id='adviceDisplay'>
               <a href={adviceObject.source}>{adviceObject.source}</a>

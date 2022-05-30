@@ -76,7 +76,13 @@ app.get('weights/:date', async (req, res) => {
 app.get('/nutrition', async (req, res) => {
     try {
         const username = req.query.username;
-        const user = await nutritionServices.getUserNutrtition(username);
+        var user = await nutritionServices.getUserNutrtition(username);
+        
+        while (!user) {
+            await nutritionServices.createUserNutrition(username);
+            user = await nutritionServices.getUserNutrtition(username);
+        }
+        
         today = new Date();
 
 
