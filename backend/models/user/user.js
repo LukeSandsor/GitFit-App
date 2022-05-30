@@ -50,6 +50,11 @@ var UserSchema = new mongoose.Schema(
           required: true,
           trim: true
       },
+      goal: {
+        type: String,
+        required: true,
+        trim: true,
+      }
     },
     { collection: 'user_list' }
 );
