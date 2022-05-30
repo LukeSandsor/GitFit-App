@@ -33,7 +33,8 @@ router.post('/signup', async (req, res) => {
     weight: req.body.weight,
     height: req.body.height,
     firstname: req.body.firstname,
-    lastname: req.body.lastname
+    lastname: req.body.lastname,
+    goal: 'Maintain'
   });
 
   user.save().then(() => {
