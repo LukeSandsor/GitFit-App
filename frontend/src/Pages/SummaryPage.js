@@ -17,6 +17,9 @@ function SummaryPage() {
   const [errorMessage, setErrorMessage] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  // nutrition goals
+  const [selectedGoal, setGoal] = useState('');
+
   const todayDateObject = new Date();
   const currentYear = todayDateObject.getFullYear();
   const currentMonth = todayDateObject.getMonth();
