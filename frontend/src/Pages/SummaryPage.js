@@ -24,6 +24,10 @@ function SummaryPage() {
   const [selectedGoal, setSelectedGoal] = useState('');
   const [currentGoal, setCurrentGoal] = useState('');
 
+  // calories
+  const [currentCalories, setCurrentCalories] = useState(0);
+  const [targetCalories, setTargetCalories] = useState(0);
+
   const todayDateObject = new Date();
   const currentYear = todayDateObject.getFullYear();
   const currentMonth = todayDateObject.getMonth();
@@ -321,6 +325,10 @@ function SummaryPage() {
     });
   });
 
+  async function getUserCalories() {
+
+  }
+
   async function getUserCurrentGoal() {
     try {
       const response = await axios.get('https://gitfit.lucasreyna.me/passport/user', {
@@ -356,6 +364,23 @@ function SummaryPage() {
       }
     }
   }
+
+  async function getUserCalories() {
+    try {
+      const response = await axios.get(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`);
+      return response.data.calories
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    getUserCalories().then(result => {
+      if (result)
+        setCurrentCalories(result)
+    });
+  });
 
   function renderPage()
   {
@@ -409,6 +434,12 @@ function SummaryPage() {
             />
           </div>
           <button onClick={() => updateUserGoal()}>Submit</button> <br />
+          {renderErrorMessage('goal-input')}
+        </div>
+
+        <div className='user-block' id='calorie-counter'>
+          <h3>Calorie Counter</h3>
+          <p>Current Calories: {currentCalories}</p>
           {renderErrorMessage('goal-input')}
         </div>
         
