@@ -4,7 +4,6 @@ import NavBar from '../NavBar';
 import './SummaryPage.css';
 import dumbbell from '../dumbell.svg';
 import Select from 'react-dropdown-select';
-import { useParams } from 'react-router-dom';
 
 const monthStrs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const emojis = ['😡', '😢', '🤒', '😐', '🙂', '🤩'];
@@ -25,8 +24,8 @@ function SummaryPage() {
   const [currentGoal, setCurrentGoal] = useState('');
 
   // calories
-  const [currentCalories, setCurrentCalories] = useState(0);
-  const [targetCalories, setTargetCalories] = useState(0);
+  const [currentCalories, setCurrentCalories] = useState('Loading...');
+  const [targetCalories, setTargetCalories] = useState('Loading...');
 
   const todayDateObject = new Date();
   const currentYear = todayDateObject.getFullYear();
