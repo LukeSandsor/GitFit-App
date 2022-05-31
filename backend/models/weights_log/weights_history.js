@@ -1,14 +1,29 @@
 const mongoose = require("mongoose");
 
-const WeightsSchema = new mongoose.Schema(
+/*const WorkoutSchema = new mongoose.Schema(
     {
         type: {
             type: String,
             required: true,
             trim: true
         },
-        date: {
-            type: Date,
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        month: {
+            type: Number,
+            required: true,
+            trim: true
+        },
+        day: {
+            type: Number,
+            required: true,
+            trim: true
+        },
+        year: {
+            type: Number,
             required: true,
             trim: true
         },
@@ -29,8 +44,25 @@ const WeightsSchema = new mongoose.Schema(
         }
     },
     { collection: "weights_history" }
-);
+);*/
 
-const Weights = mongoose.model("Weights", WeightsSchema);
+const UserWorkoutSchema = new mongoose.Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        workouts: {
+            type: Array,
+            required: true
+        }
+    },
+    { collection: "weights_history" }
+)
 
-module.exports = Weights
+const UserWorkout = mongoose.model("UserWorkoutModel", UserWorkoutSchema)
+
+module.exports = {
+    UserWorkout: UserWorkout
+}

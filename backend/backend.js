@@ -42,10 +42,12 @@ app.get('/nutrition/table', async (req, res) => {
 
 app.get('/weights', async (req, res) => {
   const username = req.query.username;
+  const name = req.query.name;
+  const type = req.query.type;
   try {
-      const result = await workoutServices.getUserWorkouts(username);
+      const result = await workoutServices.getUserWorkouts(username, name, type);
       if (result)
-        res.send(result); // 200 ok response
+        res.send(result); // 201 ok response
       else
         res.status(204).send('User not found');
   } catch (error) {

@@ -11,11 +11,16 @@ function NutritionPage() {
     const [foodOptions, setFoodOptions] = useState([]);
     const [userFoodInfo, setUserFoodInfo] = useState({});
     const [currentUser, setCurrentUser] = useState('');
+    const [targetMacros, setTargetMacros] = useState({
+        targetProtein: 0,
+        targetCarbs: 0,
+        targetFats: 0
+    });
 
     async function getFoodOptions() {
         try {
             const response = await axios.get("https://gitfit.lucasreyna.me/nutrition/table");
-            console.log(response.data);
+            //console.log(response.data);
             return response.data;
         }
         catch (error) {
@@ -27,7 +32,18 @@ function NutritionPage() {
     async function getUserNutrition () {
         try {
             const response = await axios.get(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`);
-            console.log(response.data);
+            //console.log(response.data);
+            return response.data;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    async function getTargetNutrition() {
+        try {
+            const response = await axios.get(`https://gitfit.lucasreyna.me/goals/nutrition?username=${currentUser}`);
+            //console.log(response.data);
             return response.data;
         } catch (error) {
             console.log(error);
@@ -40,14 +56,23 @@ function NutritionPage() {
     }, []);
 
     useEffect(() => {
+        getUserNutrition().then(result => {
+            if (result)
+                setUserFoodInfo(result);
+        });
+    });
+
+    useEffect(() => {
         getFoodOptions().then(result => {
             if (result)
                 setFoodOptions(result);
         });
+    })
 
-        getUserNutrition().then(result => {
+    useEffect(() => {
+        getTargetNutrition().then(result => {
             if (result)
-                setUserFoodInfo(result);
+                setTargetMacros(result)
         });
     });
 
@@ -57,17 +82,17 @@ function NutritionPage() {
             <h1>Nutrition Page</h1>
             <div className='chart-container'>
                 <div className='doughnut'>
-                    <DoughnutChart userFoodInfo={userFoodInfo}/>
+                    <DoughnutChart userFoodInfo={userFoodInfo} targetMacros={targetMacros}/>
                 </div>
                 <div className='bar'>
-                    <BarChart userFoodInfo={userFoodInfo}/>
+                    <BarChart userFoodInfo={userFoodInfo} targetMacros={targetMacros}/>
                 </div>
             </div>
             <div className='macro-table-container'>
-                <PersonalNutritionTable userFoodInfo={userFoodInfo}/>
+                <PersonalNutritionTable userFoodInfo={userFoodInfo} targetMacros={targetMacros}/>
             </div>
             
-            <MealLogger foodOptions={foodOptions}/>
+            <MealLogger foodOptions={foodOptions} currentUser={currentUser}/>
         </div>
     )
 }

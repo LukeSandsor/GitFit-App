@@ -1,6 +1,7 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
+
 const colorsForEmoji = {'😡': 'salmon', '😢': 'lightblue', '🤒': 'green', '😐': 'gray', '🙂': 'lightyellow', '🤩': 'pink'};
 
 function MoodBarGraph(props) {
@@ -9,11 +10,11 @@ function MoodBarGraph(props) {
       labels: Object.keys(props.moodData),
       datasets: [
         {
-          label: " Days",
-          data: Object.values(props.moodData),
-          backgroundColor: Object.keys(props.moodData).map( (key) => colorsForEmoji[key] ),
-          borderColor: 'white',
-          borderWidth: 2,
+            label: "Days",
+            data: Object.values(props.moodData),
+            backgroundColor: Object.keys(props.moodData).map( (key) => colorsForEmoji[key] ),
+            borderColor: 'white',
+            borderWidth: 2,
         }
       ]
   }

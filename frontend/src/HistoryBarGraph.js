@@ -3,21 +3,33 @@ import {Bar} from 'react-chartjs-2';
 //eslint-disable-next-line
 import Chart from 'chart.js/auto';
 
-function BarChart(props) {
+function getWeights(workouts) {
+    let weights = new Array();
+    for(let i = 0; i < workouts.length; i++) {
+        weights.push(workouts[i].weight)
+    }
+    return weights;
+}
+
+function getDates(workouts) {
+    let dates = new Array();
+    for(let i = 0; i < workouts.length; i++) {
+        dates.push(`${workouts[i].month}/${workouts[i].date}/${workouts[i].year}`)
+    }
+    return dates
+}
+
+
+function HistoryBarGraph(props) {
+    const weights = getWeights(props.workouts);
+    const dates = getDates(props.workouts);
     const data = {
-        labels: ['Protein', 'Carbs', 'Fats'],
+        labels: dates,
         datasets: [
             {
-                label: "Target",
-                data: [props.targetMacros.targetProtein, props.targetMacros.targetCarbs, props.targetMacros.targetFats],
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-                borderColor: 'white',
-                borderWidth: 2,
-            },
-            {
-                label: "Current",
-                data: [props.userFoodInfo.protein, props.userFoodInfo.carbs, props.userFoodInfo.fats],
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                label: " Weight",
+                data: weights,
+                backgroundColor: ["magenta", "cyan", "lightgreen"],
                 borderColor: 'white',
                 borderWidth: 2,
             }
@@ -29,7 +41,8 @@ function BarChart(props) {
         scales: {
             x: {
                 grid: {
-                    display: false,
+                    display: true,
+                    color: 'white',
                     borderColor: 'white'
                 },
                 ticks: {
@@ -38,7 +51,8 @@ function BarChart(props) {
             },
             y: {
                 grid: {
-                    display: false,
+                    display: true,
+                    color: 'white',
                     borderColor: 'white'
                 },
                 ticks: {
@@ -49,7 +63,7 @@ function BarChart(props) {
         plugins: {
             title: {
                 display: true,
-                text: 'Nutrition Counter',
+                text: 'Workout Tracker',
                 color: 'white',
                 font: {size: 34}
             },
@@ -72,4 +86,4 @@ function BarChart(props) {
     );
 }
 
-export default BarChart;
+export default HistoryBarGraph;
