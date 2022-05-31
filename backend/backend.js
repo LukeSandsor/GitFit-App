@@ -42,6 +42,7 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
+// gets list of goals
 app.get('/goals', async (req, res) => {
     try {
         const result = await goalsServices.getGoalList();
@@ -52,6 +53,7 @@ app.get('/goals', async (req, res) => {
     }
 });
 
+// function to calculate age
 function getAge(dateString) {
     var ageInMilliseconds = new Date() - new Date(dateString);
     return Math.floor(ageInMilliseconds/1000/60/60/24/365);
