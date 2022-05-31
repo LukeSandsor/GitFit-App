@@ -27,6 +27,7 @@
 
 .btn:hover{
     background: #009cad;
+    cursor: pointer;
 }
 
 .register-error

@@ -4,12 +4,10 @@ const cors = require('cors');
 const adviceServices = require('./models/health_advice/advice-services');
 const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
-const goalsServices = require('./models/goals/goals-services');
-const weight_history = require('./models/weights_log/weights_log');
+const workoutServices= require('./models/weights_log/weights_log');
 const userServices = require('./models/user/user-services');
 const nutrition = require('./models/nutrition/nutrition');
 const { type } = require('express/lib/response');
-const { User } = require('./models/user/user');
 
 const app = express();
 const port = process.env.PORT;
@@ -42,14 +40,39 @@ app.get('/nutrition/table', async (req, res) => {
     }
 });
 
+app.get('/weights', async (req, res) => {
+    const username = req.query.username;
+    const name = req.query.name;
+    const type = req.query.type;
+    try {
+        const result = await workoutServices.getUserWorkouts(username, name, type);
+        if (result)
+          res.send(result); // 201 ok response
+        else
+          res.status(204).send('User not found');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error ocurred in the server.');
+    }
+  });
+  
+  app.post('/weights', async (req, res) => {
+    const data = req.body;
+    const savedInfo = await workoutServices.addUserWorkout(data);
+    if (savedInfo)
+        res.status(201).send('Successfully added Workout! :)');
+    else
+        res.status(500).end();
+  });
+
 // gets list of goals
 app.get('/goals', async (req, res) => {
     try {
-        const result = await goalsServices.getGoalList();
-        res.send(result);
+        const result = await userServices.getUser();
+        res.send(result);      
     } catch (error) {
         console.log(error);
-        res.status(500).send('An error occured in the server.');
+        res.status(500).send('An error ocurred in the server.');
     }
 });
 
@@ -144,13 +167,7 @@ app.get('weights/:date', async (req, res) => {
 app.get('/nutrition', async (req, res) => {
     try {
         const username = req.query.username;
-        var user = await nutritionServices.getUserNutrtition(username);
-        
-        while (!user) {
-            await nutritionServices.createUserNutrition(username);
-            user = await nutritionServices.getUserNutrtition(username);
-        }
-        
+        const user = await nutritionServices.getUserNutrtition(username);
         today = new Date();
 
 

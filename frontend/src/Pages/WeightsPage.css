@@ -2,7 +2,7 @@
     background-color: lightblue;
     display: inline-block;
     margin: 25px;
-    height: 550px;
+    height: 570px;
     width: 350px;
     border-radius: 10px;
 }
@@ -27,4 +27,110 @@
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+.weight-button:hover{
+    background: #009cad;
+    cursor: pointer;
+}
+
+
+.weight-checker {
+  bottom: 0;
+  background-color: salmon;
+  width: 70%;
+  height: 975px;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 32px;
+  line-height: 40px; /* needed to freeze components in place */
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.weight-selectors {
+  height: 135px;
+  width: 285px;
+  background-color: rgb(255, 209, 144);
+  background-attachment: fixed;
+  border: 2px dotted grey;
+  display: inline-block;
+  margin-left: 35px;
+  margin-right: auto;
+  margin-bottom: 25px;
+  font-size: 12px;
+  font-weight: 769;
+  color: black;
+  vertical-align: middle;
+
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  box-shadow: 0 0 15px black;
+  border-radius: 5px;
+}
+
+.checker-button{
+  margin: 0px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #00ad34;
+  border: 1px solid #ac004e;
+  border-style: groove;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.checker-button:hover{
+    background: #45d53a;
+    cursor: pointer;
+}
+
+.lift-type{
+  background: white;
+  color: black;
+  margin: 2px;
+  gap: 2px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.lift-name{
+  background: white;
+  color: black;
+  margin: 2px;
+  gap: 2px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
+  vertical-align: middle;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.graph-container{
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  border: 2px dashed;
+  background: rgb(255, 209, 144);
+  color: black;
+  margin: 2px;
+  gap: 5px;
+  box-shadow: 0 0 15px black;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 95%;
+  height: 65%;
+  vertical-align: middle;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }

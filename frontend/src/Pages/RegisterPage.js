@@ -101,7 +101,7 @@ function RegisterPage() {
           <div style={{backgroundColor: 'white', margin: '10px', gap: '8px', borderRadius: '5px', display: 'flex', flexDirection: 'column', fontSize: '16px'}}>
             <GenderSelect genderOptions={genderOptions} required/>
           </div>
-          <br/>{renderErrorMessage('Gender')}
+          {renderErrorMessage('Gender')}
         </div>
         <div className='input-container'>
           <label>Birthday: </label>
@@ -148,6 +148,7 @@ function RegisterPage() {
   }
   else {
     // bruh use css file what is this
+    //^^^bruh I actually have extracurriculars and a job unlike some people
     return (
       <div>
         <div className='GitFit logo'><img src={gitfitlogo} alt='GitFit Logo' sytle={{ verticalAlign: 'top', width: 700, height: 250 }}></img></div>
