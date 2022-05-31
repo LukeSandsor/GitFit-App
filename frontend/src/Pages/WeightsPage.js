@@ -173,7 +173,7 @@ function WeightsPage() {
             type: "Pull"
         })
       const response = await axios.post(
-         'http://localhost:2414/weights'/*"https://gitfit.lucasreyna.me/weights*/, json, { headers: { 'Content-Type': 'application/json'}});
+         "https://gitfit.lucasreyna.me/weights", json, { headers: { 'Content-Type': 'application/json'}});
       if (response.status !== 201) {
         setErrorMessage({type: 'pull-input', message: 'Error uploading leg workout'});
         console.log('Non-201 Response');
@@ -223,7 +223,7 @@ function WeightsPage() {
             type: "Push"
         })
       const response = await axios.post(
-        'http://localhost:2414/weights'/*"https://gitfit.lucasreyna.me/weights*/, json, { headers: { 'Content-Type': 'application/json'}});
+        "https://gitfit.lucasreyna.me/weights", json, { headers: { 'Content-Type': 'application/json'}});
       if (response.status !== 201) {
         setErrorMessage({type: 'push-input', message: 'Error uploading leg workout'});
         console.log('Non-201 Response');
