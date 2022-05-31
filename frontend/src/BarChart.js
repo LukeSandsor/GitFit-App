@@ -9,7 +9,7 @@ function BarChart(props) {
         datasets: [
             {
                 label: "Target",
-                data: [200, 160, 80],
+                data: [props.targetMacros.targetProtein, props.targetMacros.targetCarbs, props.targetMacros.targetFats],
                 backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
                 borderColor: 'white',
                 borderWidth: 2,
