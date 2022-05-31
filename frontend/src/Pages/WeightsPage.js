@@ -56,8 +56,7 @@ function WeightsPage() {
         return false;
       }
       setErrorMessage({});
-      const response = await axios.get(`http://localhost:2414/weights?username=${currentUser}&type=${typeSelect}`
-      /*`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`*/);
+      const response = await axios.get(`https://gitfit.lucasreyna.me/weights?username=${currentUser}&type=${typeSelect}`);
       console.log(response.data)
       setUserWorkoutInfo(response.data);
       return true;
@@ -76,8 +75,7 @@ function WeightsPage() {
         setErrorMessage({type: 'name-select', message: 'Gotta search a valid name slugger!'});
       }
       setErrorMessage({});
-      const response = await axios.get(`http://localhost:2414/weights?username=${currentUser}&name=${name}`
-      /*`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`*/);
+      const response = await axios.get(`https://gitfit.lucasreyna.me/weights?username=${currentUser}&name=${name}`);
       console.log(response.data)
       setUserWorkoutInfo(response.data);
       return true;
@@ -125,7 +123,7 @@ function WeightsPage() {
             type: "Legs"
         })
       const response = await axios.post(
-         'http://localhost:2414/weights'/*"https://gitfit.lucasreyna.me/weights*/, json, { headers: { 'Content-Type': 'application/json'}});
+         'https://gitfit.lucasreyna.me/weights', json, { headers: { 'Content-Type': 'application/json'}});
       if (response.status !== 201) {
         setErrorMessage({type: 'legs-input', message: 'Error uploading leg workout'});
         console.log('Non-201 Response');
