@@ -6,6 +6,7 @@ const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
 const workoutServices= require('./models/weights_log/weights_log');
 const userServices = require('./models/user/user-services');
+const goalServices = require('./models/goals/goals');
 const nutrition = require('./models/nutrition/nutrition');
 const { type } = require('express/lib/response');
 
@@ -68,7 +69,7 @@ app.get('/weights', async (req, res) => {
 // gets list of goals
 app.get('/goals', async (req, res) => {
     try {
-        const result = await userServices.getUser();
+        const result = await goalServices.getGoalList();
         res.send(result);      
     } catch (error) {
         console.log(error);
