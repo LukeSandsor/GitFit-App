@@ -18,28 +18,31 @@ Chart.overrides.doughnut.plugins.tooltip.bodyFont = { weight: 'bold', size: 14 }
 Chart.overrides.doughnut.plugins.tooltip.bodyAlign = 'center';
 
 function DoughnutChart(props) {
-  const total = props.userFoodInfo.protein + props.userFoodInfo.carbs + props.userFoodInfo.fats
-  const protein = Math.round(props.userFoodInfo.protein / total * 100);
-  const carbs = Math.round(props.userFoodInfo.carbs / total * 100);
-  const fats = Math.round(props.userFoodInfo.fats / total * 100);
+  const currentTotal = props.userFoodInfo.protein + props.userFoodInfo.carbs + props.userFoodInfo.fats
+  const currentProtein = Math.round(props.userFoodInfo.protein / currentTotal * 100);
+  const currentCarbs = Math.round(props.userFoodInfo.carbs / currentTotal * 100);
+  const currentFats = Math.round(props.userFoodInfo.fats / currentTotal * 100);
+
+  const targetTotal = props.targetMacros.targetProtein + props.targetMacros.targetCarbs + props.targetMacros.targetFats;
+  const targetProtein = Math.round(props.targetMacros.targetProtein / targetTotal * 100);
+  const targetCarbs = Math.round(props.targetMacros.targetCarbs / targetTotal * 100);
+  const targetFats = Math.round(props.targetMacros.targetFats / targetTotal * 100);
 
   const data = {
     labels: ['Protein', 'Carbs', 'Fats'],
     datasets: [
       {
         label: 'Current',
-        data: [protein, carbs, fats],
+        data: [currentProtein, currentCarbs, currentFats],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        // hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
         hoverOffset: 10,
         borderWidth: 2,
         legend: { display: true },
       },
       {
         label: 'Target',
-        data: [0.4, 0.4, 0.2],
+        data: [targetProtein, targetCarbs, targetFats],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        // hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
         hoverOffset: 10,
         borderWidth: 2,
         legend: { display: true },

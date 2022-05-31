@@ -1,7 +1,10 @@
 const express = require('express'),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
+      // add all models with user information for deletion
       { User } = require('../models/user/user'),
+      calendarModel = require('../models/calendar/calendar'),
+      userServices = require('../models/user/user-services'),
       router = express.Router();
 
 /* API entrypoints */
@@ -30,13 +33,14 @@ router.post('/signup', async (req, res) => {
     weight: req.body.weight,
     height: req.body.height,
     firstname: req.body.firstname,
-    lastname: req.body.lastname
+    lastname: req.body.lastname,
+    goal: 'Maintain'
   });
 
   user.save().then(() => {
     // Token
     const token = jwt.sign({id: user._id}, 'jwt_secret');
-    res.json({token: token});
+    res.json({username: user.username, token: token});
 
   }).catch((err) => {
     console.error(err);
@@ -50,11 +54,56 @@ router.post('/login', passport.authenticate('local', {
   }), (req, res) => {
     if (req.user != -1) {
       // create and send Token
-      const token = jwt.sign({id: req.user._id}, 'jwt_secret')
-      res.status(201).json({token: token});
+      const token = jwt.sign({id: req.user._id}, 'jwt_secret');
+      res.status(201).json({username: req.user.username, token: token});
     }
     else {
       res.status(401).send(req.authInfo); // send 401 response with message
+    }
+  }
+);
+
+// change an entry in the user data
+router.put('/user', async (req, res) => {
+  let submittedUsername = req.body.body['username'];
+  delete req.body.body['username'];
+  let change = Object.values(req.body.body).at(0);
+
+  // in case of form issues
+  if (change === null || change === '') {
+    res.status(404).send('Incorrect Form\n');
+  }
+
+  await User.findOneAndUpdate({username: submittedUsername}, {'$set': req.body.body}
+  ).then((result) => {
+    if (result === undefined) {
+      res.status(404).send('Server Issue\n');
+    }
+    else {
+      res.status(200).end();
+    }
+    });
+  }
+);
+
+// delete user account and info
+router.delete('/user', passport.authenticate('jwt', {
+  session: false
+}), async (req, res) => {
+    const userIDToDelete = req.user.id;
+
+    // result should be the object that was delete or null
+    let result = await userServices.deleteUser(userIDToDelete);
+
+    // delete user information
+    await calendarModel.findOneAndDelete({user: req.user.username});
+    // add more later
+
+    if (result === null) {
+      res.status(404).send('Resource not found.\n');
+    }
+    else {
+      res.status(204).end();
     }
   }
 );
@@ -69,9 +118,7 @@ router.get('/user', passport.authenticate('jwt', {
       });
     }
 
-  res.json({
-    username: req.user.username
-  });
+  res.json(req.user);
 });
 
 module.exports = router;

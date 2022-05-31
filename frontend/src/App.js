@@ -12,6 +12,7 @@ import WeightsPage from './Pages/WeightsPage';
 import NutritionPage from './Pages/NutritionPage';
 import BMIPage from './Pages/BMIPage';
 import AboutPage from './Pages/AboutPage';
+import SettingsPage from './Pages/SettingsPage';
 import PrivacyPage from './Pages/PrivacyPage';
 import Logout from './component/Logout';
 import ErrorPage from './Pages/ErrorPage';
@@ -55,6 +56,9 @@ function App() {
           </Route>
           <Route path='/privacy' element={<PrivateRouteWrapper />}>
             <Route path='/privacy' element={<PrivacyPage />} />
+          </Route>
+          <Route path='/settings' element={<PrivateRouteWrapper />}>
+            <Route path='/settings' element={<SettingsPage />} />
           </Route>
 
           <Route path='/logout' element={<Logout />} />

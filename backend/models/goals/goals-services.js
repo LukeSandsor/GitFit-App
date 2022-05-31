@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { User } = require('./user');
+const goalModel = require("./goals");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -17,19 +17,8 @@ mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?r
     useUnifiedTopology: true,
   }).catch((error) => console.log(error));
 
-async function getUser() {
-    return await User.find().limit(1);
+async function getGoalList() {
+    return goalModel.GoalList.find();
 }
 
-async function deleteUser(id) {
-  try {
-      const result = await User.findByIdAndDelete(id);
-      return result;
-  } catch (error) {
-      console.log(error);
-      return null;
-  }
-}
-
-exports.getUser = getUser;
-exports.deleteUser = deleteUser;
+exports.getGoalList = getGoalList;

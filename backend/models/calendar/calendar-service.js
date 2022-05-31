@@ -30,31 +30,36 @@ async function addInfoToCalendar(data) {
   let username = data.user;
   
   // set current date and values
-  let dateObject = new Date();
-  let currentYear = dateObject.getFullYear();
-  let currentMonth = dateObject.getMonth();
-  let currentDay = dateObject.getDate();
+  // these should be provided by requester
+  let currentYear = data.year;
+  let currentMonth = data.month;
+  let currentDay = data.day;
 
   // check if data is formatted properly
   // there must be a user field to check the database
-  if (username) {
+  if (username && currentYear && currentMonth && currentDay) {
     let userCalendar = await calendarModel.findOne({'user': username});
 
     if (userCalendar) {
       let monthData = userCalendar.years[currentYear][currentMonth];
-      console.log(monthData);
+
       if (monthData) {
         // initialize currentDay object if it does not yet exist
         if (monthData[currentDay] === undefined) {
           monthData[currentDay] = {};
         }
+        const excludes = ['user', 'year', 'month', 'day'];
 
-        // go through each key in the new data and update the day data
-        // ignore the user key
-        Object.entries(data).forEach(([key, value]) => {
-          if (key !== 'user') {
+        const filteredData = Object.keys(data)
+          .filter(key => !(excludes.includes(key)))
+          .reduce((obj, key) => {
+            obj[key] = data[key];
+            return obj;
+          }, {});
+
+        // add data to month
+        Object.entries(filteredData).forEach(([key, value]) => {
             monthData[currentDay][key] = value;
-          }
         });
       }
 
@@ -62,7 +67,7 @@ async function addInfoToCalendar(data) {
       await calendarModel.findOneAndUpdate(
         { user: username }, 
         userCalendar,
-        { new: true}
+        { new: true }
       );
 
       return true;

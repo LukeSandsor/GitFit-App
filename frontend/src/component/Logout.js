@@ -7,6 +7,7 @@ export default class Logout extends Component {
 
     // Logout process: Remove token from localStorage
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
   }
   render() {
     return (
