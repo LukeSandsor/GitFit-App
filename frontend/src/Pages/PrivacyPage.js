@@ -11,8 +11,7 @@ function PrivacyPage() {
             <div className='GitFit logo'><img src={gitfitlogo} alt="GitFit Logo" sytle={{ verticalAlign: 'top', width: 700, height: 250 }}></img></div>
             <br></br>
             <br></br>
-            <br></br>
-            <br></br>
+
             <h3 style={{ color: 'white'}}>*Your data privacy is (kind of) our priority</h3>
             <br></br>
             <div className='center'>
