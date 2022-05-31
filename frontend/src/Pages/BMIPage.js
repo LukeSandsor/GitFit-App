@@ -140,7 +140,13 @@ function BMIPage()
             {weightArray.map((weight) => {
               let bmiVal = getBMI(height, weight);
               return (
-                <td className={`tableCell${getHealthClass(bmiVal)}`} onClick={() => calculateBMI(height, weight, document.getElementById('BMI'), document.getElementById('heightError'), document.getElementById('weightError'), document.getElementById('height'), document.getElementById('weight'))}>{bmiVal}</td>
+                <td className={`tableCell${getHealthClass(bmiVal)}`} 
+                    onClick={() => calculateBMI(height, weight, 
+                                                document.getElementById('BMI'), 
+                                                document.getElementById('heightError'),
+                                                document.getElementById('weightError'), 
+                                                document.getElementById('height'), 
+                                                document.getElementById('weight'))}>{bmiVal}</td>
               );
             })}
           </tr>
