@@ -15,7 +15,7 @@ function MealLogger(props) {
     async function submitMeal() {
         try {
             if (selectedFood != "") {
-                const response = await axios.put("https://gitfit.lucasreyna.me/nutrition?username=nutritionTest", {
+                const response = await axios.put(`https://gitfit.lucasreyna.me/nutrition?username=${props.currentUser}`, {
                     food: selectedFood,
                     quantity: quantityEntered
                 });

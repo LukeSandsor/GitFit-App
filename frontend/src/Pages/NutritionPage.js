@@ -67,7 +67,7 @@ function NutritionPage() {
                 <PersonalNutritionTable userFoodInfo={userFoodInfo}/>
             </div>
             
-            <MealLogger foodOptions={foodOptions}/>
+            <MealLogger foodOptions={foodOptions} currentUser={currentUser}/>
         </div>
     )
 }
