@@ -48,13 +48,18 @@ async function addInfoToCalendar(data) {
         if (monthData[currentDay] === undefined) {
           monthData[currentDay] = {};
         }
+        const excludes = ['user', 'year', 'month', 'day'];
 
-        // go through each key in the new data and update the day data
-        // ignore the user key
-        Object.entries(data).forEach(([key, value]) => {
-          if (key !== 'user') {
+        const filteredData = Object.keys(data)
+          .filter(key => !(excludes.includes(key)))
+          .reduce((obj, key) => {
+            obj[key] = data[key];
+            return obj;
+          }, {});
+
+        // add data to month
+        Object.entries(filteredData).forEach(([key, value]) => {
             monthData[currentDay][key] = value;
-          }
         });
       }
 
