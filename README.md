@@ -9,6 +9,9 @@ A free to use an open source fitness app for Cal Poly's CSC 307 class taught by 
 See more here https://www.gitfit.me/
 
 ### Description
+As mentioned before, GitFit is a student project for a software engineering class. Though initially a fitness app was just a more interesting alternative to the proposed ideas and templates for project, everyone in the group had a fun time developing their own little branches and ideas that they thought would be important to a fitness app. In the end we think we did a good job and are happy that it turned out as well as it did.
+
+For questions, email me at lsandsor@calpoly.edu or lukesandsor@gmail.com
 
 ### [Website](https://www.gitfit.me)
 
