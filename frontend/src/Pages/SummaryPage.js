@@ -327,6 +327,7 @@ function SummaryPage() {
     }
   }
 
+  // gets goal list once
   useEffect(() => {
     getGoalList().then(result => {
       if (result)
@@ -339,11 +340,7 @@ function SummaryPage() {
           )
         }))
     });
-  });
-
-  async function getUserCalories() {
-
-  }
+  }, []);
 
   async function getUserCurrentGoal() {
     try {
@@ -361,20 +358,27 @@ function SummaryPage() {
     }
   }
 
+  // get current goal (once on render)
   useEffect(() => {
     getUserCurrentGoal().then(result => {
       if (result)
         setCurrentGoal(result)
     });
-  });
+  }, [currentUser]);
 
   async function updateUserGoal() {
     if (selectedGoal !== '') {
       try {
         const params = {username: localStorage.getItem('username'), goal: selectedGoal};
+        
         await axios.put('https://gitfit.lucasreyna.me/passport/user', {
           body: params
-        })
+        });
+
+        getUserCurrentGoal().then(result => {
+          if (result)
+            setCurrentGoal(result);
+        });
       } catch (error) {
         return false
       }
@@ -393,10 +397,10 @@ function SummaryPage() {
 
   useEffect(() => {
     getUserCalories().then(result => {
-      if (result)
+      if (result !== false)
         setCurrentCalories(result)
     });
-  });
+  }, [currentUser]);
 
   async function getTargetCalories() {
     try {
@@ -413,7 +417,7 @@ function SummaryPage() {
       if (result)
         setTargetCalories(result)
     });
-  });
+  }, [currentUser]);
 
   function renderPage()
   {
