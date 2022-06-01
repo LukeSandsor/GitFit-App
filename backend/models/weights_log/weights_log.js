@@ -20,72 +20,74 @@ mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?r
   }).catch((error) => console.log(error));
 
 async function addUserWorkout(data) {
-    let username = data.username;
-    console.log(username);
-    let currentDate = new Date();
+  let username = data.username;
 
-    if(username)
+  // set current date and values
+  // these should be provided by requester
+  let currentYear = data.year;
+  let currentMonth = data.month;
+  let currentDay = data.day;
+
+  // check if data is formatted properly
+  // there must be a user field to check the database
+  if (username && currentYear && currentMonth && currentDay) {
+
+    let userWorkout = await UserWorkout.findOne({'username': username});
+    
+    const newWorkout = {
+            date: currentDay,
+            month: currentMonth + 1, //starts at zero so for hoi polloi purposes I add 1
+            year: currentYear,
+            name: data.name,
+            sets: data.sets,
+            reps: data.reps,
+            weight: data.weight,
+            type: data.type
+        }
+
+    if(userWorkout)
     {
-      let currentYear = currentDate.getFullYear();
-      let currentMonth = currentDate.getMonth();
-      let currentDay = currentDate.getDate();
-      
-      let userWorkout = await UserWorkout.findOne({'username': username});
-      
-      const newWorkout = {
-              date: currentDay,
-              month: currentMonth + 1, //starts at zero so for hoi polloi purposes I add 1
-              year: currentYear,
-              name: data.name,
-              sets: data.sets,
-              reps: data.reps,
-              weight: data.weight,
-              type: data.type
-          }
+      userWorkout.workouts.push(newWorkout);
+      await UserWorkout.findOneAndUpdate({'username': username },
+        {'workouts': userWorkout.workouts });
 
-        if(userWorkout)
-        {
-          userWorkout.workouts.push(newWorkout);
-          await UserWorkout.findOneAndUpdate({'username': username },
-            {'workouts': userWorkout.workouts });
-
-          // add to calendar at same time
-          const calendar = await calendarServices.getCalendaryByUser(username);
-          if (calendar['years'][currentYear][currentMonth][currentDay]['numWork'] !== undefined) {
-            await calendarServices.addInfoToCalendar({
-              year: currentYear,
-              month: currentMonth,
-              day: currentDay,
-              user: username,
-              numWork: calendar['years'][currentYear][currentMonth][currentDay]['numWork'] + 1});
-          }
-          else {
-            await calendarServices.addInfoToCalendar({
-              year: currentYear,
-              month: currentMonth,
-              day: currentDay,
-              user: username, 
-              numWork: 1
-            });
-          }
-          return true
-        }
-        else {
-            let newData = {username: username, workouts: []};
-            let firstWorkout = new UserWorkout(newData);
-            firstWorkout.workouts.push(newWorkout);
-            await calendarServices.addInfoToCalendar({
-              year: currentYear,
-              month: currentMonth,
-              day: currentDay,
-              user: username, 
-              numWork: 1
-            });
-            await firstWorkout.save();
-            return true;
-        }
+      // add to calendar at same time
+      const calendar = await calendarServices.getCalendaryByUser(username);
+      if (calendar['years'][currentYear][currentMonth][currentDay]['numWork'] !== undefined) {
+        await calendarServices.addInfoToCalendar({
+          year: currentYear,
+          month: currentMonth,
+          day: currentDay,
+          user: username,
+          numWork: calendar['years'][currentYear][currentMonth][currentDay]['numWork'] + 1});
+      }
+      else {
+        await calendarServices.addInfoToCalendar({
+          year: currentYear,
+          month: currentMonth,
+          day: currentDay,
+          user: username, 
+          numWork: 1
+        });
+      }
+      return true
     }
-    return false;
+    else {
+        let newData = {username: username, workouts: []};
+        let firstWorkout = new UserWorkout(newData);
+        firstWorkout.workouts.push(newWorkout);
+        await calendarServices.addInfoToCalendar({
+          year: currentYear,
+          month: currentMonth,
+          day: currentDay,
+          user: username, 
+          numWork: 1
+        });
+        await firstWorkout.save();
+        return true;
+    }
+  }
+  return false;
 }
 
 async function getUserWorkouts(username, name, type) {
