@@ -24,6 +24,7 @@ function SummaryPage() {
   const [currentGoal, setCurrentGoal] = useState('');
 
   // calories
+  const [currentCaloriesLost, setCurrentCaloriesLost] = useState(0);
   const [currentCalories, setCurrentCalories] = useState('Loading...');
   const [targetCalories, setTargetCalories] = useState('Loading...');
 
@@ -176,39 +177,51 @@ function SummaryPage() {
     }
   }
 
-  async function postStep() {
+  async function postToCalendar(type) {
     try {
-      const stepValue = document.getElementById('step-input').valueAsNumber;
+      const value = document.getElementById(`${type}-input`).valueAsNumber;
 
       // filter out non number values
-      if (isNaN(stepValue)) {
-        setErrorMessage({type: 'step-input', message: 'Step Input must be a number!'});
+      if (isNaN(value)) {
+        setErrorMessage({type: `${type}-input`, message: `${type} Input must be a number!`});
         return false;
       }
 
-      if (stepValue < 0) {
-        setErrorMessage({type: 'step-input', message: 'Step Input must be at least 0'});
+      if (value < 0) {
+        setErrorMessage({type: `${type}-input`, message: `${type} Input must be at least 0`});
         return false;
       }
 
-      if (stepValue > maxSteps) {
-        setErrorMessage({type: 'step-input', message: 'No shot you took this many steps!'});
+      if (value > maxSteps) {
+        setErrorMessage({type: `${type}-input`, message: `No shot you took this many ${type}!`});
         return false;
       }
 
+      let params = {};
+      if (type === 'step') {
+        params = {...getDateAsObject(), user: currentUser, numStep: value};
+      }
+      if (type === 'calorie-lost') {
+        params = {...getDateAsObject(), user: currentUser, calLost: value};
+      }
       // send a post request to backend
       setErrorMessage( {} ); // remove error message
       const response = await axios.post(
         'https://gitfit.lucasreyna.me/calendar', 
-        {...getDateAsObject(), user: currentUser, numStep: stepValue}
+        params
       );
       
       // check the backend response
       if (response.status === 201) {
-        setCurrentSteps(stepValue);
+        if (type === 'step') {
+          setCurrentSteps(value);
+        }
+        if (type === 'calorie-lost') {
+          setCurrentCaloriesLost(value);
+        }
       }
       else {
-        setErrorMessage({type: 'step-input', message: 'Error uploading step data!'});
+        setErrorMessage({type: `${type}-input`, message: `Error uploading ${type} data!`});
       }
     }
     catch (error) {
@@ -280,8 +293,12 @@ function SummaryPage() {
           setSelectedEmoji(emojiID(index));
       }
 
-      if (todayData['numStep'])
+      if (todayData['numStep']) {
         setCurrentSteps(todayData['numStep']);
+      }
+      if (todayData['calLost']) {
+        setCurrentCaloriesLost(todayData['calLost']);
+      }
     });
 
     getWeightFromUser().then((weight) => {
@@ -423,7 +440,7 @@ function SummaryPage() {
           <h3>👟👟 Today's Recorded Steps: {currentSteps}</h3>
           <p>Enter the amount of steps taken today</p>
           <input type='number' id='step-input' name='steps' min='0' required/>
-          <button onClick={() => postStep()}>Submit</button> <br />
+          <button onClick={() => postToCalendar('step')}>Submit</button> <br />
           {renderErrorMessage('step-input')}
         </div>
 
@@ -458,6 +475,14 @@ function SummaryPage() {
           <p>Target Calories: {targetCalories}</p>
           <p>Current Calories: {currentCalories}</p>
           {renderErrorMessage('goal-input')}
+        </div>
+
+        <div className='user-block' id='calorie-lost-submit'>
+          <h3>Calories Lost Today: {currentCaloriesLost}</h3>
+          <p>Enter the amount of calories lost today:</p>
+          <input type='number' id='calorie-lost-input' name='steps' min='0' required/>
+          <button onClick={() => postToCalendar('calorie-lost')}>Submit</button> <br />
+          {renderErrorMessage('calorie-lost-input')}
         </div>
         
         <div id='adviceDisplay'>

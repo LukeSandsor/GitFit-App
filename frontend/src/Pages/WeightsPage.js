@@ -32,6 +32,16 @@ function WeightsPage() {
   const [currentUser, setCurrentUser] = useState('');
   const[typeSelect, setTypeSelect] = useState({});
 
+  function getDateAsObject()
+  {
+    const currentDate = new Date();
+    return {
+      year: currentDate.getFullYear(),
+      month: currentDate.getMonth(),
+      day: currentDate.getDate()
+    };
+  }
+
   useEffect(() => {
       setCurrentUser(localStorage.getItem('username'));
   }, []);
@@ -86,146 +96,52 @@ function WeightsPage() {
     }
   }
 
-  async function postLegs() {
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  async function postWorkout(type) {
     try {
-      const reps = document.getElementById('reps').valueAsNumber;
-      const sets = document.getElementById('sets').valueAsNumber;
-      const weight = document.getElementById('weight').valueAsNumber;
-      const name = document.getElementById('name').value;
+      const reps = document.getElementById(`reps${type}`).valueAsNumber;
+      const sets = document.getElementById(`sets${type}`).valueAsNumber;
+      const weight = document.getElementById(`weight${type}`).valueAsNumber;
+      const name = document.getElementById(`name${type}`).value;
 
 
       if (weight <= 0 || isNaN(weight)) {
-        setErrorMessage({type: 'legs-input', message: 'Weight Input must be above zero'});
+        setErrorMessage({type: `${type}-input`, message: 'Weight Input must be above zero'});
         return false;
       }
       if (weight > 1000) {
-        setErrorMessage({type: 'legs-input', message: 'Calm down there Ronnie Coleman'});
+        setErrorMessage({type: `${type}-input`, message: 'Calm down there Ronnie Coleman'});
         return false;
       }
       if (reps <= 0  || isNaN(reps)) {
-        setErrorMessage({type: 'legs-input', message: 'Reps must be above zero'});
+        setErrorMessage({type: `${type}-input`, message: 'Reps must be above zero'});
         return false;
       }
       if(sets <= 0  || isNaN(sets)) {
-        setErrorMessage({type: 'legs-input', message: 'Sets must be above zero'});
+        setErrorMessage({type: `${type}-input`, message: 'Sets must be above zero'});
         return false;
       }
       if(name.length < 3) {
-        setErrorMessage({type: 'legs-input', message: 'Gotta have a name champ'});
+        setErrorMessage({type: `${type}-input`, message: 'Gotta have a name champ'});
       }
       setErrorMessage({});
       const json = JSON.stringify({
-            username: currentUser,
-            reps: reps,
-            sets: sets,
-            weight: weight,
-            name: name,
-            type: "Legs"
-        })
+          ...getDateAsObject(),
+          username: currentUser,
+          reps: reps,
+          sets: sets,
+          weight: weight,
+          name: name,
+          type: `${type}`.split(' ').map(capitalize).join(' ')
+        });
+
       const response = await axios.post(
          'https://gitfit.lucasreyna.me/weights', json, { headers: { 'Content-Type': 'application/json'}});
       if (response.status !== 201) {
-        setErrorMessage({type: 'legs-input', message: 'Error uploading leg workout'});
-        console.log('Non-201 Response');
-      }
-      console.log(response.data);
-    }
-    catch (error) {
-        console.log(error);
-      return false;
-    }
-  }
-
-  async function postPull() {
-    try {
-      const reps = document.getElementById('repspull').valueAsNumber;
-      const sets = document.getElementById('setspull').valueAsNumber;
-      const weight = document.getElementById('weightpull').valueAsNumber;
-      const name = document.getElementById('namepull').value;
-
-
-      if (weight <= 0 || isNaN(weight)) {
-        setErrorMessage({type: 'pull-input', message: 'Weight Input must be above zero'});
-        return false;
-      }
-      if (weight > 1000) {
-        setErrorMessage({type: 'pull-input', message: 'Calm down there Ronnie Coleman'});
-        return false;
-      }
-      if (reps <= 0  || isNaN(reps)) {
-        setErrorMessage({type: 'pull-input', message: 'Reps must be above zero'});
-        return false;
-      }
-      if(sets <= 0  || isNaN(sets)) {
-        setErrorMessage({type: 'pull-input', message: 'Sets must be above zero'});
-        return false;
-      }
-      if(name.length < 3) {
-        setErrorMessage({type: 'pull-input', message: 'Gotta have a name champ'});
-      }
-      setErrorMessage({});
-      const json = JSON.stringify({
-            username: currentUser,
-            reps: reps,
-            sets: sets,
-            weight: weight,
-            name: name,
-            type: "Pull"
-        })
-      const response = await axios.post(
-         "https://gitfit.lucasreyna.me/weights", json, { headers: { 'Content-Type': 'application/json'}});
-      if (response.status !== 201) {
-        setErrorMessage({type: 'pull-input', message: 'Error uploading leg workout'});
-        console.log('Non-201 Response');
-      }
-      console.log(response.data);
-    }
-    catch (error) {
-        console.log(error);
-      return false;
-    }
-  }
-
-  async function postPush() {
-    try {
-      const reps = document.getElementById('repspush').valueAsNumber;
-      const sets = document.getElementById('setspush').valueAsNumber;
-      const weight = document.getElementById('weightpush').valueAsNumber;
-      const name = document.getElementById('namepush').value;
-
-
-      if (weight <= 0 || isNaN(weight)) {
-        setErrorMessage({type: 'push-input', message: 'Weight Input must be above zero'});
-        return false;
-      }
-      if (weight > 1000) {
-        setErrorMessage({type: 'push-input', message: 'Calm down there Ronnie Coleman'});
-        return false;
-      }
-      if (reps <= 0 || isNaN(reps)) {
-        setErrorMessage({type: 'push-input', message: 'Reps must be above zero'});
-        return false;
-      }
-      if(sets <= 0 || isNaN(sets)) {
-        setErrorMessage({type: 'push-input', message: 'Sets must be above zero'});
-        return false;
-      }
-      if(name.length < 3) {
-        setErrorMessage({type: 'push-input', message: 'Gotta have a valid name champ'});
-      }
-      setErrorMessage({});
-      const json = JSON.stringify({
-            username: currentUser,
-            reps: reps,
-            sets: sets,
-            weight: weight,
-            name: name,
-            type: "Push"
-        })
-      const response = await axios.post(
-        "https://gitfit.lucasreyna.me/weights", json, { headers: { 'Content-Type': 'application/json'}});
-      if (response.status !== 201) {
-        setErrorMessage({type: 'push-input', message: 'Error uploading leg workout'});
+        setErrorMessage({type: `${type}-input`, message: `Error uploading ${type} workout`});
         console.log('Non-201 Response');
       }
       console.log(response.data);
@@ -248,7 +164,7 @@ function WeightsPage() {
                     <img src={pushLogo} alt="PushImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
                     <label style={{ textAlign: 'center' }}>
-                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
                     <form>
                         <input
                             className='weight-input'
@@ -275,7 +191,7 @@ function WeightsPage() {
                             type='text'
                             id='namepush'
                         />
-                        <button onClick={() => postPush()} className="weight-button">
+                        <button onClick={() => postWorkout('push')} className="weight-button">
                             Log Workout</button><br/>
                             {renderErrorMessage('push-input')}
                     </form>
@@ -286,7 +202,7 @@ function WeightsPage() {
                     <img src={pullLogo} alt="PullImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
                     <label style={{ textAlign: 'center' }}>
-                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
                     <form>
                         <input
                             className='weight-input'
@@ -313,7 +229,7 @@ function WeightsPage() {
                             type='text'
                             id='namepull'
                         />
-                        <button onClick={() => postPull()} className="weight-button">
+                        <button onClick={() => postWorkout('pull')} className="weight-button">
                             Log Workout</button><br/>
                             {renderErrorMessage('pull-input')}
                     </form>
@@ -324,34 +240,34 @@ function WeightsPage() {
                     <img src={legsLogo} alt="LegsImage" style={{ verticalAlign: 'top', maxWidth: 200 }}></img>
                     <br></br>
                     <label style={{ textAlign: 'center' }}>
-                        <text style={{ color: 'grey', fontSize: 40 }}>Enter Weight</text>
+                        <span style={{ color: 'grey', fontSize: 40 }}>Enter Weight</span>
                     <form>
                         <input
                             className='weight-input'
                             placeholder='Number of Sets'
                             type='number'
-                            id='sets'
+                            id='setslegs'
                         /><br/>
                         <input
                             className='weight-input'
                             placeholder='Number of Reps'
                             type='number'
-                            id='reps'
+                            id='repslegs'
                         /><br/>
                         <input
                             className='weight-input'
                             placeholder='Weight in pounds'
                             type='number'
-                            id='weight'
+                            id='weightlegs'
                         />
                         <br/>
                         <input
                             className='weight-input'
                             placeholder='Name of lift'
                             type='text'
-                            id='name'
+                            id='namelegs'
                         />
-                        <button onClick={() => postLegs()} className="weight-button">
+                        <button onClick={() => postWorkout('legs')} className="weight-button">
                             Log Workout</button><br/>
                             {renderErrorMessage('legs-input')}
                     </form>
