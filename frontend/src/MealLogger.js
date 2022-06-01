@@ -7,25 +7,7 @@ function MealLogger(props) {
     const [selectedFood, setSelectedFood] = useState("");
     const [quantityEntered, setQuantityEntered] = useState(0);
     
-    // useEffect(() => {
-    //     console.log(selectedFood);
-    //     console.log(quantityEntered);
-    // });
-
-    async function submitMeal() {
-        try {
-            if (selectedFood != "") {
-                const response = await axios.put(`https://gitfit.lucasreyna.me/nutrition?username=${props.currentUser}`, {
-                    food: selectedFood,
-                    quantity: quantityEntered
-                });
-                console.log(response);
-            }
-        } catch (error) {
-            console.log(error);
-            return false;
-        }
-    }
+    
 
     return (
         <div className='food-selecter-container'>
@@ -47,7 +29,8 @@ function MealLogger(props) {
                         onChange={(e) => setQuantityEntered(e.target.value)}
                     />
                 </form>
-                <button className='food-button' onClick={submitMeal}>Submit</button>
+                <button className='food-button' 
+                    onClick={() => {props.submitMeal(selectedFood, quantityEntered)}}>Submit</button>
             </div>
             <div className='nutrition-table'>
                 <NutritionTable foodOptions={props.foodOptions} />

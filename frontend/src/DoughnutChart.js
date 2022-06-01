@@ -9,7 +9,6 @@ Chart.overrides.doughnut.plugins.tooltip.callbacks.label = function (context) {
   return `${context.parsed}%`;
 };
 Chart.overrides.doughnut.plugins.tooltip.callbacks.title = function (context) {
-  console.log(context);
   return `${context[0].dataset.label} ${context[0].label}`;
 };
 Chart.overrides.doughnut.plugins.tooltip.titleFont = { weight: 'bold', size: 16 };
