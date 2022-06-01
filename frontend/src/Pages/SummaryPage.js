@@ -301,6 +301,21 @@ function SummaryPage() {
       }
     });
 
+    getUserCurrentGoal().then(result => {
+      if (result)
+        setCurrentGoal(result)
+    });
+
+    getUserCalories().then(result => {
+      if (result !== false)
+        setCurrentCalories(result)
+    });
+
+    getTargetCalories().then(result => {
+      if (result)
+        setTargetCalories(result)
+    });
+
     getWeightFromUser().then((weight) => {
       postWeight(weight); // post to calendar and screen
       setIsLoading(false);
@@ -327,6 +342,7 @@ function SummaryPage() {
     }
   }
 
+  // gets goal list once
   useEffect(() => {
     getGoalList().then(result => {
       if (result)
@@ -339,11 +355,7 @@ function SummaryPage() {
           )
         }))
     });
-  });
-
-  async function getUserCalories() {
-
-  }
+  }, []);
 
   async function getUserCurrentGoal() {
     try {
@@ -361,20 +373,25 @@ function SummaryPage() {
     }
   }
 
-  useEffect(() => {
-    getUserCurrentGoal().then(result => {
-      if (result)
-        setCurrentGoal(result)
-    });
-  });
-
   async function updateUserGoal() {
     if (selectedGoal !== '') {
       try {
         const params = {username: localStorage.getItem('username'), goal: selectedGoal};
+        
         await axios.put('https://gitfit.lucasreyna.me/passport/user', {
           body: params
-        })
+        });
+
+        getUserCurrentGoal().then(result => {
+          if (result)
+            setCurrentGoal(result);
+        });
+
+        getTargetCalories().then(result => {
+          if (result)
+            setTargetCalories(result)
+        });
+
       } catch (error) {
         return false
       }
@@ -391,13 +408,6 @@ function SummaryPage() {
     }
   }
 
-  useEffect(() => {
-    getUserCalories().then(result => {
-      if (result)
-        setCurrentCalories(result)
-    });
-  });
-
   async function getTargetCalories() {
     try {
       const response = await axios.get(`https://gitfit.lucasreyna.me/goals/calories?username=${currentUser}`);
@@ -407,13 +417,6 @@ function SummaryPage() {
       return false;
     }
   }
-
-  useEffect(() => {
-    getTargetCalories().then(result => {
-      if (result)
-        setTargetCalories(result)
-    });
-  });
 
   function renderPage()
   {
