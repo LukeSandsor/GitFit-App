@@ -301,6 +301,21 @@ function SummaryPage() {
       }
     });
 
+    getUserCurrentGoal().then(result => {
+      if (result)
+        setCurrentGoal(result)
+    });
+
+    getUserCalories().then(result => {
+      if (result !== false)
+        setCurrentCalories(result)
+    });
+
+    getTargetCalories().then(result => {
+      if (result)
+        setTargetCalories(result)
+    });
+
     getWeightFromUser().then((weight) => {
       postWeight(weight); // post to calendar and screen
       setIsLoading(false);
@@ -358,14 +373,6 @@ function SummaryPage() {
     }
   }
 
-  // get current goal (once on render)
-  useEffect(() => {
-    getUserCurrentGoal().then(result => {
-      if (result)
-        setCurrentGoal(result)
-    });
-  }, [currentUser]);
-
   async function updateUserGoal() {
     if (selectedGoal !== '') {
       try {
@@ -379,6 +386,12 @@ function SummaryPage() {
           if (result)
             setCurrentGoal(result);
         });
+
+        getTargetCalories().then(result => {
+          if (result)
+            setTargetCalories(result)
+        });
+
       } catch (error) {
         return false
       }
@@ -395,13 +408,6 @@ function SummaryPage() {
     }
   }
 
-  useEffect(() => {
-    getUserCalories().then(result => {
-      if (result !== false)
-        setCurrentCalories(result)
-    });
-  }, [currentUser]);
-
   async function getTargetCalories() {
     try {
       const response = await axios.get(`https://gitfit.lucasreyna.me/goals/calories?username=${currentUser}`);
@@ -411,13 +417,6 @@ function SummaryPage() {
       return false;
     }
   }
-
-  useEffect(() => {
-    getTargetCalories().then(result => {
-      if (result)
-        setTargetCalories(result)
-    });
-  }, [currentUser]);
 
   function renderPage()
   {
