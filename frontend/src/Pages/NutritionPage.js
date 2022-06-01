@@ -51,30 +51,49 @@ function NutritionPage() {
         }
     }
 
+    async function submitMeal(selectedFood, quantityEntered) {
+        try {
+            if (selectedFood != "") {
+                const response = await axios.put(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`, {
+                    food: selectedFood,
+                    quantity: quantityEntered
+                });
+                
+                getUserNutrition().then(result => {
+                    if (result)
+                        setUserFoodInfo(result);
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     useEffect(() => {
-      setCurrentUser(localStorage.getItem('username'));
+        setCurrentUser(localStorage.getItem('username'));
     }, []);
 
     useEffect(() => {
+        if (currentUser == '')
+            return;
+
+        getTargetNutrition().then(result => {
+            if (result)
+            setTargetMacros(result)
+        });
         getUserNutrition().then(result => {
             if (result)
                 setUserFoodInfo(result);
         });
-    });
+    }, [currentUser]);
 
     useEffect(() => {
         getFoodOptions().then(result => {
             if (result)
                 setFoodOptions(result);
         });
-    })
-
-    useEffect(() => {
-        getTargetNutrition().then(result => {
-            if (result)
-                setTargetMacros(result)
-        });
-    });
+    }, [])
 
     return (
         <div>
@@ -92,7 +111,11 @@ function NutritionPage() {
                 <PersonalNutritionTable userFoodInfo={userFoodInfo} targetMacros={targetMacros}/>
             </div>
             
-            <MealLogger foodOptions={foodOptions} currentUser={currentUser}/>
+            <MealLogger 
+                foodOptions={foodOptions} 
+                currentUser={currentUser}
+                submitMeal={(selectedFood, quantityEntered) => submitMeal(selectedFood, quantityEntered)}
+            />
         </div>
     )
 }
