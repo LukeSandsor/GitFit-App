@@ -16,7 +16,7 @@ const NUM_COLS = ((MAX_WEIGHT - MIN_WEIGHT) / WEIGHT_INCREMENT) + INFO_SIZE;
 const NUM_ROWS = ((MAX_HEIGHT - MIN_HEIGHT) / HEIGHT_INCREMENT) + INFO_SIZE;
 
 // The brains of the BMI Calcultor. Calculates a theoretical BMI based on given height and weight
-function calculateBMI(height, weight, BMI, heightError, weightError){
+function calculateBMI(height, weight, BMI, heightError, weightError, heightText, weightText){
     var flag = 0;
     heightError.innerHTML = " ";
     weightError.innerHTML = " ";
@@ -32,6 +32,8 @@ function calculateBMI(height, weight, BMI, heightError, weightError){
     }
     if(!flag){
         BMI.innerHTML = Math.round(weight / Math.pow(height,2) * 703 * 10) / 10;
+        heightText.value = height;
+        weightText.value = weight;
         heightError.innerHTML = " ";
         weightError.innerHTML = " ";
     }
@@ -138,7 +140,13 @@ function BMIPage()
             {weightArray.map((weight) => {
               let bmiVal = getBMI(height, weight);
               return (
-                <td className={`tableCell${getHealthClass(bmiVal)}`}>{bmiVal}</td>
+                <td className={`tableCell${getHealthClass(bmiVal)}`} 
+                    onClick={() => calculateBMI(height, weight, 
+                                                document.getElementById('BMI'), 
+                                                document.getElementById('heightError'),
+                                                document.getElementById('weightError'), 
+                                                document.getElementById('height'), 
+                                                document.getElementById('weight'))}>{bmiVal}</td>
               );
             })}
           </tr>

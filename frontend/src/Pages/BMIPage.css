@@ -141,11 +141,11 @@
     display: inline-block;
     margin: 25px;
     height: 650px;
-    width: 400px;
+    width: 300px;
     border-radius: 40px;
     position: relative;
     top: 200px;
-    right: -375px;
+    right: -325px;
     float: right;
 }
 
