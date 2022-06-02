@@ -1,4 +1,5 @@
 const calendarModel = require("../calendar");
+const calendarServices = require("../calendar-service");
 
 // test equality
 test('Testing calendar equality', () => {
@@ -12,3 +13,4 @@ test('Testing calendar equality', () => {
       })
   );
 });
+

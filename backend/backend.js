@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
+const database = require('./database');
 const adviceServices = require('./models/health_advice/advice-services');
 const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
