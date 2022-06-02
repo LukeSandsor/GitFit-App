@@ -1,15 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 
-const database = require('./database');
+const database = require('./database'); // sets up database connection and env defines
 const adviceServices = require('./models/health_advice/advice-services');
-const calendarServices = require('./models/calendar/calendar-service');
 const nutritionServices = require('./models/nutrition/nutrition-services');
 const workoutServices= require('./models/weights_log/weights_log');
-const userServices = require('./models/user/user-services');
 const goalsServices = require('./models/goals/goals-services');
-const nutrition = require('./models/nutrition/nutrition');
-const { type } = require('express/lib/response');
 const { User } = require('./models/user/user')
 
 const app = express();
