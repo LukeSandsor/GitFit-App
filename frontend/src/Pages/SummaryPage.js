@@ -57,7 +57,7 @@ function SummaryPage() {
   async function getAdvice() {
     try {
       // returns an array of size 1 with advice object
-      const response = await axios.get('https://gitfit.lucasreyna.me/advice');
+      const response = await axios.get('http://localhost:2414/advice');//'https://gitfit.lucasreyna.me/advice');
       return response.data[0];
     } catch (error) {
       // possibly do something with no advice
