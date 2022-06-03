@@ -56,6 +56,7 @@ async function addUserWorkout(data) {
       return true
     }
     else {
+        console.log("Who was in paris\n\n\n")
         let newData = {username: username, workouts: []};
         let firstWorkout = new UserWorkout(newData);
         firstWorkout.workouts.push(newWorkout);
