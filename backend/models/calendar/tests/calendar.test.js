@@ -87,7 +87,9 @@ describe('addInfoToCalendar Tests', () => {
     sinon.stub(calendarModel, 'findOne').returns(oldCalendar);
     sinon.stub(calendarModel.prototype, 'save');
 
-    await calendarServices.addInfoToCalendar(passData);
+    await calendarServices.addInfoToCalendar(passData).then((res) => {
+      expect(res).toBeTruthy();
+    });
 
     sinon.restore();
   });
