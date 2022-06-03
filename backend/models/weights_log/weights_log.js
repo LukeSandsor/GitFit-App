@@ -108,22 +108,5 @@ async function getUserWorkouts(username, name, type) {
     return result;
 }
 
-async function getUsers(name, job) {
-    let result;
-    if((name !== undefined) & (job !== undefined)){
-        result = await findUserByJobAndName(job, name);
-    }
-    else if (job !== undefined){
-        result = await findUserByJob(job);
-    }
-    else if (name !== undefined){
-        result = await findUserByName(name)
-    }
-    else{
-        result = await userModel.find();
-    }
-    return result;
-}
-
 exports.getUserWorkouts = getUserWorkouts;
 exports.addUserWorkout = addUserWorkout;
