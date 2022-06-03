@@ -1,4 +1,6 @@
 const goalModel = require("../goals");
+const goalServices = require('../goals-services');
+const sinon = require('sinon');
 
 test('Test GoalList Equality', () => {
     var goal = new goalModel.GoalList({
@@ -39,5 +41,18 @@ test('Test GoalList Equality (calorie_multiplier not equal)', () => {
             goal: 'Weight gain',
             calorie_multiplier: 1.4
         })
-    )
-})
+    );
+});
+
+test('Test getGoalList', async () => {
+    let goal = new goalModel.GoalList({
+        goal: 'Maintain',
+        calorie_multiplier: 1
+    });
+
+    sinon.stub(goalModel.GoalList, 'find').returns([goal, goal, goal])
+
+    await goalServices.getGoalList().then((res) => {
+        expect(res).toStrictEqual([goal, goal, goal]);
+    });
+});
