@@ -1,25 +1,7 @@
-const mongoose = require("mongoose");
 const adviceModel = require("./advice");
-const dotenv = require("dotenv");
-
-dotenv.config();
-mongoose.set("debug", true);
-
-const cluster = process.env.MONGO_CLUSTER;
-const database = process.env.MONGO_DB;
-const username = process.env.MONGO_USER;
-const userpass = process.env.MONGO_PWD;
-
-// use github environments to set username and password for default users
-// database will hopefully be fine"mongodb+srv://" +
-mongoose.connect(`mongodb+srv://${username}:${userpass}@${cluster}/${database}?retryWrites=true&w=majority`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).catch((error) => console.log(error));
 
 async function getAdviceCount() {
   let result = await adviceModel.estimatedDocumentCount();
-  console.log(result);
 
   return result;
 }
@@ -35,7 +17,7 @@ async function findRandomAdvice() {
 
 // just random for now
 async function getAdvice() {
-    return await findRandomAdvice();
+  return await findRandomAdvice();
 }
 
 exports.getAdvice = getAdvice;
