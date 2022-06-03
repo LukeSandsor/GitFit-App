@@ -24,26 +24,35 @@ async function addInfoToCalendar(data) {
 
     if (userCalendar) {
       let monthData = userCalendar.years[currentYear][currentMonth];
-
-      if (monthData) {
-        // initialize currentDay object if it does not yet exist
-        if (monthData[currentDay] === undefined) {
-          monthData[currentDay] = {};
+      
+      // reinitialize current year and fill with months
+      if (!monthData) {
+        userCalendar.years[currentYear] = [];
+        for (let i = 0; i < 12; i++) {
+          userCalendar.years[currentYear].push({});
         }
-        const excludes = ['user', 'year', 'month', 'day'];
 
-        const filteredData = Object.keys(data)
-          .filter(key => !(excludes.includes(key)))
-          .reduce((obj, key) => {
-            obj[key] = data[key];
-            return obj;
-          }, {});
-
-        // add data to month
-        Object.entries(filteredData).forEach(([key, value]) => {
-            monthData[currentDay][key] = value;
-        });
+        monthData = userCalendar.years[currentYear][currentMonth];
       }
+  
+      // initialize currentDay object if it does not yet exist
+      if (monthData[currentDay] === undefined) {
+        monthData[currentDay] = {};
+      }
+
+      const excludes = ['user', 'year', 'month', 'day'];
+
+      const filteredData = Object.keys(data)
+        .filter(key => !(excludes.includes(key)))
+        .reduce((obj, key) => {
+          obj[key] = data[key];
+          return obj;
+        }, {});
+
+      // add data to month
+      Object.entries(filteredData).forEach(([key, value]) => {
+          monthData[currentDay][key] = value;
+      });
 
       // save the updated object in the db
       await calendarModel.findOneAndUpdate(

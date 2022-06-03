@@ -1,5 +1,4 @@
 const nutritionModels = require("./nutrition");
-const { getUser } = require("../user/user-services");
 const { create } = require("../health_advice/advice");
 
 async function getFoodList() {

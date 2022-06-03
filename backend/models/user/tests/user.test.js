@@ -1,4 +1,7 @@
-const bcrypt = require('bcrypt');
+const userServices = require('../user-services'),
+      bcrypt = require('bcrypt'),
+      mongoose = require('mongoose'),
+      sinon = require('sinon');
 
 const { User, userPreSaveHook } = require('../user');
 
@@ -92,4 +95,48 @@ describe('user login method tests', () => {
 
     return expect(newUser.login('beeper1234')).rejects.toEqual(undefined);
   });
+});
+
+test('test successful deletion', async () => {
+  const newUser = new User({
+    username: 'biggerbob03', 
+    password: await bcrypt.hash('password1234', 10),
+    email: 'big.bob3@beepers.com', 
+    gender: 'Other',
+    birthday: '1971-07-06',
+    height: 181, 
+    weight: 232,
+    firstname: 'Bobert',
+    lastname: 'Hill'
+  });
+
+  sinon.stub(User, 'findByIdAndDelete').returns(newUser);
+
+  await userServices.deleteUser(newUser.id).then((res) => {
+    expect(res).toEqual(newUser);
+  });
+
+  sinon.restore();
+});
+
+test('test error on deletion', async () => {
+  const newUser = new User({
+    username: 'biggerbob03', 
+    password: await bcrypt.hash('password1234', 10),
+    email: 'big.bob3@beepers.com', 
+    gender: 'Other',
+    birthday: '1971-07-06',
+    height: 181, 
+    weight: 232,
+    firstname: 'Bobert',
+    lastname: 'Hill'
+  });
+
+  sinon.stub(User, 'findByIdAndDelete').throws();
+
+  await userServices.deleteUser(newUser.id).catch((res) => {
+    expect(res).toEqual(null);
+  });
+
+  sinon.restore();
 });
