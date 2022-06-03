@@ -1,4 +1,4 @@
-const adviceModel = require("./advice");
+const adviceModel = require('./advice');
 
 async function getAdviceCount() {
   let result = await adviceModel.estimatedDocumentCount();
@@ -12,7 +12,9 @@ var rand = (adviceCount) => {return Math.floor( Math.random() * adviceCount)};
 async function findRandomAdvice() {
   // want to be able to store advice count in global var
   let adviceCount = await getAdviceCount();
-  return await adviceModel.find().limit(1).skip(rand(adviceCount));
+  let findResult = await adviceModel.find();
+
+  return findResult[rand(adviceCount)];
 }
 
 // just random for now
