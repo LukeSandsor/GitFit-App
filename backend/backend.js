@@ -206,10 +206,12 @@ app.get('/nutrition', async (req, res) => {
 });
 app.put('/nutrition', async (req, res) => {
     try {
-        console.log(req.body);
         const username = req.query.username;
         const food = req.body.food;
         const quantity = Number(req.body.quantity);
+        const currentDay = req.body.day;
+        const currentMonth = req.body.month;
+        const currentYear = req.body.year;
 
         if (quantity > 0) {
             var ratio = 0;
@@ -233,20 +235,18 @@ app.put('/nutrition', async (req, res) => {
             }
             console.log(ratio, calories, protein, carbs, fats);
 
-            today = new Date();
             for (const nutritionEntry of user.nutritionStats) {
-                if (nutritionEntry.date === today.getDate() 
-                && nutritionEntry.month === today.getMonth()
-                && nutritionEntry.year === today.getFullYear())
-                {
-                    nutritionEntry.calories += calories;
-                    nutritionEntry.protein += protein;
-                    nutritionEntry.carbs += carbs;
-                    nutritionEntry.fats += fats;
-                }
+              if (nutritionEntry.date === currentDay 
+              && nutritionEntry.month === currentMonth
+              && nutritionEntry.year === currentYear)
+              {
+                nutritionEntry.calories += calories;
+                nutritionEntry.protein += protein;
+                nutritionEntry.carbs += carbs;
+                nutritionEntry.fats += fats;
+              }
             }
 
-            console.log(user.nutritionStats);
             await nutritionServices.updateUserNutrition(user);
             res.send("Success");
         } else {

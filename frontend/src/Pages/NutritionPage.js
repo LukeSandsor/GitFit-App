@@ -17,6 +17,16 @@ function NutritionPage() {
         targetFats: 0
     });
 
+    function getDateAsObject()
+    {
+      const currentDate = new Date();
+      return {
+        year: currentDate.getFullYear(),
+        month: currentDate.getMonth(),
+        day: currentDate.getDate()
+      };
+    }
+
     async function getFoodOptions() {
         try {
             const response = await axios.get("https://gitfit.lucasreyna.me/nutrition/table");
@@ -53,17 +63,21 @@ function NutritionPage() {
 
     async function submitMeal(selectedFood, quantityEntered) {
         try {
-            if (selectedFood != "") {
-                const response = await axios.put(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`, {
-                    food: selectedFood,
-                    quantity: quantityEntered
-                });
-                
-                getUserNutrition().then(result => {
-                    if (result)
-                        setUserFoodInfo(result);
-                });
-            }
+          const params = {
+            ...getDateAsObject(),
+            food: selectedFood,
+            quantity: quantityEntered
+          }
+        
+          if (selectedFood != "") {
+            const response = await axios.put(`https://gitfit.lucasreyna.me/nutrition?username=${currentUser}`//`http://localhost:2414/nutrition?username=${currentUser}`
+            , params);
+            
+            getUserNutrition().then(result => {
+                if (result)
+                    setUserFoodInfo(result);
+            });
+          }
         } catch (error) {
             console.log(error);
             return false;
